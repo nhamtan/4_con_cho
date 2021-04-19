@@ -9,7 +9,7 @@ struct staff{
     string password;
     string username;
     string name;
-    staff *next = NULL;
+    staff *next ;
 };
 void initStaff(staff *&sf);
 #endif // staff_h_

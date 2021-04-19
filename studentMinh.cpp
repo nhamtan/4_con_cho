@@ -1,7 +1,8 @@
 #pragma once
 #include"Student.h"
+#include"course.h"
+#include "login.h"
 #include <bits/stdc++.h>
-
 using namespace std;
 
 
@@ -35,3 +36,10 @@ void convertCourse(student*& st,Datacourse *&cs)
         }
         cur=cur->next;
     }
+}
+void displayCourse(Datacourse *&cs)
+{
+    Datacourse *cur=cs;
+
+}
+

@@ -1,6 +1,4 @@
 #pragma once
-#include"Student.h"
-#include"Staff.h"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -41,3 +39,6 @@ struct semester
     date endDate;
     string year2021="20202021";
 };
+void inputData4Course (Datacourse *&cs);
+
+
