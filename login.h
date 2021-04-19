@@ -1,5 +1,6 @@
-#include"student.h"
-#include"staff.h"
+#pragma once
+#include"Student.h"
+#include"Staff.h"
 #include <bits/stdc++.h>
 using namespace std;
 

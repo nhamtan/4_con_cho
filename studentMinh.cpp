@@ -1,26 +1,37 @@
+#pragma once
+#include"Student.h"
 #include <bits/stdc++.h>
 
 using namespace std;
 
 
-
-void inputData4Course (Datacourse *&cs) // ham nay de tao data cho course
+void convert(course *& myCourse,Datacourse *cs)
 {
+    myCourse =new course;
+    myCourse->id = cs->id;
+    myCourse->name=cs->name;
+    myCourse->numOfCredits =cs->numOfCredits;
+    myCourse->maxSt=50;
+    myCourse->daySt[0].dayInWeek=cs->daySt[0].dayInWeek;
+    myCourse->daySt[0].time=cs->daySt[0].time;
+    myCourse->daySt[1].dayInWeek=cs->daySt[1].dayInWeek;
+    myCourse->daySt[1].time=cs->daySt[1].time;
+    myCourse->next =nullptr;
+    return;
 
-    Datacourse *cur = cs;
-    for (int i=0;i<5;i++)
+}
+void convertCourse(student*& st,Datacourse *&cs)
+{
+    student *cur=st;
+    while(cur)
     {
-        cur=new Datacourse;
-        cur->id="CS161";
-        cur->name="Introduction to Computer Science 1";
-        cur->teacherName ="DinhBaTien";
-        cur->numOfCredits =4;
-        cur->maxSt=50;
-        cur->daySt[0].dayInWeek ="MON";
-        cur->daySt[0].time="S1";
-        cur->daySt[1].dayInWeek="FRI";
-        cur->daySt[1].time="S1";
-        cur->next=nullptr;
+        course * cur1= cur->myCourse;
+        Datacourse *tmp=cs;
+        for (int i=1;i<=5;i++)
+        {
+            convert(cur1,tmp);
+            cur1=cur1->next;
+            tmp=tmp->next;
+        }
         cur=cur->next;
     }
-}

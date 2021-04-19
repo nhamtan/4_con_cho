@@ -1,7 +1,13 @@
-
+#pragma once
+#include"Student.h"
+#include"Staff.h"
 #include <bits/stdc++.h>
 using namespace std;
 
+struct date
+{
+    int day,month,year;
+};
 struct timeStudying
 {
     string dayInWeek;
@@ -30,7 +36,7 @@ struct course
 };
 struct semester
 {
-    course cs[7];
+    Datacourse *cs=nullptr;
     date startDate;
     date endDate;
     string year2021="20202021";

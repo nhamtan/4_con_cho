@@ -40,20 +40,21 @@
 	"staff.h"
 	<bits/stdc++.h>
 
-1618831110 source:d:\4_con_cho\login.cpp
+1618832336 source:d:\4_con_cho\login.cpp
 	"login.h"
 	<bits/stdc++.h>
 
-1618831110 d:\4_con_cho\login.h
-	"student.h"
-	"staff.h"
+1618845581 d:\4_con_cho\login.h
+	"Student.h"
+	"Staff.h"
 	<bits/stdc++.h>
 
-1618831110 d:\4_con_cho\student.h
+1618845849 d:\4_con_cho\student.h
 	<iostream>
 	<bits/stdc++.h>
+	"course.h"
 
-1618831110 d:\4_con_cho\staff.h
+1618845679 d:\4_con_cho\staff.h
 	<bits/stdc++.h>
 
 1618831110 source:d:\4_con_cho\staff.cpp
@@ -65,9 +66,24 @@
 	<iostream>
 	<bits/stdc++.h>
 
-1618831521 source:d:\4_con_cho\main.cpp
+1618832336 source:d:\4_con_cho\main.cpp
 	"student.h"
 	"staff.h"
 	"login.h"
+	<bits/stdc++.h>
+
+1618831732 source:d:\4_con_cho\staffky.cpp
+
+1618831724 source:d:\4_con_cho\stafftan.cpp
+
+1618831718 source:d:\4_con_cho\studentyen.cpp
+
+1618845679 d:\4_con_cho\course.h
+	"Student.h"
+	"Staff.h"
+	<bits/stdc++.h>
+
+1618844780 source:d:\4_con_cho\studentminh.cpp
+	"Student.h"
 	<bits/stdc++.h>
 
