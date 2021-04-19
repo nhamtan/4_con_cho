@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1618829971 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\lastyear\studentsystemmanagement\student.cpp
+	"student.h"
+	<iostream>
+	<bits/stdc++.h>
+
+1618829309 c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\lastyear\studentsystemmanagement\student.h
+	<iostream>
+	<bits/stdc++.h>
+
+1618830015 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\lastyear\studentsystemmanagement\main.cpp
+	<bits/stdc++.h>
+
+1618829971 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\cs162_4_con_cho\4_con_cho\student.cpp
+	"student.h"
+	<iostream>
+	<bits/stdc++.h>
+
+1618829309 c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\cs162_4_con_cho\4_con_cho\student.h
+	<iostream>
+	<bits/stdc++.h>
+
+1618830138 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\cs162_4_con_cho\4_con_cho\main.cpp
+	"student.h"
+	<bits/stdc++.h>
+
+1618830260 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\cs162_4_con_cho\4_con_cho\staff.cpp
+	"staff.h"
+	<bits/stdc++.h>
+
+1618830672 c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\cs162_4_con_cho\4_con_cho\staff.h
+	<bits/stdc++.h>
+
+1618830352 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\cs162_4_con_cho\4_con_cho\login.cpp
+	"login.h"
+	<bits/stdc++.h>
+
+1618830352 c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\cs162_4_con_cho\4_con_cho\login.h
+	"student.h"
+	"staff.h"
+	<bits/stdc++.h>
+
