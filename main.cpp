@@ -9,7 +9,5 @@ staff *Sf;
 
 int main()
 {
-
     login(St , Sf);
-
 }

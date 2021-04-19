@@ -10,6 +10,7 @@ struct student{
     string password;
     string username;
     string name;
+    course * myCourse;
     student *next = NULL;
 };
 void initStudent(student *&St);
