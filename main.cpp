@@ -9,6 +9,7 @@ staff *Sf;
 
 int main()
 {
-    //cout << st[1].password;
+
     login(St , Sf);
+
 }

@@ -30,6 +30,7 @@ void login(student *&St , staff *&Sf)
 {
     initStudent(St);
     initStaff(Sf);
+   cout << St->password;
     string s;
     while(true)
     {

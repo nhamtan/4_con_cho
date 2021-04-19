@@ -40,3 +40,34 @@
 	"staff.h"
 	<bits/stdc++.h>
 
+1618831110 source:d:\4_con_cho\login.cpp
+	"login.h"
+	<bits/stdc++.h>
+
+1618831110 d:\4_con_cho\login.h
+	"student.h"
+	"staff.h"
+	<bits/stdc++.h>
+
+1618831110 d:\4_con_cho\student.h
+	<iostream>
+	<bits/stdc++.h>
+
+1618831110 d:\4_con_cho\staff.h
+	<bits/stdc++.h>
+
+1618831110 source:d:\4_con_cho\staff.cpp
+	"staff.h"
+	<bits/stdc++.h>
+
+1618831110 source:d:\4_con_cho\student.cpp
+	"student.h"
+	<iostream>
+	<bits/stdc++.h>
+
+1618831521 source:d:\4_con_cho\main.cpp
+	"student.h"
+	"staff.h"
+	"login.h"
+	<bits/stdc++.h>
+
