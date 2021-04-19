@@ -3,14 +3,7 @@
 using namespace std;
 
 
- string id;
-    string name;
-    string teacherName;
-    int numOfCredits;
-    int maxSt = 50;
-    timeStudying daySt[2];
-    Datacourse* next;
-    void input(string  )
+
 void inputData4Course (Datacourse *&cs) // ham nay de tao data cho course
 {
 
@@ -27,5 +20,7 @@ void inputData4Course (Datacourse *&cs) // ham nay de tao data cho course
         cur->daySt[0].time="S1";
         cur->daySt[1].dayInWeek="FRI";
         cur->daySt[1].time="S1";
+        cur->next=nullptr;
+        cur=cur->next;
     }
 }
