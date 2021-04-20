@@ -1,4 +1,4 @@
-#pragma once
+
 #include <bits/stdc++.h>
 #include"course.h"
 #include"Student.h"

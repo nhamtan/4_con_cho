@@ -49,7 +49,7 @@
 	"Staff.h"
 	<bits/stdc++.h>
 
-1618847762 d:\4_con_cho\student.h
+1618943068 d:\4_con_cho\student.h
 	<iostream>
 	<bits/stdc++.h>
 	"course.h"
@@ -77,9 +77,13 @@
 
 1618831724 source:d:\4_con_cho\stafftan.cpp
 
-1618831718 source:d:\4_con_cho\studentyen.cpp
+1618847355 source:d:\4_con_cho\studentyen.cpp
+	<bits/stdc++.h>
+	"course.h"
+	"Student.h"
+	"login.h"
 
-1618847783 d:\4_con_cho\course.h
+1618895557 d:\4_con_cho\course.h
 	<bits/stdc++.h>
 
 1618847496 source:d:\4_con_cho\studentminh.cpp

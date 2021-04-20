@@ -14,9 +14,16 @@ struct student{
     string password;
     string username;
     string name;
+    int enrolledCourse =0;
     course * myCourse =nullptr;
     student *next ;
 };
 void initStudent(student *&St);
+void convert(course *& myCourse,Datacourse *cs);
+void convertCourse(student*& st,Datacourse *&cs);
+void displayCourse(Datacourse *&cs);
+void enrollCourse(student *&st ,Datacourse *datacs);
+void displayEnrolledCourse(student *st);
+void deleteCourseEnrolled(student *&st);
 
 #endif // _student_h_
