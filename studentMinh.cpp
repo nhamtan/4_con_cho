@@ -57,54 +57,7 @@ void displayCourse(Datacourse *&cs)
         count ++;
     }
 }
-void enrollCourse(student *&st ,Datacourse *datacs)
-{
-    displayCourse(datacs);
-    //0 .break
-    //1. enroll
-    int choice ;
-    while(true)
-    {
-        cout << "0.Break the enrollment"<<endl;
-        cout <<"1.Enroll the course"<<endl;
-        cout <<"Enter your choice : ";
-        cin >> choice;
-        if(choice == 0) break;
-        else if (choice ==1)
-        {
-            while(true)
-            {
-                string tmp;
-                cout <<"Break the enrollment,Please Enter 'break' "<<endl;
-                cout <<"Enroll The course, Please Enter the ID of Course" <<endl;
-                cin >> tmp;
-                if(tmp =="break")
-                {
-                    break;
-                }
-                else
-                {
-                    course * cur = st->myCourse;
-                    while(cur)
-                    {
-                        if (tmp== cur->id)
-                        {
-                            if(cur->enrolled) cout <<"This course was enrolled"<<endl;
-                            else
-                            {
-                                cur->enrolled =true;
-                                cout <<"Done" <<endl;
-                                break;
-                            }
-                        }
-                        else cur =cur->next;
-                    }
-                }
-            }
-        }
-    }
 
-}
 void displayEnrolledCourse(student *st)
 {
     course*cur= st->myCourse;
@@ -123,15 +76,129 @@ void displayEnrolledCourse(student *st)
         cur=cur->next;
     }
 }
-void deleteCourseEnrolled(student *&st)
+void enrollCourse(student *&st ,Datacourse *datacs)
 {
-    course *cur =st->myCourse;
-    while(cur)
+    //0 .break
+    //1. enroll
+    //3. view Course
+    int choice ;
+    while(true)
     {
-        cur->enrolled =false;
-        cur=cur->next;
+        cout << "0.Break the enrollment"<<endl;
+        cout <<"1.View course"<<endl;
+        cout <<"2.Enroll the course"<<endl;
+        cout <<"3.View Enrolled course"<<endl;
+        cout <<"4.Remove enrolled course"<<endl;
+        cout <<"Enter your choice : ";
+        cin >> choice;
+        if(choice == 0) return;
+        else if (choice ==2)
+        {
+            while(true)
+            {
+                if(st->enrolledCourse ==5)
+                {
+                    cout <<"You only enroll maximum 5 course"<<endl;
+                    cout <<"-------------"<<endl;
+                    break;
+                }
+                string tmp;
+                cout <<"Break the enrollment,Please Enter 'break' "<<endl;
+                cout <<"Enroll The course, Please Enter the ID of Course" <<endl;
+                cin >> tmp;
+                bool checkID =false;
+                if(tmp =="break")
+                {
+                    break;
+                }
+                else
+                {
+                    course * cur = st->myCourse;
+                    while(cur)
+                    {
+                        if (tmp== cur->id)
+                        {
+                            if(cur->enrolled) cout <<"This course was enrolled"<<endl;
+                            else
+                            {
+                                cur->enrolled =true;
+                                st->enrolledCourse ++;
+                                cout <<"Done" <<endl;
+                                checkID=true;
+                                break;
+                            }
+                        }
+                        cur =cur->next;
+                    }
+                }
+                if(!checkID)
+                {
+                    cout <<"Wrong ID"<<endl;
+                    cout <<"----------"<<endl;
+                }
+            }
+        }
+        else if(choice ==1)
+        {
+           displayCourse(datacs);
+        }
+        else if(choice ==3)
+        {
+            displayEnrolledCourse(st);
+        }
+        else if(choice ==4)
+        {
+            while(true)
+            {
+                 if(st->enrolledCourse ==0)
+                {
+                    cout <<"You remove all course,you dont have any course enrolled"<<endl;
+                    cout <<"-------------"<<endl;
+                    break;
+                }
+                string tmp;
+                cout <<"Break the enrollment,Please Enter 'break' "<<endl;
+                cout <<"To remove the enrolled course, Please enter the ID of enrolled course" <<endl;
+                cin >> tmp;
+                bool checkID =false;
+                if(tmp =="break")
+                {
+                    break;
+                }
+                else
+                {
+                    course *cur=st->myCourse;
+                    while(cur)
+                    {
+                        if(tmp == cur->id  && cur->enrolled ==true)
+                        {
+                            cout <<"Done";
+                            cur->enrolled =false;
+                            st->enrolledCourse --;
+                            checkID =true;
+                            break;
+                        }
+                        cur=cur->next;
+                    }
+                }
+                if(checkID ==false)
+                {
+                    cout <<"Wrong ID"<<endl;
+                    cout <<"---------------"<<endl;
+                }
+            }
+        }
+        else
+        {
+            cout <<"Please input again your choice"<<endl;
+            cout <<"------------------";
+        }
+
     }
 }
+
+
+
 
 
 

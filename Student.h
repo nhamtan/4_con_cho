@@ -24,6 +24,6 @@ void convertCourse(student*& st,Datacourse *&cs);
 void displayCourse(Datacourse *&cs);
 void enrollCourse(student *&st ,Datacourse *datacs);
 void displayEnrolledCourse(student *st);
-void deleteCourseEnrolled(student *&st);
+
 
 #endif // _student_h_
