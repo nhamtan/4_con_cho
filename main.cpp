@@ -10,5 +10,7 @@ staff *Sf;
 
 int main()
 {
+    schoolYear * sY = nullptr;
+    createASchoolYear(sY);
     login(St , Sf);
 }

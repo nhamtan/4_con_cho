@@ -15,15 +15,16 @@ struct student{
     string username;
     string name;
     int enrolledCourse =0;
-    course * myCourse =nullptr;
+    semester4Student *semST =nullptr;
     student *next ;
 };
 void initStudent(student *&St);
-void convert(course *& myCourse,Datacourse *cs);
-void convertCourse(student*& st,Datacourse *&cs);
-void displayCourse(Datacourse *&cs);
-void enrollCourse(student *&st ,Datacourse *datacs);
-void displayEnrolledCourse(student *st);
+void createASchoolYear(schoolYear *&sy);
+void inputDataSemester1(Datacourse *&cs);
+void inputDataSemester2(Datacourse *&cs);
+void inputDataSemester3 (Datacourse *&cs);
+
+
 
 
 #endif // _student_h_

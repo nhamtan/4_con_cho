@@ -32,13 +32,27 @@ struct course
     bool enrolled =false;
     course* next;
 };
+struct semester4Student
+{
+    course *cs =nullptr;
+    date startDate;
+    date endDate;
+    semester4Student *next;
+};
 struct semester
 {
     Datacourse *cs=nullptr;
     date startDate;
     date endDate;
-    string year2021="20202021";
+    semester *next;
 };
-void inputData4Course (Datacourse *&cs);
+struct schoolYear
+{
+    date startYear;
+    date endYear;
+    semester * sem =nullptr;
+    schoolYear *next;
+};
+
 
 

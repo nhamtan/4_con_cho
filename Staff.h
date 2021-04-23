@@ -12,6 +12,7 @@ struct staff{
     staff *next ;
 };
 void initStaff(staff *&sf);
+
 #endif // staff_h_
 
 
