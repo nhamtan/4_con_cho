@@ -39,7 +39,7 @@ void viewStudentsOfCourse(student *&st, schoolYear *&sy)
                 }
                 curStu=curStu->next;
             }
-            cout<<'\n'<<"******************"<<'\n';
+            cout<<'\n';
             cur=cur->next;
         }
         curSemSy=curSemSy->next;
