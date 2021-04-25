@@ -94,3 +94,56 @@
 	"login.h"
 	<bits/stdc++.h>
 
+1619286312 source:d:\a\login.cpp
+	"login.h"
+	<bits/stdc++.h>
+
+1619286312 d:\a\login.h
+	"Student.h"
+	"Staff.h"
+	<bits/stdc++.h>
+
+1619286312 d:\a\student.h
+	<iostream>
+	<bits/stdc++.h>
+	"course.h"
+	"Student.h"
+
+1619286312 d:\a\course.h
+	<bits/stdc++.h>
+
+1619286312 d:\a\staff.h
+	<bits/stdc++.h>
+
+1619316919 source:d:\a\main.cpp
+	"student.h"
+	"staff.h"
+	"login.h"
+	"course.h"
+	<bits/stdc++.h>
+
+1619286312 source:d:\a\staff.cpp
+	"staff.h"
+	<bits/stdc++.h>
+
+1619286312 source:d:\a\stafftan.cpp
+
+1619286312 source:d:\a\student.cpp
+	"student.h"
+	<iostream>
+	<bits/stdc++.h>
+
+1619286312 source:d:\a\studentminh.cpp
+	"Student.h"
+	"course.h"
+	"Staff.h"
+	"login.h"
+	<bits/stdc++.h>
+
+1619286312 source:d:\a\studentyen.cpp
+	<bits/stdc++.h>
+	"course.h"
+	"Student.h"
+	"login.h"
+	"Staff.h"
+
