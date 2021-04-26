@@ -17,6 +17,7 @@ struct student{
     int enrolledCourse =0;
     semester4Student *semST =nullptr;
     student *next ;
+    string cls;
 };
 void initStudent(student *&St);
 void createASchoolYear(schoolYear *&sy);

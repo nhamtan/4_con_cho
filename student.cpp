@@ -36,7 +36,8 @@ void initStudent(student *&St) /// cái hàm này sẽ tạo ra cái list ST ch�
                 else
                     words[cnt].push_back(temp[i]);
             }
-            //cerr << words[2] << " " << words[4] << "\n";
+            //cerr << temp << endl;
+            //cerr << words[5] << "\n";
             string Date[4];
             cnt = 1;
             for(int i = 0 ; i < words[4].size() ; i++)
@@ -69,6 +70,7 @@ void initStudent(student *&St) /// cái hàm này sẽ tạo ra cái list ST ch�
             cur -> username = words[2];
             cur -> password = Date[2] + Date[1] + Date[3];
             cur -> name = words[3];
+            cur -> cls = words[5];
             //cout << cur -> username << " " << cur -> password << endl;
         }
         cin.close();
