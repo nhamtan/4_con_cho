@@ -18,6 +18,7 @@ struct student{
     semester4Student *semST =nullptr;
     student *next ;
     string cls;
+    int totalMark4St ; /// lam 1 ham tinh rieng cai nay
 };
 void initStudent(student *&St);
 void createASchoolYear(schoolYear *&sy);

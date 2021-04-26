@@ -2,6 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+struct markCourse
+{
+    int midMark;
+    int finalMark;
+    int totalMark; ///cai total m lam 1 ham tinh rieng nha
+};
 struct date
 {
     int day,month,year;
@@ -30,6 +36,7 @@ struct course
     int maxSt = 50;
     timeStudying daySt[2];
     bool enrolled =false;
+    markCourse mark;
     course* next;
 };
 struct semester4Student
