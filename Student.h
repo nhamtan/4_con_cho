@@ -9,7 +9,12 @@ using namespace std;
 #ifndef _student_h_
 #define _student_h_
 
-
+struct timeViewTotalMark
+{
+    int day = 27;
+    int month=4;
+    int year=2021;
+};
 struct student{
     string password;
     string username;
@@ -19,6 +24,7 @@ struct student{
     student *next ;
     string cls;
     int totalMark4St ; /// lam 1 ham tinh rieng cai nay
+    timeViewTotalMark time;
 };
 void initStudent(student *&St);
 void createASchoolYear(schoolYear *&sy);

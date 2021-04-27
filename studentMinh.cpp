@@ -4,6 +4,7 @@
 #include"Staff.h"
 #include "login.h"
 #include <bits/stdc++.h>
+#include<ctime>
 using namespace std;
 
 
@@ -924,7 +925,42 @@ void updateCourse(schoolYear *& sy, student *&st)
         }
     }
 }
-void
+void viewToTalMark(student *st)
+{
+    int day1=st->time.day;
+    int month1=st->time.month;
+    int year1=st->time.year;
+
+
+    time_t now = time(0);
+   tm *ltm = localtime(&now);
+
+    int year2 =1900 + ltm->tm_year;
+    int month2 =1 + ltm->tm_mon;
+    int day2= ltm->tm_mday ;
+    if(year2 < year1)
+    {
+
+        cout <<"You can't view your total mark"<<endl;
+        return;
+    }
+    else if(year1 == year2)
+    {
+        if(month2 < month1)
+        {
+            cout <<"You can't view your total mark"<<endl;
+            return;
+        }
+        else if(month2 == month1 && day2 < day1)
+        {
+            cout <<"You can't view your total mark"<<endl;
+            return;
+        }
+
+    }
+    cout <<"Your total mark : " <<st->totalMark4St<<endl;
+
+}
 
 
 
