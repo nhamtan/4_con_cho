@@ -45,3 +45,28 @@ void viewStudentsOfCourse(student *&st, schoolYear *&sy)
         curSemSy=curSemSy->next;
     }
 }
+
+void viewListOfClass (student *&st)
+{
+    student *head=st;
+    if (head==nullptr) return;
+    else
+    {
+        string x=head->cls;
+        cout<<x<<endl;
+        student *cur=head->next;
+        while (cur!=nullptr)
+         {
+             if (cur->cls.compare(x)==0)
+                continue;
+             else if (x=="0") break;
+             else
+             {
+                 cout<<cur->cls<<endl;
+                 x="0";
+                 break;
+             }
+             cur=cur->next;
+         }
+    }
+}
