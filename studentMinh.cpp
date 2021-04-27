@@ -6,24 +6,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void displayCourse(Datacourse *&cs)
-{
 
-    cout <<"Information of all courses"<<endl;
-    cout <<"---------------------------"<<endl;
-    Datacourse *cur=cs;
-    while(cur)
-    {
-    cout <<"Name : "<< cur->name<<endl;
-    cout <<"Id : "<< cur->id<<endl;
-    cout <<"Teacher name : "<< cur->teacherName<<endl;
-    cout << "Number of credits : "<< cur->numOfCredits<<endl;
-    cout << "Time study in week : " << cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
-    cout << "Maximum of students : "<< cur->maxSt<<endl;
-    cout <<"----------"<<endl;
-    cur=cur->next;
-    }
-}
 void deleteCourse(Datacourse *&cs)
 {
     while(cs)
@@ -128,24 +111,7 @@ void convertData(student *&st ,schoolYear *& sy)
     }
 }
 
-void displayEnrolledCourse(semester4Student * sem)
-{
-    course*cur= sem->cs;
-    while(cur)
-    {
-        if(cur->enrolled)
-        {
-            cout <<"Name : "<< cur->name<<endl;
-            cout <<"Id : "<< cur->id<<endl;
-            cout <<"Teacher name : "<< cur->teacherName<<endl;
-            cout << "Number of credits : "<< cur->numOfCredits<<endl;
-            cout << "Time study in week : " << cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
-            cout << "Maximum of students : "<< cur->maxSt<<endl;
-            cout <<"----------"<<endl;
-        }
-        cur=cur->next;
-    }
-}
+
 void enrollCourse(student *&st ,schoolYear *sy)
 {
     int choice ;
@@ -528,6 +494,438 @@ void enrollCourse(student *&st ,schoolYear *sy)
 
     }
 }
+
+void displayCourse(student *&st,schoolYear *&sy)
+{
+    while(true)
+    {
+         cout <<"0.Break"<<endl;
+        cout<<"1.View course in semester 1"<<endl;
+        cout <<"2.View course in semester 2"<<endl;
+        cout <<"3.View course in semester 3"<<endl;
+        int choice;
+        cout <<"Enter your choice : ";
+        cin >> choice;
+        semester *cur1= sy->sem;
+        if(choice ==0)
+        {
+            break;
+        }
+        else if(choice ==1)
+        {
+            cout <<"Information of all courses in semester 1"<<endl;
+            cout <<"---------------------------"<<endl;
+            Datacourse *cur=cur1->cs;
+            while(cur)
+            {
+                cout <<"Name : "<< cur->name<<endl;
+                cout <<"Id : "<< cur->id<<endl;
+                cout <<"Teacher name : "<< cur->teacherName<<endl;
+                cout << "Number of credits : "<< cur->numOfCredits<<endl;
+                cout << "Time study in week : " << cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
+                cout << "Maximum of students : "<< cur->maxSt<<endl;
+                cout <<"----------"<<endl;
+                cur=cur->next;
+            }
+        }
+        else if(choice ==2)
+        {
+            cur1=cur1->next;
+            cout <<"Information of all courses in semester 2"<<endl;
+            cout <<"---------------------------"<<endl;
+            Datacourse *cur=cur1->cs;
+            while(cur)
+            {
+                cout <<"Name : "<< cur->name<<endl;
+                cout <<"Id : "<< cur->id<<endl;
+                cout <<"Teacher name : "<< cur->teacherName<<endl;
+                cout << "Number of credits : "<< cur->numOfCredits<<endl;
+                cout << "Time study in week : " << cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
+                cout << "Maximum of students : "<< cur->maxSt<<endl;
+                cout <<"----------"<<endl;
+                cur=cur->next;
+            }
+
+        }
+        else if(choice ==3)
+        {
+            cur1=cur1->next->next;
+            cout <<"Information of all courses in semester 3"<<endl;
+            cout <<"---------------------------"<<endl;
+            Datacourse *cur=cur1->cs;
+            while(cur)
+            {
+                cout <<"Name : "<< cur->name<<endl;
+                cout <<"Id : "<< cur->id<<endl;
+                cout <<"Teacher name : "<< cur->teacherName<<endl;
+                cout << "Number of credits : "<< cur->numOfCredits<<endl;
+                cout << "Time study in week : " << cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
+                cout << "Maximum of students : "<< cur->maxSt<<endl;
+                cout <<"----------"<<endl;
+                cur=cur->next;
+            }
+        }
+        else
+        {
+            cout <<"Please enter again your choice"<<endl;
+            cout<<endl;
+        }
+
+
+    }
+}
+
+
+void displayEnrollCourse(student *&st)
+{
+    while(true)
+    {
+        cout <<"0.Break"<<endl;
+        cout<<"1.View Enrolled course in semester 1"<<endl;
+        cout <<"2.View Enrolled course in semester 2"<<endl;
+        cout <<"3.View Enrolled course in semester 3"<<endl;
+        int choice;
+        cout <<"Enter your choice : ";
+        cin >> choice;
+        semester4Student *cur1=st->semST;
+        if(choice ==0)
+        {
+            break;
+        }
+        else if(choice ==1)
+        {
+            cout <<"Information of all courses enrolled in semester 1"<<endl;
+            cout <<"---------------------------"<<endl;
+            course * cur = cur1->cs;
+            while(cur)
+            {
+                if(cur->enrolled)
+                {
+                cout <<"Name : "<< cur->name<<endl;
+                cout <<"Id : "<< cur->id<<endl;
+                cout <<"Teacher name : "<< cur->teacherName<<endl;
+                cout << "Number of credits : "<< cur->numOfCredits<<endl;
+                cout << "Time study in week : " << cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
+                cout << "Maximum of students : "<< cur->maxSt<<endl;
+                cout <<"----------"<<endl;
+                }
+                cur=cur->next;
+            }
+        }
+        else if(choice ==2)
+        {
+            cur1=cur1->next;
+            cout <<"Information of all courses enrolled in semester 2"<<endl;
+            cout <<"---------------------------"<<endl;
+            course * cur = cur1->cs;
+            while(cur)
+            {
+                if(cur->enrolled)
+                {
+                cout <<"Name : "<< cur->name<<endl;
+                cout <<"Id : "<< cur->id<<endl;
+                cout <<"Teacher name : "<< cur->teacherName<<endl;
+                cout << "Number of credits : "<< cur->numOfCredits<<endl;
+                cout << "Time study in week : " << cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
+                cout << "Maximum of students : "<< cur->maxSt<<endl;
+                cout <<"----------"<<endl;
+                }
+                cur=cur->next;
+            }
+
+        }
+        else if(choice ==3)
+        {
+            cur1=cur1->next->next;
+            cout <<"Information of all courses enrolled in semester 3"<<endl;
+            cout <<"---------------------------"<<endl;
+            course * cur = cur1->cs;
+            while(cur)
+            {
+                if(cur->enrolled)
+                {
+                cout <<"Name : "<< cur->name<<endl;
+                cout <<"Id : "<< cur->id<<endl;
+                cout <<"Teacher name : "<< cur->teacherName<<endl;
+                cout << "Number of credits : "<< cur->numOfCredits<<endl;
+                cout << "Time study in week : " << cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
+                cout << "Maximum of students : "<< cur->maxSt<<endl;
+                cout <<"----------"<<endl;
+                }
+                cur=cur->next;
+            }
+        }
+        else
+        {
+            cout <<"Please enter again your choice"<<endl;
+            cout<<endl;
+        }       }
+    }
+
+void updateCourse(schoolYear *& sy, student *&st)
+{
+    cout <<"1.View Course"<<endl;
+    cout <<"2.Update Course"<<endl;
+    cout<<"Enter your choice : ";
+    int choice;
+    cin >> choice;
+    if(choice ==1)
+    {
+        displayCourse(st,sy);
+        return;
+    }
+    if(choice ==2)
+    {
+        while(true)
+        {
+            semester *cur1= sy->sem;
+            cout <<"0.Break"<<endl;
+            cout <<"1.Update Information course in semester 1"<<endl;
+            cout <<"2.Update Information course in semester 2"<<endl;
+            cout <<"3.Update Information course in semester 3"<<endl;
+            cout<<"Enter your choice : "<<endl;
+            int choice1;
+            cin>> choice1;
+
+            if(choice1 ==0 ) break;
+            else if(choice1 ==1)
+            {
+                cout<<"-------------------------"<<endl;
+                cout <<"Enter ID of course that you want to update information ";
+                string s;
+                cin >> s;
+                Datacourse *cur =cur1->cs;
+                while(cur)
+                {
+                    if(cur->id == s)
+                    {
+                        cout<<"Name of the course that you want to update : "<<cur->name<<endl;
+                        cout <<endl;
+                        cout<<"0.break"<<endl;
+                        cout <<"1.Update ID"<<endl;
+                        cout <<"2.Update Name of course"<<endl;
+                        cout <<"3.Update name of teacher"<<endl;
+                        cout <<"4.Update the number of credits"<<endl;
+                        cout <<"5.Update maximum student in course"<<endl;
+                        cout <<"6.Update time studying"<<endl;
+                        cout<<"Enter your choice : "<<endl;
+                        int choice2;
+                        cin >>choice2;
+                        while(true)
+                        {
+                            if(choice2 ==0) break;
+                            else if(choice2 ==1)
+                            {
+                                cout<<"ID : "<<cur->id<<endl;
+                                cout <<"Enter new ID : ";
+                                cin >> cur->id;
+                                cout <<"DONE"<<endl;
+                                cout <<endl;
+                            }
+                            else if(choice2==2)
+                            {
+                                cout <<"The name of course : "<<cur->name<<endl;
+                                cout<<"Enter new name of course : ";
+                                cin >> cur->name;
+                                cout<<"DONE"<<endl;
+                                cout <<endl;
+                            }
+                            else if(choice2==3)
+                            {
+                                cout <<"The name of teacher : "<< cur->teacherName<<endl;
+                                cout <<"Enter new name of teacher : ";
+                                cin >> cur->teacherName;
+                                cout <<"Done"<<endl;
+                                cout<<endl;
+                            }
+                            else if(choice2==4)
+                            {
+                                cout<<"The number of credits of "<<cur->name <<" : "<<cur->numOfCredits<<endl;
+                                cout<<"Enter new credits : ";
+                                cin >> cur->numOfCredits;
+                                cout<<"DONE"<<endl;
+                                cout<<endl;
+                            }
+                            else if(choice2==5)
+                            {
+                                cout <<"Max student of course : "<<cur->maxSt;
+                                cout <<"Enter new max Students in course : ";
+                                cin >> cur->maxSt;
+                                cout<<"DONE"<<endl;
+                                cout<<endl;
+                            }
+                            else
+                            {
+                                cout <<"Please choose again"<<endl;
+                            }
+                        }
+                    }
+                    break;
+                    convertData(st,sy);
+                }
+            }
+            else if(choice1 ==2)
+            {
+                cout<<"-------------------------"<<endl;
+                cout <<"Enter ID of course that you want to update information ";
+                string s;
+                cin >> s;
+                Datacourse *cur =cur1->cs;
+                while(cur)
+                {
+                    if(cur->id == s)
+                    {
+                        cout<<"Name of the course that you want to update : "<<cur->name<<endl;
+                        cout <<endl;
+                        cout<<"0.break"<<endl;
+                        cout <<"1.Update ID"<<endl;
+                        cout <<"2.Update Name of course"<<endl;
+                        cout <<"3.Update name of teacher"<<endl;
+                        cout <<"4.Update the number of credits"<<endl;
+                        cout <<"5.Update maximum student in course"<<endl;
+                        cout <<"6.Update time studying"<<endl;
+                        cout<<"Enter your choice : "<<endl;
+                        int choice2;
+                        cin >>choice2;
+                        while(true)
+                        {
+                            if(choice2 ==0) break;
+                            else if(choice2 ==1)
+                            {
+                                cout<<"ID : "<<cur->id<<endl;
+                                cout <<"Enter new ID : ";
+                                cin >> cur->id;
+                                cout <<"DONE"<<endl;
+                                cout <<endl;
+                            }
+                            else if(choice2==2)
+                            {
+                                cout <<"The name of course : "<<cur->name<<endl;
+                                cout<<"Enter new name of course : ";
+                                cin >> cur->name;
+                                cout<<"DONE"<<endl;
+                                cout <<endl;
+                            }
+                            else if(choice2==3)
+                            {
+                                cout <<"The name of teacher : "<< cur->teacherName<<endl;
+                                cout <<"Enter new name of teacher : ";
+                                cin >> cur->teacherName;
+                                cout <<"Done"<<endl;
+                                cout<<endl;
+                            }
+                            else if(choice2==4)
+                            {
+                                cout<<"The number of credits of "<<cur->name <<" : "<<cur->numOfCredits<<endl;
+                                cout<<"Enter new credits : ";
+                                cin >> cur->numOfCredits;
+                                cout<<"DONE"<<endl;
+                                cout<<endl;
+                            }
+                            else if(choice2==5)
+                            {
+                                cout <<"Max student of course : "<<cur->maxSt;
+                                cout <<"Enter new max Students in course : ";
+                                cin >> cur->maxSt;
+                                cout<<"DONE"<<endl;
+                                cout<<endl;
+                            }
+                            else
+                            {
+                                cout <<"Please choose again"<<endl;
+                            }
+                        }
+                    }
+                    break;
+                    convertData(st,sy);
+                }
+            }
+            else if(choice1 ==3)
+            {
+                cout<<"-------------------------"<<endl;
+                cout <<"Enter ID of course that you want to update information ";
+                string s;
+                cin >> s;
+                Datacourse *cur =cur1->cs;
+                while(cur)
+                {
+                    if(cur->id == s)
+                    {
+                        cout<<"Name of the course that you want to update : "<<cur->name<<endl;
+                        cout <<endl;
+                        cout<<"0.break"<<endl;
+                        cout <<"1.Update ID"<<endl;
+                        cout <<"2.Update Name of course"<<endl;
+                        cout <<"3.Update name of teacher"<<endl;
+                        cout <<"4.Update the number of credits"<<endl;
+                        cout <<"5.Update maximum student in course"<<endl;
+                        cout <<"6.Update time studying"<<endl;
+                        cout<<"Enter your choice : "<<endl;
+                        int choice2;
+                        cin >>choice2;
+                        while(true)
+                        {
+                            if(choice2 ==0) break;
+                            else if(choice2 ==1)
+                            {
+                                cout<<"ID : "<<cur->id<<endl;
+                                cout <<"Enter new ID : ";
+                                cin >> cur->id;
+                                cout <<"DONE"<<endl;
+                                cout <<endl;
+                            }
+                            else if(choice2==2)
+                            {
+                                cout <<"The name of course : "<<cur->name<<endl;
+                                cout<<"Enter new name of course : ";
+                                cin >> cur->name;
+                                cout<<"DONE"<<endl;
+                                cout <<endl;
+                            }
+                            else if(choice2==3)
+                            {
+                                cout <<"The name of teacher : "<< cur->teacherName<<endl;
+                                cout <<"Enter new name of teacher : ";
+                                cin >> cur->teacherName;
+                                cout <<"Done"<<endl;
+                                cout<<endl;
+                            }
+                            else if(choice2==4)
+                            {
+                                cout<<"The number of credits of "<<cur->name <<" : "<<cur->numOfCredits<<endl;
+                                cout<<"Enter new credits : ";
+                                cin >> cur->numOfCredits;
+                                cout<<"DONE"<<endl;
+                                cout<<endl;
+                            }
+                            else if(choice2==5)
+                            {
+                                cout <<"Max student of course : "<<cur->maxSt;
+                                cout <<"Enter new max Students in course : ";
+                                cin >> cur->maxSt;
+                                cout<<"DONE"<<endl;
+                                cout<<endl;
+                            }
+                            else
+                            {
+                                cout <<"Please choose again"<<endl;
+                            }
+                        }
+                    }
+                    break;
+                    convertData(st,sy);
+                }
+            }
+            else
+            {
+                cout <<"Please enter your choice again"<<endl;
+            }
+
+        }
+    }
+}
+void
+
 
 
 
