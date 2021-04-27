@@ -4,8 +4,9 @@ using namespace std;
 
 struct markCourse
 {
-    int midMark;
-    int finalMark;
+    float midMark;
+    float finalMark;
+    float otherMark;
     int totalMark; ///cai total m lam 1 ham tinh rieng nha
 };
 struct date
