@@ -4,7 +4,7 @@ using namespace std;
 
 
 
-student* isStudent(student *&St , string username)
+student* isStudent(student *St , string username)
 {
     while(St != NULL)
     {
@@ -15,7 +15,7 @@ student* isStudent(student *&St , string username)
     return NULL;
 }
 
-staff* isStaff(staff *&Sf , string username)
+staff* isStaff(staff *Sf , string username)
 {
     while(Sf != NULL)
     {
@@ -26,8 +26,9 @@ staff* isStaff(staff *&Sf , string username)
     return NULL;
 }
 
-void login(student *&St , staff *&Sf)
+void login(student *&St , staff *&Sf,schoolYear *&sy)
 {
+
     initStudent(St);
     initStaff(Sf);
     string s;
@@ -76,7 +77,7 @@ void login(student *&St , staff *&Sf)
                 /// add thêm giao diện của staff vào bằng hàm.
 
 
-
+                functionStaff(St,sy);
 
 
 
@@ -93,7 +94,7 @@ void login(student *&St , staff *&Sf)
 
 void exportCourse(student *St , string name)
 {
-    ofstream fo(name);
+    ofstream fo(name + ".csv");
     while(St != NULL)
     {
         while(St -> semST != NULL)

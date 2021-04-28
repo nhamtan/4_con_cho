@@ -31,6 +31,19 @@ void createASchoolYear(schoolYear *&sy);
 void inputDataSemester1(Datacourse *&cs);
 void inputDataSemester2(Datacourse *&cs);
 void inputDataSemester3 (Datacourse *&cs);
+void convertData(student *&st ,schoolYear *& sy);
+void  functionStaff(student *& st, schoolYear *& sy);
+void createSemester(schoolYear *&sy,student *&st);
+void deleteCourse(schoolYear *&sy);
+void enrollCourse(student *&st ,schoolYear *sy);
+void displayCourse(student *&st,schoolYear *&sy);
+void displayEnrollCourse(student *&st);
+void updateCourse(schoolYear *& sy, student *&st);
+void viewToTalMark(student *st);
+void  functionStaff(student *& st, schoolYear *& sy);
+
+
+
 
 
 

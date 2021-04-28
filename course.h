@@ -1,5 +1,6 @@
 #pragma once
 #include <bits/stdc++.h>
+#include"course.h"
 using namespace std;
 
 struct markCourse
@@ -61,6 +62,7 @@ struct schoolYear
     semester * sem =nullptr;
     schoolYear *next;
 };
+
 
 
 

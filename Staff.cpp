@@ -34,6 +34,7 @@ void initStaff(staff *&Sf) /// cái hàm này sẽ tạo ra một list Sf chứa
         }
         cur -> username = words[3];
         cur -> password = words[2];
+        //cerr << cur -> username << " " << cur -> password << "\n";
         cur -> name = words[4]  + " " + words[3];
     }
     cin.close();
