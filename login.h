@@ -16,6 +16,7 @@ struct loginUser
 void login(student *&St , staff *&Sf);
 student* isStaff(student *&Sf , string username);
 student* isStudent(student *&St , string username);
+void exportCourse(student *St , string name);
 
 #endif
 

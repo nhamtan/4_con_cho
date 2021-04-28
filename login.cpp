@@ -91,3 +91,25 @@ void login(student *&St , staff *&Sf)
 
 }
 
+void exportCourse(student *St , string name)
+{
+    ofstream fo(name);
+    while(St != NULL)
+    {
+        while(St -> semST != NULL)
+        {
+            while(St -> semST -> cs != NULL)
+            {
+                course *temp = St -> semST -> cs;
+                if(temp -> name == name && temp -> enrolled == true)
+                {
+                    fo << St -> name << " " << St -> username << endl;
+                }
+                St -> semST -> cs = St -> semST -> cs -> next;
+            }
+            St -> semST = St -> semST -> next;
+        }
+        St = St -> next;
+    }
+    fo.close();
+}
