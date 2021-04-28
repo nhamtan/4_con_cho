@@ -23,15 +23,8 @@ struct student{
     semester4Student *semST =nullptr;
     student *next ;
     string cls;
-<<<<<<< HEAD
-    int totalMark4St ; /// lam 1 ham tinh rieng cai nay
     timeViewTotalMark time;
-=======
     float totalMark4St ; /// lam 1 ham tinh rieng cai nay
-    /* formula: average score of semester (totalMark4St)
-    = sum of (total mark of each course*number of credits of that course)/number of courses
-    */
->>>>>>> aaf8844ac0632e461764877c4e8f34cea30567f2
 };
 void initStudent(student *&St);
 void createASchoolYear(schoolYear *&sy);
