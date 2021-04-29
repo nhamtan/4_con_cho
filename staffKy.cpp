@@ -133,3 +133,21 @@ void averageScoreSemes(student *&st)
     }
 }
 
+void GPAschoolyear(student *&st)
+{
+    student *stu=st;
+    semester4Student *sem=stu->semST;
+    while (stu!=nullptr)
+    {
+        int count=0;
+        while (sem!=nullptr)
+        {
+            count++;
+            stu->overallGPA+=sem->semGPA;
+            sem=sem->next;
+        }
+        stu->overallGPA/=count;
+        stu->overallGPA=roundf(stu->overallGPA * 10)/10;
+        stu=stu->next;
+    }
+}
