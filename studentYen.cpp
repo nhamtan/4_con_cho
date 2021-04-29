@@ -34,10 +34,9 @@ void inputDataSemester1(Datacourse *&cs)
         cur->daySt[0].time="S2";
         cur->daySt[1].dayInWeek="WED";
         cur->daySt[1].time="S2";
-        cur->next=nullptr;
+        cur->next= new Datacourse;
         cur=cur->next;
         //-------------------
-        cur=new Datacourse;
         cur->id="MTH251";
         cur->name="Calculus 1";
         cur->teacherName ="Nguyen Huu Anh";
@@ -47,10 +46,10 @@ void inputDataSemester1(Datacourse *&cs)
         cur->daySt[0].time="S2";
         cur->daySt[1].dayInWeek="THIR";
         cur->daySt[1].time="S2";
-        cur->next=nullptr;
+        cur->next= new Datacourse;
         cur=cur->next;
-        //-------------------
-        cur=new Datacourse;
+
+
         cur->id="CM101";
         cur->name="Communication Management";
         cur->teacherName ="Duong Nguyen Vu";
@@ -60,13 +59,8 @@ void inputDataSemester1(Datacourse *&cs)
         cur->daySt[0].time="C1";
         cur->daySt[1].dayInWeek="SAT";
         cur->daySt[1].time="C2";
-        cur->next=nullptr;
 
 
-        Datacourse *cur1= cs;
-        cout << cs -> id << "," << endl;
-        cout << cs -> next -> id << "." << endl;
-        cout <<cur1->next->id;
 }
 
 void inputDataSemester2(Datacourse *&cs)
@@ -84,10 +78,8 @@ void inputDataSemester2(Datacourse *&cs)
         cur->daySt[0].time="C1";
         cur->daySt[1].dayInWeek="WED";
         cur->daySt[1].time="C2";
-        cur->next=nullptr;
+        cur->next= new Datacourse;
         cur=cur->next;
-        //-------------------
-         cur=new Datacourse;
         cur->id="MTH252";
         cur->name="Calculus 2";
         cur->teacherName ="Nguyen Huu Anh";
@@ -97,11 +89,8 @@ void inputDataSemester2(Datacourse *&cs)
         cur->daySt[0].time="S2";
         cur->daySt[1].dayInWeek="THIR";
         cur->daySt[1].time="S2";
-        cur->next=nullptr;
+        cur->next= new Datacourse;
         cur=cur->next;
-
-        //-------------------
-        cur=new Datacourse;
         cur->id="PH212";
         cur->name="General Physics 2";
         cur->teacherName ="Nguyen Huu Nha";
@@ -111,13 +100,13 @@ void inputDataSemester2(Datacourse *&cs)
         cur->daySt[0].time="C1";
         cur->daySt[1].dayInWeek="FRI";
         cur->daySt[1].time="C1";
-        cur->next=nullptr;
+         cur->next= new Datacourse;
         cur=cur->next;
 
 
 
         //-------------------
-        cur=new Datacourse;
+
         cur->id="CS162";
         cur->name="Introduction to Computer Science 2";
         cur->teacherName ="Dinh Ba Tien";
@@ -127,7 +116,6 @@ void inputDataSemester2(Datacourse *&cs)
         cur->daySt[0].time="S1";
         cur->daySt[1].dayInWeek="FRI";
         cur->daySt[1].time="S1";
-        cur->next=nullptr;
 
 }
 void inputDataSemester3 (Datacourse *&cs)
@@ -145,19 +133,21 @@ void inputDataSemester3 (Datacourse *&cs)
         cur->daySt[0].time="S1";
         cur->daySt[1].dayInWeek="WED";
         cur->daySt[1].time="S2";
-        cur->next=nullptr;
+
+         cur->next= new Datacourse;
         cur=cur->next;
-        //-------------------
-        cur=new Datacourse;
         cur->id="BA00030";
         cur->name="Military Education";
         cur->teacherName ="Ngo Quang Huy ";
         cur->numOfCredits =4;
         cur->maxSt=50;
-        cur->next=nullptr;
+         cur->daySt[0].dayInWeek ="TUE";
+        cur->daySt[0].time="C1";
+        cur->daySt[1].dayInWeek="TUE";
+        cur->daySt[1].time="C2";
+
+         cur->next= new Datacourse;
         cur=cur->next;
-               //-------------------
-        cur=new Datacourse;
         cur->id="BAA00102";
         cur->name="Marxist-Leninist Political Economics";
         cur->teacherName ="Ngo Tuan Phuong";
@@ -167,10 +157,9 @@ void inputDataSemester3 (Datacourse *&cs)
         cur->daySt[0].time="C1";
         cur->daySt[1].dayInWeek="TUE";
         cur->daySt[1].time="C2";
-        cur->next=nullptr;
+
+       cur->next= new Datacourse;
         cur=cur->next;
-               //-------------------
-        cur=new Datacourse;
         cur->id="BA00101";
         cur->name="Marxist-Leninist Philosophy";
         cur->teacherName ="Ngo Quang Huy";
@@ -180,7 +169,7 @@ void inputDataSemester3 (Datacourse *&cs)
         cur->daySt[0].time="C1";
         cur->daySt[1].dayInWeek="TUE";
         cur->daySt[1].time="C2";
-        cur->next=nullptr;
+
 
 }
 

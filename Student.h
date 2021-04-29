@@ -31,7 +31,6 @@ void createASchoolYear(schoolYear *&sy);
 void inputDataSemester1(Datacourse *&cs);
 void inputDataSemester2(Datacourse *&cs);
 void inputDataSemester3 (Datacourse *&cs);
-void convertData(student *&st ,schoolYear *& sy);
 void  functionStaff(student *& st, schoolYear *& sy);
 void createSemester(schoolYear *&sy,student *&st);
 void deleteCourse(schoolYear *&sy);
@@ -45,6 +44,9 @@ void functionStudent(student *&st, schoolYear *& sy);
 void displayCsSem3(schoolYear *sy);
 void displayCsSem2(schoolYear *sy);
 void displayCsSem1(schoolYear *sy);
+void convertData1(student *&st,schoolYear *&sy);
+void convertData3(student *&st,schoolYear *&sy);
+void convertData2(student *&st, schoolYear *&sy);
 
 
 

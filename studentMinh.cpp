@@ -64,7 +64,7 @@ void createASchoolYear(schoolYear *&sy)
     cin >> cur->startYear.day >> cur->startYear.month>> cur->startYear.year;
     cout << "Input the End day - month - year of the year"<<endl;
     cin >> cur->endYear.day>> cur->endYear.month >> cur->endYear.year ;
-    if(sy->next) cout <<"yes";
+    if(sy) cout <<"yes";
     else cout <<"No";
 }
 void createSemester(schoolYear *&sy,student *&st)
@@ -89,12 +89,12 @@ void createSemester(schoolYear *&sy,student *&st)
         inputDataSemester1(cur->cs);
         displayCsSem1(sy);
         cout <<"Input the data of Course DONE "<<endl;
-        cur->next=nullptr;
+        convertData1(st,sy);
     }
     else if(choice ==2)
     {
+        sy->sem->next = new semester;
         semester * cur=sy->sem->next;
-        cur= new semester;
         cout <<"Please input the start and end of the semester 2"<<endl;
         cout <<"Input the Start day - month -year of the semester 2" <<endl;
         cin >> cur->startDate.day >> cur->startDate.month >> cur->startDate.year;
@@ -104,12 +104,12 @@ void createSemester(schoolYear *&sy,student *&st)
         inputDataSemester2(cur->cs);
         displayCsSem2(sy);
         cout <<"Input the data of Course DONE "<<endl;
-        cur->next=nullptr;
+        convertData2(st,sy);
     }
     else if(choice ==3)
     {
-        semester *cur=sy->sem->next->next;
-        cur= new semester;
+        sy->sem->next->next = new semester;
+        semester * cur=sy->sem->next->next;
         cout <<"Please input the start and end of the semester 3"<<endl;
         cout <<"Input the Start day - month -year of the semester 3" <<endl;
         cin >> cur->startDate.day >> cur->startDate.month >> cur->startDate.year;
@@ -119,27 +119,23 @@ void createSemester(schoolYear *&sy,student *&st)
         inputDataSemester3(cur->cs);
         displayCsSem3(sy);
         cout <<"Input the data of Course DONE "<<endl;
-        cur->next=nullptr;
+        convertData3(st,sy);
     }
-     convertData(st,sy);
+
 }
-
-
-void convertData(student *&st ,schoolYear *& sy)
+void convertData3(student *&st,schoolYear *&sy)
 {
-    student *curST=st;
-    while(curST)
+     student * curSt =st;
+    while(curSt)
     {
-        semester4Student * curSEM = curST->semST;
-        semester *curSEMSY = sy->sem;
-        while(curSEMSY)
+
+        curSt->semST->next->next= new semester4Student;
+        semester4Student *curSe= curSt->semST->next->next;
+        curSe->cs = new course;
+        course *cur= curSe->cs;
+        Datacourse * cur2= sy->sem->next->next->cs;
+        while(cur2)
         {
-            curSEM = new semester4Student;
-            course *cur = curSEM->cs;
-            Datacourse *cur2=sy->sem->cs;
-            while(cur2)
-            {
-                cur=new course;
                 cur->id=cur2->id;
                 cur->name= cur2->name;
                 cur->numOfCredits=cur2->numOfCredits;
@@ -148,14 +144,76 @@ void convertData(student *&st ,schoolYear *& sy)
                 cur->daySt[0].time=cur2->daySt[0].time;
                 cur->daySt[1].dayInWeek= cur2->daySt[1].dayInWeek;
                 cur->daySt[1].time=cur2->daySt[1].time;
-                cur->next=nullptr;
-                cur=cur->next;
-                cur2=cur2->next;
-            }
-            curSEM->next=nullptr;
-            curSEM=curSEM->next;
-            curSEMSY=curSEMSY->next;
+                if(cur2)
+                {
+                    cur->next= new course;
+                    cur=cur->next;
+                }
+            cur2=cur2->next;
         }
+        curSt=curSt->next;
+    }
+}
+void convertData2(student *&st, schoolYear *&sy)
+{
+     student * curSt =st;
+    while(curSt)
+    {
+
+        curSt->semST->next= new semester4Student;
+        semester4Student *curSe= curSt->semST->next;
+        curSe->cs = new course;
+        course *cur= curSe->cs;
+        Datacourse * cur2= sy->sem->next->cs;
+        while(cur2)
+        {
+                cur->id=cur2->id;
+                cur->name= cur2->name;
+                cur->numOfCredits=cur2->numOfCredits;
+                cur->maxSt=cur2->maxSt;
+                cur->daySt[0].dayInWeek= cur2->daySt[0].dayInWeek;
+                cur->daySt[0].time=cur2->daySt[0].time;
+                cur->daySt[1].dayInWeek= cur2->daySt[1].dayInWeek;
+                cur->daySt[1].time=cur2->daySt[1].time;
+                if(cur2)
+                {
+                    cur->next= new course;
+                    cur=cur->next;
+                }
+            cur2=cur2->next;
+        }
+        curSt=curSt->next;
+    }
+}
+void convertData1(student *&st,schoolYear *&sy)
+{
+    student * curSt =st;
+    while(curSt)
+    {
+
+        curSt->semST= new semester4Student;
+        semester4Student *curSe= curSt->semST;
+        curSe->cs = new course;
+        course *cur= curSe->cs;
+        Datacourse * cur2= sy->sem->cs;
+        while(cur2)
+        {
+                cur->id=cur2->id;
+                cur->name= cur2->name;
+                cur->numOfCredits=cur2->numOfCredits;
+                cur->maxSt=cur2->maxSt;
+                cur->daySt[0].dayInWeek= cur2->daySt[0].dayInWeek;
+                cur->daySt[0].time=cur2->daySt[0].time;
+                cur->daySt[1].dayInWeek= cur2->daySt[1].dayInWeek;
+                cur->daySt[1].time=cur2->daySt[1].time;
+                if(cur2)
+                {
+                    cur->next= new course;
+                    cur=cur->next;
+                }
+            cur2=cur2->next;
+        }
+        curSt=curSt->next;
     }
 }
 
@@ -835,7 +893,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                         }
                     }
                     break;
-                    convertData(st,sy);
+                    convertData1(st,sy);
                 }
             }
             else if(choice1 ==2)
@@ -911,7 +969,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                         }
                     }
                     break;
-                    convertData(st,sy);
+                    convertData2(st,sy);
                 }
             }
             else if(choice1 ==3)
@@ -987,7 +1045,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                         }
                     }
                     break;
-                    convertData(st,sy);
+                    convertData3(st,sy);
                 }
             }
             else
