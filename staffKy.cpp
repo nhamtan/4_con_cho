@@ -106,4 +106,30 @@ void separateStars()
     cout << endl;
 }
 
+void averageScoreSemes(student *&st)
+{
+    student *stu=st;
+    semester4Student *sem=stu->semST;
+    course *c=stu->semST->cs;
+    while (stu!=nullptr)
+    {
+        while (sem!=nullptr)
+        {
+            float num=0;
+            while (c!=nullptr)
+            {
+                if (c->enrolled==true)
+                {
+                    sem->semGPA+=((c->mark).totalMark * c->numOfCredits);
+                    num+=c->numOfCredits;
+                }
+                c=c->next;
+            }
+            sem->semGPA/=num;
+            sem->semGPA=roundf(stu->totalMark4St * 10)/10;
+            sem=sem->next;
+        }
+        stu=stu->next;
+    }
+}
 
