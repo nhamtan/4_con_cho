@@ -46,6 +46,7 @@ struct semester4Student
     course *cs =nullptr;
     date startDate;
     date endDate;
+    float semGPA;
     semester4Student *next = nullptr;
 };
 struct semester
