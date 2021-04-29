@@ -106,3 +106,4 @@ void separateStars()
     cout << endl;
 }
 
+
