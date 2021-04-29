@@ -88,13 +88,66 @@ bool isEnrolledCourse(student *&st, string cid)
 void viewEnrolledCourseShort(student *&st)
 {
     semester4Student *cur1=st->semST;
-    cout <<"Information of all enrolled courses in semester 1"<<endl;
-    cout <<"---------------------------"<<endl;
+    cout <<'\t'<<"---------------------------"<<endl;
     course * cur = cur1->cs;
     while(cur)
     {
         if(cur->enrolled)
             cout <<cur->id<<endl;
         cur=cur->next;
+    }
+}
+
+void separateStars()
+{
+    cout << endl;
+    cout<<setfill('*');
+    cout << setw(50) <<'*'<< endl;
+    cout << endl;
+}
+
+void averageScoreSemes(student *&st)
+{
+    student *stu=st;
+    semester4Student *sem=stu->semST;
+    course *c=stu->semST->cs;
+    while (stu!=nullptr)
+    {
+        while (sem!=nullptr)
+        {
+            float num=0;
+            while (c!=nullptr)
+            {
+                if (c->enrolled==true)
+                {
+                    sem->semGPA+=((c->mark).totalMark * c->numOfCredits);
+                    num+=c->numOfCredits;
+                }
+                c=c->next;
+            }
+            sem->semGPA/=num;
+            sem->semGPA=roundf(stu->totalMark4St * 10)/10;
+            sem=sem->next;
+        }
+        stu=stu->next;
+    }
+}
+
+void GPAschoolyear(student *&st)
+{
+    student *stu=st;
+    semester4Student *sem=stu->semST;
+    while (stu!=nullptr)
+    {
+        int count=0;
+        while (sem!=nullptr)
+        {
+            count++;
+            stu->overallGPA+=sem->semGPA;
+            sem=sem->next;
+        }
+        stu->overallGPA/=count;
+        stu->overallGPA=roundf(stu->overallGPA * 10)/10;
+        stu=stu->next;
     }
 }

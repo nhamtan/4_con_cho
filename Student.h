@@ -24,7 +24,7 @@ struct student{
     student *next ;
     string cls;
     timeViewTotalMark time;
-    float totalMark4St ; /// lam 1 ham tinh rieng cai nay
+    float overallGPA=0 ; /// lam 1 ham tinh rieng cai nay
 };
 void initStudent(student *&St);
 void createASchoolYear(schoolYear *&sy);
