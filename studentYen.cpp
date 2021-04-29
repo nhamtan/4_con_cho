@@ -184,7 +184,7 @@ void inputDataSemester3 (Datacourse *&cs)
 
 }
 
-void viewStudentsInAClass(ifstream fin) {
+void viewStudentsInClass20CTT1(ifstream fin) {
     fin.open("StudentsClass20CTT1.txt");
     if(fin.is_open()) {
         string line;
@@ -194,3 +194,16 @@ void viewStudentsInAClass(ifstream fin) {
     else cout << "Fail to open file.";
     fin.close();
 }
+
+void viewStudentsInClass20CTT2(ifstream fin) {
+    fin.open("StudentsClass20CTT2.txt");
+    if(fin.is_open()) {
+        string line;
+        while(getline(fin, line))
+            cout << line <<endl;
+    }
+    else cout << "Fail to open file.";
+    fin.close();
+}
+
+
