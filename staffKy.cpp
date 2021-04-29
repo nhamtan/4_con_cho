@@ -88,8 +88,7 @@ bool isEnrolledCourse(student *&st, string cid)
 void viewEnrolledCourseShort(student *&st)
 {
     semester4Student *cur1=st->semST;
-    cout <<"Information of all enrolled courses in semester 1"<<endl;
-    cout <<"---------------------------"<<endl;
+    cout <<'\t'<<"---------------------------"<<endl;
     course * cur = cur1->cs;
     while(cur)
     {
@@ -98,3 +97,4 @@ void viewEnrolledCourseShort(student *&st)
         cur=cur->next;
     }
 }
+
