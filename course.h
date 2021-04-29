@@ -26,7 +26,7 @@ struct Datacourse{
     int numOfCredits;
     int maxSt = 50;
     timeStudying daySt[2];
-    Datacourse* next;
+    Datacourse* next = nullptr;
 };
 
 struct course
@@ -39,28 +39,28 @@ struct course
     timeStudying daySt[2];
     bool enrolled =false;
     markCourse mark;
-    course* next;
+    course* next = nullptr;
 };
 struct semester4Student
 {
     course *cs =nullptr;
     date startDate;
     date endDate;
-    semester4Student *next;
+    semester4Student *next = nullptr;
 };
 struct semester
 {
     Datacourse *cs=nullptr;
     date startDate;
     date endDate;
-    semester *next;
+    semester *next = nullptr;
 };
 struct schoolYear
 {
     date startYear;
     date endYear;
     semester * sem =nullptr;
-    schoolYear *next;
+    schoolYear *next = nullptr;
 };
 
 

@@ -57,60 +57,69 @@ void deleteCourse(schoolYear *&sy)
 
 void createASchoolYear(schoolYear *&sy)
 {
-    schoolYear * cur =new schoolYear;
+    sy=new schoolYear;
+    schoolYear * cur=sy;
     cout <<"Please input the start and end of the year"<<endl;
-    cout <<"Input the Start day - month - year of the year" ;
+    cout <<"Input the Start day - month - year of the year" <<endl;
     cin >> cur->startYear.day >> cur->startYear.month>> cur->startYear.year;
-    cout << "Input the End day - month - year of the year";
+    cout << "Input the End day - month - year of the year"<<endl;
     cin >> cur->endYear.day>> cur->endYear.month >> cur->endYear.year ;
-    cur->next=nullptr;
-    return;
+    if(sy->next) cout <<"yes";
+    else cout <<"No";
 }
 void createSemester(schoolYear *&sy,student *&st)
 {
-    semester *cur=sy->sem;
+    if(sy->sem==nullptr)
+        sy->sem = new semester;
     int choice;
     cout <<"1.Create a semester 1"<<endl;
     cout <<"2.Create a semester 2"<<endl;
     cout <<"3.Create a semester 3"<<endl;
+    cout <<"Enter your choice : "<<endl;
     cin >> choice;
     if(choice==1)
     {
+        semester * cur=sy->sem;
         cout <<"Please input the start and end of the semester 1"<<endl;
-        cout <<"Input the Start day - month -year of the semester 1" ;
-        cin >> sy->sem->startDate.day >> sy->sem->startDate.month >> sy->sem->startDate.year;
-        cout <<"Input the end day - month -year of the semester 1";
-        cin >> sy->sem->endDate.day >> sy->sem->endDate.month >> sy->sem->endDate.year;
-        cout <<"Information about courses of this semester 1 :" <<endl;
-        displayCourse(st,sy);
+        cout <<"Input the Start day - month -year of the semester 1 : " <<endl;
+        cin >> cur->startDate.day >> cur->startDate.month >> cur->startDate.year;
+        cout <<"Input the end day - month -year of the semester 1"<<endl;
+        cin >> cur->endDate.day >> cur->endDate.month >> cur->endDate.year;
+        cout <<"Information about courses of this semester 1 : " <<endl;
         inputDataSemester1(cur->cs);
+        displayCsSem1(sy);
         cout <<"Input the data of Course DONE "<<endl;
+        cur->next=nullptr;
     }
     else if(choice ==2)
     {
-        cur=cur->next;
+        semester * cur=sy->sem->next;
+        cur= new semester;
         cout <<"Please input the start and end of the semester 2"<<endl;
-        cout <<"Input the Start day - month -year of the semester 2" ;
-        cin >> sy->sem->startDate.day >> sy->sem->startDate.month >> sy->sem->startDate.year;
-        cout <<"Input the end day - month -year of the semester 2";
-        cin >> sy->sem->endDate.day >> sy->sem->endDate.month >> sy->sem->endDate.year;
+        cout <<"Input the Start day - month -year of the semester 2" <<endl;
+        cin >> cur->startDate.day >> cur->startDate.month >> cur->startDate.year;
+        cout <<"Input the end day - month -year of the semester 2"<<endl;
+        cin >> cur->endDate.day >> cur->endDate.month >> cur->endDate.year;
         cout <<"Information about courses of this semester 2 :" <<endl;
-        displayCourse(st,sy);
         inputDataSemester2(cur->cs);
+        displayCsSem2(sy);
         cout <<"Input the data of Course DONE "<<endl;
+        cur->next=nullptr;
     }
     else if(choice ==3)
     {
-        cur=cur->next->next;
+        semester *cur=sy->sem->next->next;
+        cur= new semester;
         cout <<"Please input the start and end of the semester 3"<<endl;
-        cout <<"Input the Start day - month -year of the semester 3" ;
-        cin >> sy->sem->startDate.day >> sy->sem->startDate.month >> sy->sem->startDate.year;
-        cout <<"Input the end day - month -year of the semester 3";
-        cin >> sy->sem->endDate.day >> sy->sem->endDate.month >> sy->sem->endDate.year;
+        cout <<"Input the Start day - month -year of the semester 3" <<endl;
+        cin >> cur->startDate.day >> cur->startDate.month >> cur->startDate.year;
+        cout <<"Input the end day - month -year of the semester 3"<<endl;
+        cin >> cur->endDate.day >> cur->endDate.month >> cur->endDate.year;
         cout <<"Information about courses of this semester 3 :" <<endl;
-        displayCourse(st,sy);
         inputDataSemester3(cur->cs);
+        displayCsSem3(sy);
         cout <<"Input the data of Course DONE "<<endl;
+        cur->next=nullptr;
     }
      convertData(st,sy);
 }
@@ -591,7 +600,56 @@ void displayCourse(student *&st,schoolYear *&sy)
     }
 }
 
-
+void displayCsSem1(schoolYear * sy)
+{
+    semester * cur1= sy->sem;
+    Datacourse *cur=cur1->cs;
+    while(cur)
+    {
+                cout <<"Name : "<< cur->name<<endl;
+                cout <<"Id : "<< cur->id<<endl;
+                cout <<"Teacher name : "<< cur->teacherName<<endl;
+                cout << "Number of credits : "<< cur->numOfCredits<<endl;
+                cout << "Time study in week : " << cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
+                cout << "Maximum of students : "<< cur->maxSt<<endl;
+                cout <<"----------"<<endl;
+                cur=cur->next;
+    }
+}
+void displayCsSem2(schoolYear *sy)
+{
+    semester * cur1= sy->sem;
+    cur1=cur1->next;
+    Datacourse *cur=cur1->cs;
+    while(cur)
+    {
+                cout <<"Name : "<< cur->name<<endl;
+                cout <<"Id : "<< cur->id<<endl;
+                cout <<"Teacher name : "<< cur->teacherName<<endl;
+                cout << "Number of credits : "<< cur->numOfCredits<<endl;
+                cout << "Time study in week : " << cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
+                cout << "Maximum of students : "<< cur->maxSt<<endl;
+                cout <<"----------"<<endl;
+                cur=cur->next;
+    }
+}
+void displayCsSem3(schoolYear *sy)
+{
+    semester * cur1= sy->sem;
+    cur1=cur1->next->next;
+    Datacourse *cur=cur1->cs;
+    while(cur)
+    {
+                cout <<"Name : "<< cur->name<<endl;
+                cout <<"Id : "<< cur->id<<endl;
+                cout <<"Teacher name : "<< cur->teacherName<<endl;
+                cout << "Number of credits : "<< cur->numOfCredits<<endl;
+                cout << "Time study in week : " << cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
+                cout << "Maximum of students : "<< cur->maxSt<<endl;
+                cout <<"----------"<<endl;
+                cur=cur->next;
+    }
+}
 void displayEnrollCourse(student *&st)
 {
     while(true)
@@ -998,7 +1056,26 @@ void exportListStudent(student *&st)
 }
 void functionStudent(student *&st, schoolYear *& sy)
 {
+    while(true)
+    {
+        cout <<"0.Log Out"<<endl;
+        cout <<"1.Enroll course"<<endl;
+        cout <<"Enter your choice : ";
+        int choice;
+        cin >>choice;
+        if(choice ==0)
+        {
+            return;
+        }
+        else if(choice ==1)
+        {
+            enrollCourse(st,sy);
+        }
+        else if(choice ==2)
+        {
 
+        }
+    }
 }
 void  functionStaff(student *& st, schoolYear *& sy)
 {
@@ -1039,6 +1116,7 @@ void  functionStaff(student *& st, schoolYear *& sy)
     else if(choice==5)
     {
         deleteCourse(sy);
+        cout <<"DONE"<<endl;
     }
     else if(choice ==6)
     {

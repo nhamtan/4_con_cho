@@ -41,6 +41,11 @@ void displayEnrollCourse(student *&st);
 void updateCourse(schoolYear *& sy, student *&st);
 void viewToTalMark(student *st);
 void  functionStaff(student *& st, schoolYear *& sy);
+void functionStudent(student *&st, schoolYear *& sy);
+void displayCsSem3(schoolYear *sy);
+void displayCsSem2(schoolYear *sy);
+void displayCsSem1(schoolYear *sy);
+
 
 
 

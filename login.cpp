@@ -34,6 +34,17 @@ void login(student *&St , staff *&Sf,schoolYear *&sy)
     string s;
     while(true)
     {
+    cout <<"0. Exit"<<endl;
+    cout <<"1.Log in"<<endl;
+    cout <<"Enter your choice : ";
+    int type;
+    cin >> type;
+    if(type == 0 ) return;
+    else if(type ==1)
+    {
+    while(true)
+    {
+
         string username;
         cout << "username: ";
         cin >> username;
@@ -57,9 +68,10 @@ void login(student *&St , staff *&Sf,schoolYear *&sy)
                 cout << "Welcome student " << a -> name << "\n";
                 /// add thêm giao diện của học sinh vào bằng hàm.
 
+    functionStudent(St,sy);
 
-
-
+        system("pause");
+        system("cls");
 
 
                 break;
@@ -79,17 +91,18 @@ void login(student *&St , staff *&Sf,schoolYear *&sy)
 
                 functionStaff(St,sy);
 
-
+                        system("pause");
+        system("cls");
 
 
 
                 break;
             }
         }
-        system("pause");
-        system("cls");
     }
-
+    }
+    else cout <<"Enter again"<<endl;
+    }
 }
 
 void exportCourse(student *St , string name)

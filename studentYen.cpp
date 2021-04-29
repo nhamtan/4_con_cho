@@ -9,9 +9,9 @@ using namespace std;
 void inputDataSemester1(Datacourse *&cs)
 {
 
-    Datacourse *cur = cs;
         //--------------
-        cur=new Datacourse;
+        cs=new Datacourse;
+        Datacourse *cur = cs;
         cur->id="CS161";
         cur->name="Introduction to Computer Science 1";
         cur->teacherName ="DinhBaTien";
@@ -21,10 +21,10 @@ void inputDataSemester1(Datacourse *&cs)
         cur->daySt[0].time="S1";
         cur->daySt[1].dayInWeek="FRI";
         cur->daySt[1].time="S1";
-        cur->next=nullptr;
+        cur->next= new Datacourse;
         cur=cur->next;
         //-------------------
-        cur=new Datacourse;
+        //cur=new Datacourse;
         cur->id="PH211";
         cur->name="General Physics 1";
         cur->teacherName ="Vu Thi Hanh Thu";
@@ -62,13 +62,19 @@ void inputDataSemester1(Datacourse *&cs)
         cur->daySt[1].time="C2";
         cur->next=nullptr;
 
+
+        Datacourse *cur1= cs;
+        cout << cs -> id << "," << endl;
+        cout << cs -> next -> id << "." << endl;
+        cout <<cur1->next->id;
 }
 
 void inputDataSemester2(Datacourse *&cs)
 {
-    Datacourse *cur=cs;
+
         //-------------------
-        cur=new Datacourse;
+        cs=new Datacourse;
+         Datacourse *cur=cs;
         cur->id="BAA00004";
         cur->name="Introduction to Laws";
         cur->teacherName ="Duong Kim The Nguyen";
@@ -126,9 +132,10 @@ void inputDataSemester2(Datacourse *&cs)
 }
 void inputDataSemester3 (Datacourse *&cs)
 {
-    Datacourse *cur =cs;
+
          //------------------
-        cur=new Datacourse;
+        cs=new Datacourse;
+         Datacourse *cur=cs;
         cur->id="BA00021";
         cur->name="Physical Education 1";
         cur->teacherName ="Nguyen Van Hung";
