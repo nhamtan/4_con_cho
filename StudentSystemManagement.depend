@@ -56,7 +56,7 @@
 
 1619705650 D
 
-1619782587 d:\4_con_cho\student.h
+1619789864 d:\4_con_cho\student.h
 	<iostream>
 	<bits/stdc++.h>
 	"course.h"
@@ -126,7 +126,7 @@
 	<bits/stdc++.h>
 	"course.h"
 
-1619788640 source:d:\4_con_cho\studentminh.cpp
+1619789687 source:d:\4_con_cho\studentminh.cpp
 	"Student.h"
 	"course.h"
 	"Staff.h"

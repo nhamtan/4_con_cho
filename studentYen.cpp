@@ -214,7 +214,7 @@ void viewScoreboardOfCourse(student *st, string cid) {
 
     int n=0;
     int colWidth=15;
-    cout << "SCOREBOARD" << end << endl;
+    cout << "SCOREBOARD" << endl << endl;
     cout << "Course: " << cid << endl << endl;
     cout << setfill('-') << setw(7*colWidth) << "-" << endl;
     cout << setfill(' ') << fixed;
@@ -228,8 +228,8 @@ void viewScoreboardOfCourse(student *st, string cid) {
             course* c = st->semST->cs;
             while(cid.compare(c->id) != 0) c = c->next;
             cout << setprecision(0) << setw(colWidth) << ++n << setw(colWidth) << st->username << setw(colWidth) << st->name
-                 << setw(colWidth) << c->mark->totalMark << setw(colWidth) << c->mark->finalMark
-                 << setw(colWidth) << c->mark->midMark << setw(colWidth) << c->mark->otherMark;
+                 << setw(colWidth) << c->mark.totalMark << setw(colWidth) << c->mark.finalMark
+                 << setw(colWidth) << c->mark.midMark << setw(colWidth) << c->mark.otherMark;
         }
         st = st->next;
     }
@@ -275,7 +275,7 @@ void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls) {
             while(stcs!=nullptr) {
                 bool check = 0;
                 if (c->id.compare(stcs->id) == 0) {
-                    cout << setw(colWidth) << stcs->mark->totalMark;      // if enrolled course, print out total mark
+                    cout << setw(colWidth) << stcs->mark.totalMark;      // if enrolled course, print out total mark
                     check = 1;
                     break;
                 }
