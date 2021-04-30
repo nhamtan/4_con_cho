@@ -1422,6 +1422,101 @@ void  functionStaff(student *& st, schoolYear *& sy)
 }
 }
 
+/*void deleteACourse(schoolYear *&sy,student *&st)
+{
+        cout <<"1.View Course"<<endl;
+        cout <<"2.Delete course"<<endl;
+        cout <<"Enter your choice : ";
+        int choice;
+        cin>> choice;
+
+        if(choice ==1)
+        {
+            displayCourse(st,sy);
+            return;
+        }
+        if(choice ==2)
+        {
+            while(true)
+            {
+
+                semester * cur = sy->sem;
+                cout <<"0.Break"<<endl;
+                cout <<"1.Delete a course in semester 1"<<endl;
+                cout <<"2.Delete a course in semester 2"<<endl;
+                cout <<"3.Delete a course in semester 3"<<endl;
+                cout <<"Enter your choice : ";
+                int choice1;
+                cin >> choice1;
+                if(choice1 == 0) return;
+                else if(choice1 ==1)
+                {
+                    if(cur ==nullptr)
+                    {
+                        cout <<endl;
+                        cout <<"You need to create semester 1 first"<<endl;
+                        cout <<endl;
+                        return;
+                    }
+                    cout <<"-----------------------"<<endl;
+                    cout <<"Enter ID of course that you want to delete : ";
+                    string s;
+                    cin >> s;
+                    Datacourse * cur1= cur->cs;
+                    while(cur1)
+                    {
+
+                    }
+                    if(cur1==nullptr) cout<<"ID no match"<<endl;
+                }
+                else if(choice1 ==2)
+                {
+                    if(cur==nullptr)
+                    {
+                        cout <<endl;
+                        cout <<"You need to create semester 1 first"<<endl;
+                        cout <<endl;
+                        return;
+                    }
+                    if(cur->next==nullptr)
+                    {
+                        cout <<endl;
+                        cout<<"You need to create semester 2 first"<<endl;
+                        cout <<endl;
+                        return;
+                    }
+                }
+                else if(choice1 ==3)
+                {
+                    if(cur==nullptr)
+                    {
+                        cout <<endl;
+                        cout <<"You need to create semester 1"<<endl;
+                        cout <<endl;
+                        return;
+                    }
+                     if(cur->next==nullptr)
+                    {
+                        cout <<endl;
+                        cout<<"You need to create semester 2 first"<<endl;
+                        cout <<endl;
+                        return;
+                    }
+                    if(cur->next->next ==nullptr)
+                    {
+                        cout <<endl;
+                        cout <<"You need to create a semester 3 first"<<endl;
+                        cout <<endl;
+                        return;
+                    }
+
+                }
+
+            }
+
+        }
+
+}
 
 
 
