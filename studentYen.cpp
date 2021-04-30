@@ -195,4 +195,28 @@ void viewStudentsInClass20CTT2(ifstream fin) {
     fin.close();
 }
 
+void viewScoreboardOfCourse(student *st, string cid) {
+
+    int n=0;
+    int colWidth=15;
+    cout << "SCOREBOARD" << end << endl;
+    cout << "Course: " << cid << endl << endl;
+    cout << setfill('-') << setw(3*colWidth) << "-" << endl;
+    cout << setfill(' ') << fixed;
+    cout << setw(colWidth) << "No" << setw(colWidth) << "Student ID" << setw(colWidth) << "Student Full Name"
+         << setw(colWidth) << "Total Mark" << setw(colWidth) << "Final Mark" << setw(colWidth)
+         << setw(colWidth) << "Midterm Mark" << setw(colWidth) << "Other Mark" << endl;
+    while(st != nullptr) {
+        if(isEnrolledCourse(st, cid)) {
+            course* c = st->semST->cs;
+            while(!strcmp(c.id, cid)) c = c->next;
+            cout << setprecision(0) << setw(colWidth) << n++ << setw(colWidth) << st->username << setw(colWidth) << st->name
+                 << setw(colWidth) << c->mark->totalMark << setw(colWidth) << c->mark->finalMark
+                 << setw(colWidth) << c->mark->midMark << setw(colWidth) << c->mark->otherMark;
+        }
+        st = st->next;
+    }
+}
+
+
 
