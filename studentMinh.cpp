@@ -853,6 +853,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cin >> cur->id;
                                 cout <<"DONE"<<endl;
                                 cout <<endl;
+                                break;
                             }
                             else if(choice2==2)
                             {
@@ -1089,7 +1090,7 @@ void viewToTalMark(student *st)
         }
 
     }
-    cout <<"Your total mark : " <<st->totalMark4St<<endl;
+    cout <<"Your total mark : " <<st->overallGPA<<endl;
 
 }
 void exportListStudent(student *&st)
