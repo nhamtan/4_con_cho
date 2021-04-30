@@ -290,4 +290,56 @@ void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls) {
     }
 }
 
+bool canEnroll(date startEnroll, date closeEnroll) {
+     time_t now = time(0);
+   tm *ltm = localtime(&now);
+
+   date cur;
+
+    cur.year =1900 + ltm->tm_year;
+    cur.month =1 + ltm->tm_mon;
+    cur.day = ltm->tm_mday ;
+
+    if (isBefore(startEnroll, cur) && isBefore(cur, closeEnroll))
+        return 1;
+    else
+        return 0;
+
+}
+
+bool isBefore(date d1, date d2) {
+    if (d1.year < d2.year) return 1;
+    else if (d1.year == d2.year) {
+        if(d1.month < d2.month)
+            return 1;
+        else if (d1.month == d2.month)
+            if (d1.day <= d2.day)
+            return 1;
+    }
+    return 0;
+}
+
+void inputEnrollmentDate (date &startEnroll, date &closeEnroll) {
+    cout << "Input Enrollment Duration" << endl;
+    cout << "Open Date (dd mm yyyy): " ;
+    cin >> startEnroll.day >> startEnroll.month >> startEnroll.year;
+    cout << "Close Date (dd mm yyyy): ";
+    cin >> closeEnroll.day >> closeEnroll.month >> closeEnroll.year;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
