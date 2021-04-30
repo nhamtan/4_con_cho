@@ -1517,6 +1517,7 @@ void  functionStaff(student *& st, schoolYear *& sy)
         }
 
 }
+*/
 
 
 
