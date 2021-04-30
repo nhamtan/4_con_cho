@@ -290,7 +290,11 @@ void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls) {
     }
 }
 
-bool canEnroll(date startEnroll, date closeEnroll) {
+bool canEnroll() {
+    date startEnroll, closeEnroll;
+    ifstream fin;
+    loadEnrollmentDate(fin, startEnroll, closeEnroll);
+
      time_t now = time(0);
    tm *ltm = localtime(&now);
 
@@ -319,16 +323,28 @@ bool isBefore(date d1, date d2) {
     return 0;
 }
 
-void inputEnrollmentDate (date &startEnroll, date &closeEnroll) {
+void inputEnrollmentDate (date &startEnroll, date &closeEnroll, ofstream &fout) {
     cout << "Input Enrollment Duration" << endl;
     cout << "Open Date (dd mm yyyy): " ;
     cin >> startEnroll.day >> startEnroll.month >> startEnroll.year;
     cout << "Close Date (dd mm yyyy): ";
     cin >> closeEnroll.day >> closeEnroll.month >> closeEnroll.year;
 
+    fout.open("EnrollmentDate.txt");
+    if(fout.is_open()) {
+        fout << startEnroll.day << " " << startEnroll.month << " " << startEnroll.year << " "
+             << closeEnroll.day << " " << closeEnroll.month << " " << closeEnroll.year;
+    }
+    fout.close();
 }
 
-
+void loadEnrollmentDate(ifstream &fin, date &startEnroll, date &closeEnroll) {
+    fin.open("EnrollmentDate.txt");
+    if(fin.is_open()) {
+        fin >> startEnroll.day >> startEnroll.month >> startEnroll.year >> closeEnroll.day >> closeEnroll.month >> closeEnroll.year;
+    }
+    fin.close();
+}
 
 
 

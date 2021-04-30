@@ -1361,7 +1361,10 @@ void functionStudent(student *&st, schoolYear *& sy)
         }
         else if(choice ==1)
         {
-            enrollCourse(st,sy);
+            if(canEnroll())
+                enrollCourse(st,sy);
+            else
+                cout << "Can not enroll course now." << endl << "Please re-enter other choice: ";
         }
         else if(choice ==2)
         {
