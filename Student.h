@@ -47,9 +47,9 @@ void displayCsSem1(schoolYear *sy);
 void convertData1(student *&st,schoolYear *&sy);
 void convertData3(student *&st,schoolYear *&sy);
 void convertData2(student *&st, schoolYear *&sy);
-
-
-
+void viewScoreboardOfCourse(student *st, string cid);
+void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls);
+bool checkEnrollingStu(student *st, string cid);
 
 
 
