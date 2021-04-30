@@ -199,6 +199,17 @@ void viewStudentsInClass20CTT2(ifstream fin) {
     fin.close();
 }
 
+bool checkEnrollingStu(student *st, string cid) {                            //check if student enroll in the course cid
+    course* c = st->semST->cs;
+    while(c!=nullptr) {
+        if(cid.compare(c->id) == 0)
+            return 1;
+        c = c->next;
+    }
+    return 0;
+
+}
+
 void viewScoreboardOfCourse(student *st, string cid) {
 
     int n=0;
@@ -213,9 +224,9 @@ void viewScoreboardOfCourse(student *st, string cid) {
     cout << setfill('-') << setw(7*colWidth) << "-" << endl;
     cout << setfill(' ') << fixed;
     while(st != nullptr) {
-        if(isEnrolledCourse(st, cid)) {
+        if(checkEnrollingStu(st, cid)) {
             course* c = st->semST->cs;
-            while(cid.compare(c.id) != 0) c = c->next;
+            while(cid.compare(c->id) != 0) c = c->next;
             cout << setprecision(0) << setw(colWidth) << ++n << setw(colWidth) << st->username << setw(colWidth) << st->name
                  << setw(colWidth) << c->mark->totalMark << setw(colWidth) << c->mark->finalMark
                  << setw(colWidth) << c->mark->midMark << setw(colWidth) << c->mark->otherMark;
