@@ -201,16 +201,18 @@ void viewScoreboardOfCourse(student *st, string cid) {
     int colWidth=15;
     cout << "SCOREBOARD" << end << endl;
     cout << "Course: " << cid << endl << endl;
-    cout << setfill('-') << setw(3*colWidth) << "-" << endl;
+    cout << setfill('-') << setw(7*colWidth) << "-" << endl;
     cout << setfill(' ') << fixed;
     cout << setw(colWidth) << "No" << setw(colWidth) << "Student ID" << setw(colWidth) << "Student Full Name"
          << setw(colWidth) << "Total Mark" << setw(colWidth) << "Final Mark" << setw(colWidth)
          << setw(colWidth) << "Midterm Mark" << setw(colWidth) << "Other Mark" << endl;
+    cout << setfill('-') << setw(7*colWidth) << "-" << endl;
+    cout << setfill(' ') << fixed;
     while(st != nullptr) {
         if(isEnrolledCourse(st, cid)) {
             course* c = st->semST->cs;
             while(!strcmp(c.id, cid)) c = c->next;
-            cout << setprecision(0) << setw(colWidth) << n++ << setw(colWidth) << st->username << setw(colWidth) << st->name
+            cout << setprecision(0) << setw(colWidth) << ++n << setw(colWidth) << st->username << setw(colWidth) << st->name
                  << setw(colWidth) << c->mark->totalMark << setw(colWidth) << c->mark->finalMark
                  << setw(colWidth) << c->mark->midMark << setw(colWidth) << c->mark->otherMark;
         }
@@ -218,5 +220,59 @@ void viewScoreboardOfCourse(student *st, string cid) {
     }
 }
 
+
+void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls) {
+
+    int no = 0;
+    int colWidth = 15;
+    Datacourse* c = sem->cs;
+
+    cout << "SCOREBOARD" << endl << endl;
+    cout << "Class: " << cls << endl << endl;
+
+    cout << setfill('-') << setw(15*colWidth) << "-" << endl;
+    cout << setfill(' ') << fixed;
+
+    cout << setw(colWidth) << "No" << setw(colWidth) << "Student ID" << setw(colWidth) << "Student Full Name";
+    while (c!= nullptr) {
+            cout << setw(colWidth) << c->name;
+            c = c->next;
+    }
+    cout << setw(colWidth) << "GPA of Semester" << setw(colWidth) << "Overall GPA" << endl;
+
+    cout << setfill('-') << setw(15*colWidth) << "-" << endl;
+    cout << setfill(' ') << fixed;
+
+    while(st!=nullptr) {
+        if (stringcmp(st->cls, cls)) {
+            cout << setprecision(0) << setw(colWidth) << ++no << setw(colWidth) << st->username << setw(colWidth) << st->name;
+
+            semester4Student* s = st->semST;
+            for(int i = 1; i < semNo; i++) s = s->next;                   // get to the right semester
+
+            Datacourse* c = sem->cs;
+
+            // print out mark of courses in the semester
+            while (c!=nullptr) {
+
+            course* stcs = s->cs;
+
+            while(stcs!=nullptr) {
+                bool check = 0;
+                if (strcmp(stcs->id, c->id)) {
+                    cout << setw(colWidth) << stcs->mark->totalMark;      // if enrolled course, print out total mark
+                    check = 1;
+                    break;
+                }
+                if(!check) cout << setw(colWidth) << "-";                 // if not enrolled course, print out -
+                stcs = stcs->next;
+            }
+            c = c->next;
+            }
+            cout << setw(colWidth) << s->semGPA << setw(colWidth) << st->overallGPA << endl;
+        }
+        st = st->next;
+    }
+}
 
 
