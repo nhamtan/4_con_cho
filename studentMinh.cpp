@@ -791,8 +791,9 @@ void displayEnrollCourse(student *&st)
         {
             cout <<"Please enter again your choice"<<endl;
             cout<<endl;
-        }       }
+        }
     }
+}
 
 void updateCourse(schoolYear *& sy, student *&st)
 {
@@ -810,7 +811,8 @@ void updateCourse(schoolYear *& sy, student *&st)
     {
         while(true)
         {
-            semester *cur1= sy->sem;
+            semester *head1= sy->sem;
+            semester *cur1=head1;
             cout <<"0.Break"<<endl;
             cout <<"1.Update Information course in semester 1"<<endl;
             cout <<"2.Update Information course in semester 2"<<endl;
@@ -850,7 +852,15 @@ void updateCourse(schoolYear *& sy, student *&st)
                             {
                                 cout<<"ID : "<<cur->id<<endl;
                                 cout <<"Enter new ID : ";
-                                cin >> cur->id;
+                                string cid;
+                                cin.ignore();
+                                getline(cin,cid);
+                                while (cur->id.compare(cid)==0)
+                                {
+                                    cout<<"You have entered the same course's ID. Please input again."<<endl;
+                                    getline(cin, cid);
+                                }
+                                cur->id=cid;
                                 cout <<"DONE"<<endl;
                                 cout <<endl;
                                 break;
@@ -859,33 +869,67 @@ void updateCourse(schoolYear *& sy, student *&st)
                             {
                                 cout <<"The name of course : "<<cur->name<<endl;
                                 cout<<"Enter new name of course : ";
-                                cin >> cur->name;
+                                string cname;
+                                cin.ignore();
+                                getline(cin, cname);
+                                while (cur->name.compare(cname)==0)
+                                {
+                                    cout<<"You have entered the same course's name. Please input again."<<endl;
+                                    getline(cin, cname);
+                                }
+                                cur->name=cname;
                                 cout<<"DONE"<<endl;
                                 cout <<endl;
+                                break;
                             }
                             else if(choice2==3)
                             {
                                 cout <<"The name of teacher : "<< cur->teacherName<<endl;
                                 cout <<"Enter new name of teacher : ";
-                                cin >> cur->teacherName;
+                                string lecturer;
+                                cin.ignore();
+                                getline(cin, lecturer);
+                                while (cur->teacherName.compare(lecturer)==0)
+                                {
+                                    cout<<"You have entered the same teacher's name. Please input again."<<endl;
+                                    getline(cin, lecturer);
+                                }
+                                cur->teacherName=lecturer;
                                 cout <<"Done"<<endl;
                                 cout<<endl;
+                                break;
                             }
                             else if(choice2==4)
                             {
                                 cout<<"The number of credits of "<<cur->name <<" : "<<cur->numOfCredits<<endl;
-                                cout<<"Enter new credits : ";
-                                cin >> cur->numOfCredits;
+                                cout<<"Enter new credits : "<<endl;
+                                int cre;
+                                cin >> cre;
+                                while (cre==cur->numOfCredits)
+                                {
+                                    cout<<"You have entered the same number of credits. Please input again"<<endl;
+                                    cin>>cre;
+                                }
+                                cur->numOfCredits=cre;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
+                                break;
                             }
                             else if(choice2==5)
                             {
                                 cout <<"Max student of course : "<<cur->maxSt;
                                 cout <<"Enter new max Students in course : ";
-                                cin >> cur->maxSt;
+                                int maxStu;
+                                cin >> maxStu;
+                                while (maxStu==cur->maxSt)
+                                {
+                                    cout<<"You have entered the same number of maximum students. Please input again"<<endl;
+                                    cin>>maxStu;
+                                }
+                                cur->maxSt=maxStu;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
+                                break;
                             }
                             else
                             {
@@ -903,6 +947,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                 cout <<"Enter ID of course that you want to update information ";
                 string s;
                 cin >> s;
+                cur1=head1->next;
                 Datacourse *cur =cur1->cs;
                 while(cur)
                 {
@@ -927,41 +972,84 @@ void updateCourse(schoolYear *& sy, student *&st)
                             {
                                 cout<<"ID : "<<cur->id<<endl;
                                 cout <<"Enter new ID : ";
-                                cin >> cur->id;
+                                string cid2;
+                                cin.ignore();
+                                getline(cin,cid2);
+                                while (cur->id.compare(cid2)==0)
+                                {
+                                    cout<<"You have entered the same course's ID. Please input again."<<endl;
+                                    getline(cin, cid2);
+                                }
+                                cur->id=cid2;
                                 cout <<"DONE"<<endl;
                                 cout <<endl;
+                                break;
                             }
                             else if(choice2==2)
                             {
                                 cout <<"The name of course : "<<cur->name<<endl;
                                 cout<<"Enter new name of course : ";
-                                cin >> cur->name;
+                                string cname2;
+                                cin.ignore();
+                                getline(cin, cname2);
+                                while (cur->name.compare(cname2)==0)
+                                {
+                                    cout<<"You have entered the same course's name. Please input again."<<endl;
+                                    getline(cin, cname2);
+                                }
+                                cur->name=cname2;
                                 cout<<"DONE"<<endl;
                                 cout <<endl;
+                                break;
                             }
                             else if(choice2==3)
                             {
                                 cout <<"The name of teacher : "<< cur->teacherName<<endl;
                                 cout <<"Enter new name of teacher : ";
-                                cin >> cur->teacherName;
+                                string lecturer2;
+                                cin.ignore();
+                                getline(cin, lecturer2);
+                                while (cur->teacherName.compare(lecturer2)==0)
+                                {
+                                    cout<<"You have entered the same teacher's name. Please input again."<<endl;
+                                    getline(cin, lecturer2);
+                                }
+                                cur->teacherName=lecturer2;
                                 cout <<"Done"<<endl;
                                 cout<<endl;
+                                break;
                             }
                             else if(choice2==4)
                             {
                                 cout<<"The number of credits of "<<cur->name <<" : "<<cur->numOfCredits<<endl;
-                                cout<<"Enter new credits : ";
-                                cin >> cur->numOfCredits;
+                                cout<<"Enter new credits : "<<endl;
+                                int cre2;
+                                cin >> cre2;
+                                while (cre2==cur->numOfCredits)
+                                {
+                                    cout<<"You have entered the same number of credits. Please input again"<<endl;
+                                    cin>>cre2;
+                                }
+                                cur->numOfCredits=cre2;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
+                                break;
                             }
                             else if(choice2==5)
                             {
                                 cout <<"Max student of course : "<<cur->maxSt;
                                 cout <<"Enter new max Students in course : ";
-                                cin >> cur->maxSt;
+                                int maxStu2;
+                                cin >> maxStu2;
+                                while (maxStu2==cur->maxSt)
+                                {
+                                    cout<<"You have entered the same number of maximum students. Please input again"<<endl;
+                                    cin>>maxStu2;
+                                }
+                                cur->maxSt=maxStu2;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
+                                break;
                             }
                             else
                             {
@@ -970,7 +1058,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                         }
                     }
                     break;
-                    convertData2(st,sy);
+                    convertData1(st,sy);
                 }
             }
             else if(choice1 ==3)
@@ -979,6 +1067,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                 cout <<"Enter ID of course that you want to update information ";
                 string s;
                 cin >> s;
+                cur1=head1->next->next;
                 Datacourse *cur =cur1->cs;
                 while(cur)
                 {
@@ -1003,41 +1092,84 @@ void updateCourse(schoolYear *& sy, student *&st)
                             {
                                 cout<<"ID : "<<cur->id<<endl;
                                 cout <<"Enter new ID : ";
-                                cin >> cur->id;
+                                string cid3;
+                                cin.ignore();
+                                getline(cin,cid3);
+                                while (cur->id.compare(cid3)==0)
+                                {
+                                    cout<<"You have entered the same course's ID. Please input again."<<endl;
+                                    getline(cin, cid3);
+                                }
+                                cur->id=cid3;
                                 cout <<"DONE"<<endl;
                                 cout <<endl;
+                                break;
                             }
                             else if(choice2==2)
                             {
                                 cout <<"The name of course : "<<cur->name<<endl;
                                 cout<<"Enter new name of course : ";
-                                cin >> cur->name;
+                                string cname3;
+                                cin.ignore();
+                                getline(cin, cname3);
+                                while (cur->name.compare(cname3)==0)
+                                {
+                                    cout<<"You have entered the same course's name. Please input again."<<endl;
+                                    getline(cin, cname3);
+                                }
+                                cur->name=cname3;
                                 cout<<"DONE"<<endl;
                                 cout <<endl;
+                                break;
                             }
                             else if(choice2==3)
                             {
                                 cout <<"The name of teacher : "<< cur->teacherName<<endl;
                                 cout <<"Enter new name of teacher : ";
-                                cin >> cur->teacherName;
+                                string lecturer3;
+                                cin.ignore();
+                                getline(cin, lecturer3);
+                                while (cur->teacherName.compare(lecturer3)==0)
+                                {
+                                    cout<<"You have entered the same teacher's name. Please input again."<<endl;
+                                    getline(cin, lecturer3);
+                                }
+                                cur->teacherName=lecturer3;
                                 cout <<"Done"<<endl;
                                 cout<<endl;
+                                break;
                             }
                             else if(choice2==4)
                             {
                                 cout<<"The number of credits of "<<cur->name <<" : "<<cur->numOfCredits<<endl;
-                                cout<<"Enter new credits : ";
-                                cin >> cur->numOfCredits;
+                                cout<<"Enter new credits : "<<endl;
+                                int cre3;
+                                cin >> cre3;
+                                while (cre3==cur->numOfCredits)
+                                {
+                                    cout<<"You have entered the same number of credits. Please input again"<<endl;
+                                    cin>>cre3;
+                                }
+                                cur->numOfCredits=cre3;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
+                                break;
                             }
                             else if(choice2==5)
                             {
                                 cout <<"Max student of course : "<<cur->maxSt;
                                 cout <<"Enter new max Students in course : ";
-                                cin >> cur->maxSt;
+                                int maxStu3;
+                                cin >> maxStu3;
+                                while (maxStu3==cur->maxSt)
+                                {
+                                    cout<<"You have entered the same number of maximum students. Please input again"<<endl;
+                                    cin>>maxStu3;
+                                }
+                                cur->maxSt=maxStu3;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
+                                break;
                             }
                             else
                             {
@@ -1046,7 +1178,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                         }
                     }
                     break;
-                    convertData3(st,sy);
+                    convertData1(st,sy);
                 }
             }
             else

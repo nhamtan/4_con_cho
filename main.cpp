@@ -15,5 +15,5 @@ int main()
     createASchoolYear(sy);
     createSemester(sy, St);
     updateCourse(sy, St);
-    return 0;
+
 }
