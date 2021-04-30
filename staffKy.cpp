@@ -152,3 +152,168 @@ void GPAschoolyear(student *&st)
     }
 }
 
+void modifyScoreSem(student *&st)
+{
+    semester4Student *sem=st->semST;
+    string cid;
+    cout<<"Update mark of course"<<endl;
+    cout<<endl;
+    cout<<"Enter course's ID: ";
+    cin.ignore();
+    getline(cin, cid);
+
+    while (isEnrolledCourse(st, cid)==false)
+    {
+        cout<<"Please enter course's ID again"<<endl;
+        getline(cin, cid);
+    }
+    cout<<"You have entered correct course's ID"<<endl;
+    cout<<endl;
+
+    markCourse m=sem->cs->mark;
+    cout<<"Which mark you want to update?"<<endl;
+    cout<<endl;
+    cout<<"0.Exit"<<endl;
+    cout<<"1.Midterm"<<endl;
+    cout<<"2.Final"<<endl;
+    cout<<"3.Other"<<endl;
+    cout<<endl;
+    cout<<"Enter your choice: "<<endl;
+    int score1;
+    cin>>score1;
+    while (true)
+    {
+        if (score1==1)
+        {
+            float mid1;
+            cout<<"Enter midterm score: ";
+            cin>>mid1;
+            while (mid1==m.midMark)
+            {
+                cout<<"You have entered the same midterm score. Please enter again."<<endl;
+                cin>>mid1;
+            }
+            m.midMark=mid1;
+            cout<<"Updated midterm score: "<<m.midMark<<endl;
+            separateStars();
+            cout<<"DONE"<<endl;
+            break;
+         }
+         else if (score1==2)
+         {
+            float final1;
+            cout<<"Enter final score: ";
+            cin>>final1;
+            while (final1==m.finalMark)
+            {
+                cout<<"You have entered the same midterm score. Please enter again."<<endl;
+                cin>>final1;
+            }
+            m.finalMark=final1;
+            cout<<"Updated final score: "<<m.finalMark<<endl;
+            cout<<"DONE"<<endl;
+            separateStars();
+            break;
+         }
+         else if (score1==3)
+         {
+            float other1;
+            cout<<"Enter other score: "<<endl;
+            cin>>other1;
+            while (other1==m.otherMark)
+            {
+                cout<<"You have entered the same other mark. Please enter again."<<endl;
+                cin>>other1;
+            }
+            m.otherMark=other1;
+            cout<<"Updated other score: "<<m.otherMark<<endl;
+            separateStars();
+            cout<<"DONE"<<endl;
+            break;
+         }
+         else
+         {
+             cout<<"Break"<<endl;
+             break;
+         }
+    }
+    cout<<"Student's score this course: "<<m.totalMark<<endl;
+    cout<<"Student's score this semester: "<<sem->semGPA<<endl;
+}
+
+void updateScore (student *&st)
+{
+    cout <<"Update student's result"<<endl;
+    while(true)
+    {
+        cout<<"Please enter student's class and ID you would like to update his or her result"<<endl;
+        string clas, sid;
+        getline(cin, clas);
+        getline(cin, sid);
+        student *cur=st;
+        while (cur!=nullptr)
+        {
+            if (cur->cls.compare(clas)==0 && cur->username.compare(sid)!=0) cur=cur->next;
+            else if (cur->cls.compare(clas)!=0 && cur->username.compare(sid)!=0) cur=cur->next;
+        }
+        cout <<"0.Break"<<endl;
+        cout <<"1.Update student's result in semester 1"<<endl;
+        cout <<"2.Update student's result in semester 2"<<endl;
+        cout <<"3.Update student's result in semester 3"<<endl;
+        cout<<"Enter your choice : "<<endl;
+        int choice1;
+        cin>>choice1;
+        semester4Student *sem=cur->semST;
+        if (choice1==0)
+        {
+            cout<<"Break"<<endl;
+            break;
+        }
+        else if (choice1==1)
+        {
+            course * c = sem->cs;
+            cout<<"List of enrolled courses"<<endl;
+            cout<<endl;
+            while(c!=nullptr)
+            {
+                if(c->enrolled)
+                    cout <<c->id<<endl;
+                c=c->next;
+            }
+            modifyScoreSem(cur);
+            break;
+        }
+        else if (choice1==2)
+        {
+            sem=sem->next;
+            course * c = sem->cs;
+            cout<<"List of enrolled courses"<<endl;
+            cout<<endl;
+            while(c!=nullptr)
+            {
+                if(c->enrolled)
+                    cout <<c->id<<endl;
+                c=c->next;
+            }
+            modifyScoreSem(cur);
+            break;
+        }
+        else if (choice1==3)
+        {
+            sem=sem->next->next;
+            course * c = sem->cs;
+            cout<<"List of enrolled courses"<<endl;
+            cout<<endl;
+            while(c!=nullptr)
+            {
+                if(c->enrolled)
+                    cout <<c->id<<endl;
+                c=c->next;
+            }
+            modifyScoreSem(cur);
+            break;
+        }
+        cout<<'\n'<<"Student's average score this schoolyear: "<<cur->overallGPA<<endl;
+        separateStars();
+    }
+}
