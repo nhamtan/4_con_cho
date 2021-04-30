@@ -54,15 +54,30 @@
 	"Staff.h"
 	<bits/stdc++.h>
 
-<<<<<<< HEAD
-1619716770 d:\4_con_cho\student.h
-=======
-1619705650 d:\4_con_cho\student.h
->>>>>>> 9e2ff2b3c22cddf1a6c98c19b5ca5d19f0d9f6b3
+1619705650 D
+
+1619760942 d:\4_con_cho\student.h
 	<iostream>
 	<bits/stdc++.h>
 	"course.h"
 	"Student.h"
+
+1619705650 ff2b3c22cddf1a6c98c19b5ca5d19f0d9f6b3
+	<iostream>
+	<bits/stdc++.h>
+	"course.h"
+	"Student.h"
+	<bits/stdc++.h>
+	"course.h"
+	"Student.h"
+	"login.h"
+	"Staff.h"
+	"Student.h"
+	"course.h"
+	"Staff.h"
+	"login.h"
+	<bits/stdc++.h>
+	<ctime>
 
 1619705650 d:\4_con_cho\staff.h
 	<bits/stdc++.h>
@@ -95,30 +110,18 @@
 
 1619705650 source:d:\4_con_cho\stafftan.cpp
 
-<<<<<<< HEAD
-1619686736 source:d:\4_con_cho\studentyen.cpp
-=======
-1619705650 source:d:\4_con_cho\studentyen.cpp
->>>>>>> 9e2ff2b3c22cddf1a6c98c19b5ca5d19f0d9f6b3
+1619760942 source:d:\4_con_cho\studentyen.cpp
 	<bits/stdc++.h>
 	"course.h"
 	"Student.h"
 	"login.h"
 	"Staff.h"
 
-<<<<<<< HEAD
-1619687568 d:\4_con_cho\course.h
+1619716708 d:\4_con_cho\course.h
 	<bits/stdc++.h>
 	"course.h"
 
-1619716991 source:d:\4_con_cho\studentminh.cpp
-=======
-1619705650 d:\4_con_cho\course.h
-	<bits/stdc++.h>
-	"course.h"
-
-1619705650 source:d:\4_con_cho\studentminh.cpp
->>>>>>> 9e2ff2b3c22cddf1a6c98c19b5ca5d19f0d9f6b3
+1619760942 source:d:\4_con_cho\studentminh.cpp
 	"Student.h"
 	"course.h"
 	"Staff.h"

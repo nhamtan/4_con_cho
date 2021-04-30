@@ -88,7 +88,7 @@ bool isEnrolledCourse(student *&st, string cid)
 void viewEnrolledCourseShort(student *&st)
 {
     semester4Student *cur1=st->semST;
-    cout <<'\t'<<"---------------------------"<<endl;
+    cout <<'\t'<<"-----------------------"<<endl;
     course * cur = cur1->cs;
     while(cur)
     {
@@ -126,7 +126,7 @@ void averageScoreSemes(student *&st)
                 c=c->next;
             }
             sem->semGPA/=num;
-            sem->semGPA=roundf(stu->totalMark4St * 10)/10;
+            sem->semGPA=roundf(sem->semGPA * 10)/10;
             sem=sem->next;
         }
         stu=stu->next;
@@ -151,3 +151,4 @@ void GPAschoolyear(student *&st)
         stu=stu->next;
     }
 }
+
