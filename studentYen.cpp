@@ -1,4 +1,8 @@
 
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip>
 #include <bits/stdc++.h>
 #include"course.h"
 #include"Student.h"
@@ -211,7 +215,7 @@ void viewScoreboardOfCourse(student *st, string cid) {
     while(st != nullptr) {
         if(isEnrolledCourse(st, cid)) {
             course* c = st->semST->cs;
-            while(!strcmp(c.id, cid)) c = c->next;
+            while(cid.compare(c.id) != 0) c = c->next;
             cout << setprecision(0) << setw(colWidth) << ++n << setw(colWidth) << st->username << setw(colWidth) << st->name
                  << setw(colWidth) << c->mark->totalMark << setw(colWidth) << c->mark->finalMark
                  << setw(colWidth) << c->mark->midMark << setw(colWidth) << c->mark->otherMark;
@@ -244,7 +248,7 @@ void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls) {
     cout << setfill(' ') << fixed;
 
     while(st!=nullptr) {
-        if (stringcmp(st->cls, cls)) {
+        if (cls.compare(st->cls)==0) {
             cout << setprecision(0) << setw(colWidth) << ++no << setw(colWidth) << st->username << setw(colWidth) << st->name;
 
             semester4Student* s = st->semST;
@@ -259,7 +263,7 @@ void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls) {
 
             while(stcs!=nullptr) {
                 bool check = 0;
-                if (strcmp(stcs->id, c->id)) {
+                if (c->id.compare(stcs->id) == 0) {
                     cout << setw(colWidth) << stcs->mark->totalMark;      // if enrolled course, print out total mark
                     check = 1;
                     break;
