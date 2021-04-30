@@ -55,7 +55,7 @@ void deleteCourse(schoolYear *&sy)
 
 }
 
-void createASchoolYear(schoolYear *&sy)
+void createASchoolYear(schoolYear *&sy) ///done
 {
     sy=new schoolYear;
     schoolYear * cur=sy;
@@ -64,13 +64,10 @@ void createASchoolYear(schoolYear *&sy)
     cin >> cur->startYear.day >> cur->startYear.month>> cur->startYear.year;
     cout << "Input the End day - month - year of the year"<<endl;
     cin >> cur->endYear.day>> cur->endYear.month >> cur->endYear.year ;
-    if(sy) cout <<"yes";
-    else cout <<"No";
 }
-void createSemester(schoolYear *&sy,student *&st)
+void createSemester(schoolYear *&sy,student *&st) ///done
 {
-    if(sy->sem==nullptr)
-        sy->sem = new semester;
+
     int choice;
     cout <<"1.Create a semester 1"<<endl;
     cout <<"2.Create a semester 2"<<endl;
@@ -79,6 +76,8 @@ void createSemester(schoolYear *&sy,student *&st)
     cin >> choice;
     if(choice==1)
     {
+        if(sy->sem==nullptr)
+        sy->sem = new semester;
         semester * cur=sy->sem;
         cout <<"Please input the start and end of the semester 1"<<endl;
         cout <<"Input the Start day - month -year of the semester 1 : " <<endl;
@@ -93,6 +92,12 @@ void createSemester(schoolYear *&sy,student *&st)
     }
     else if(choice ==2)
     {
+        if(sy->sem==nullptr)
+        {
+            cout <<"You must create semester 1 first"<<endl;
+            cout <<endl;
+            return;
+        }
         sy->sem->next = new semester;
         semester * cur=sy->sem->next;
         cout <<"Please input the start and end of the semester 2"<<endl;
@@ -108,6 +113,18 @@ void createSemester(schoolYear *&sy,student *&st)
     }
     else if(choice ==3)
     {
+        if(sy->sem ==nullptr)
+        {
+            cout <<"You must create semester 2 first"<<endl;
+            cout <<endl;
+            return;
+        }
+        if(sy->sem->next ==nullptr)
+        {
+            cout <<"You must create semester 2 first"<<endl;
+            cout <<endl;
+            return;
+        }
         sy->sem->next->next = new semester;
         semester * cur=sy->sem->next->next;
         cout <<"Please input the start and end of the semester 3"<<endl;
@@ -578,7 +595,7 @@ void enrollCourse(student *&st ,schoolYear *sy)
     }
 }
 
-void displayCourse(student *&st,schoolYear *&sy)
+void displayCourse(student *&st,schoolYear *&sy) ///done
 {
     while(true)
     {
@@ -614,6 +631,12 @@ void displayCourse(student *&st,schoolYear *&sy)
         else if(choice ==2)
         {
             cur1=cur1->next;
+            if(cur1 ==nullptr)
+            {
+                cout <<"NO SEMESTER 2"<<endl;
+                cout <<"-------------"<<endl;
+                continue;
+            }
             cout <<"Information of all courses in semester 2"<<endl;
             cout <<"---------------------------"<<endl;
             Datacourse *cur=cur1->cs;
@@ -632,7 +655,19 @@ void displayCourse(student *&st,schoolYear *&sy)
         }
         else if(choice ==3)
         {
+            if(cur1->next ==nullptr)
+            {
+                cout <<"NO SEMESTER 3"<<endl;
+                cout <<"--------------"<<endl;
+                continue;
+            }
             cur1=cur1->next->next;
+            if(cur1 ==nullptr)
+            {
+                cout <<"NO SEMESTER 3"<<endl;
+                cout <<"--------------"<<endl;
+                continue;
+            }
             cout <<"Information of all courses in semester 3"<<endl;
             cout <<"---------------------------"<<endl;
             Datacourse *cur=cur1->cs;
@@ -658,7 +693,7 @@ void displayCourse(student *&st,schoolYear *&sy)
     }
 }
 
-void displayCsSem1(schoolYear * sy)
+void displayCsSem1(schoolYear * sy) ///done
 {
     semester * cur1= sy->sem;
     Datacourse *cur=cur1->cs;
@@ -674,7 +709,7 @@ void displayCsSem1(schoolYear * sy)
                 cur=cur->next;
     }
 }
-void displayCsSem2(schoolYear *sy)
+void displayCsSem2(schoolYear *sy) ///done
 {
     semester * cur1= sy->sem;
     cur1=cur1->next;
@@ -691,7 +726,7 @@ void displayCsSem2(schoolYear *sy)
                 cur=cur->next;
     }
 }
-void displayCsSem3(schoolYear *sy)
+void displayCsSem3(schoolYear *sy) ///done
 {
     semester * cur1= sy->sem;
     cur1=cur1->next->next;
@@ -820,10 +855,16 @@ void updateCourse(schoolYear *& sy, student *&st)
             cout<<"Enter your choice : "<<endl;
             int choice1;
             cin>> choice1;
-
             if(choice1 ==0 ) break;
             else if(choice1 ==1)
             {
+                if(head1 ==nullptr)
+                {
+                    cout<<endl;
+                    cout <<"You need to create a semester 1 first"<<endl;
+                    cout <<endl;
+                    break;
+                }
                 cout<<"-------------------------"<<endl;
                 cout <<"Enter ID of course that you want to update information ";
                 string s;
@@ -833,7 +874,10 @@ void updateCourse(schoolYear *& sy, student *&st)
                 {
                     if(cur->id == s)
                     {
-                        cout<<"Name of the course that you want to update : "<<cur->name<<endl;
+
+                        while(true)
+                        {
+                              cout<<"Name of the course that you want to update : "<<cur->name<<endl;
                         cout <<endl;
                         cout<<"0.break"<<endl;
                         cout <<"1.Update ID"<<endl;
@@ -845,8 +889,6 @@ void updateCourse(schoolYear *& sy, student *&st)
                         cout<<"Enter your choice : "<<endl;
                         int choice2;
                         cin >>choice2;
-                        while(true)
-                        {
                             if(choice2 ==0) break;
                             else if(choice2 ==1)
                             {
@@ -863,7 +905,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->id=cid;
                                 cout <<"DONE"<<endl;
                                 cout <<endl;
-                                break;
+                                convertData1(st,sy);
                             }
                             else if(choice2==2)
                             {
@@ -880,7 +922,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->name=cname;
                                 cout<<"DONE"<<endl;
                                 cout <<endl;
-                                break;
+                                convertData1(st,sy);
                             }
                             else if(choice2==3)
                             {
@@ -897,7 +939,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->teacherName=lecturer;
                                 cout <<"Done"<<endl;
                                 cout<<endl;
-                                break;
+                                convertData1(st,sy);
                             }
                             else if(choice2==4)
                             {
@@ -913,7 +955,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->numOfCredits=cre;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
-                                break;
+                                convertData1(st,sy);
                             }
                             else if(choice2==5)
                             {
@@ -929,31 +971,55 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->maxSt=maxStu;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
-                                break;
+                                convertData1(st,sy);
                             }
                             else
                             {
                                 cout <<"Please choose again"<<endl;
                             }
                         }
+                        break;
                     }
-                    break;
-                    convertData1(st,sy);
+                    cur=cur->next;
                 }
+                if(cur==nullptr) cout <<"No match the ID"<<endl;
+                cout <<endl;
             }
             else if(choice1 ==2)
             {
+
+                  if(head1 ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 2"<<endl;
+                    cout <<"You need to create a semester 1 first"<<endl;
+                    cout <<"-------------"<<endl;
+                    cout <<endl;
+                    continue;
+                }
+                  if(head1->next ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 2"<<endl;
+                    cout <<"You need to create a semester 2 first"<<endl;
+                    cout <<endl;
+                    continue;
+                }
                 cout<<"-------------------------"<<endl;
                 cout <<"Enter ID of course that you want to update information ";
                 string s;
                 cin >> s;
+
                 cur1=head1->next;
                 Datacourse *cur =cur1->cs;
                 while(cur)
                 {
                     if(cur->id == s)
                     {
-                        cout<<"Name of the course that you want to update : "<<cur->name<<endl;
+
+                        while(true)
+                        {
+                            cout<<"Name of the course that you want to update : "<<cur->name<<endl;
                         cout <<endl;
                         cout<<"0.break"<<endl;
                         cout <<"1.Update ID"<<endl;
@@ -965,8 +1031,6 @@ void updateCourse(schoolYear *& sy, student *&st)
                         cout<<"Enter your choice : "<<endl;
                         int choice2;
                         cin >>choice2;
-                        while(true)
-                        {
                             if(choice2 ==0) break;
                             else if(choice2 ==1)
                             {
@@ -983,7 +1047,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->id=cid2;
                                 cout <<"DONE"<<endl;
                                 cout <<endl;
-                                break;
+                                convertData2(st,sy);
                             }
                             else if(choice2==2)
                             {
@@ -1000,7 +1064,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->name=cname2;
                                 cout<<"DONE"<<endl;
                                 cout <<endl;
-                                break;
+                                convertData2(st,sy);
                             }
                             else if(choice2==3)
                             {
@@ -1017,7 +1081,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->teacherName=lecturer2;
                                 cout <<"Done"<<endl;
                                 cout<<endl;
-                                break;
+                                convertData2(st,sy);
                             }
                             else if(choice2==4)
                             {
@@ -1033,7 +1097,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->numOfCredits=cre2;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
-                                break;
+                               convertData2(st,sy);
                             }
                             else if(choice2==5)
                             {
@@ -1049,20 +1113,51 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->maxSt=maxStu2;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
-                                break;
+                               convertData2(st,sy);
                             }
                             else
                             {
                                 cout <<"Please choose again"<<endl;
                             }
+
                         }
+                        break;
                     }
-                    break;
-                    convertData1(st,sy);
+                    cur=cur->next;
+
                 }
+                 if(cur==nullptr)
+                    cout <<"No match the ID"<<endl;
+                  cout <<endl;
+
             }
             else if(choice1 ==3)
             {
+                if(head1 == nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 3"<<endl;
+                    cout <<"You need to create semester 1 first"<<endl;
+                    cout <<endl;
+                    continue;
+                }
+                if(head1->next==nullptr )
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 3"<<endl;
+                    cout <<"you need to create a semester 2 first"<<endl;
+                    cout <<endl;
+                    continue;
+                }
+                 if(head1->next->next==nullptr )
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 3"<<endl;
+                    cout <<"you need to create a semester 3 first"<<endl;
+                    cout <<endl;
+                    continue;
+                }
+
                 cout<<"-------------------------"<<endl;
                 cout <<"Enter ID of course that you want to update information ";
                 string s;
@@ -1073,7 +1168,10 @@ void updateCourse(schoolYear *& sy, student *&st)
                 {
                     if(cur->id == s)
                     {
-                        cout<<"Name of the course that you want to update : "<<cur->name<<endl;
+
+                        while(true)
+                        {
+                            cout<<"Name of the course that you want to update : "<<cur->name<<endl;
                         cout <<endl;
                         cout<<"0.break"<<endl;
                         cout <<"1.Update ID"<<endl;
@@ -1085,8 +1183,6 @@ void updateCourse(schoolYear *& sy, student *&st)
                         cout<<"Enter your choice : "<<endl;
                         int choice2;
                         cin >>choice2;
-                        while(true)
-                        {
                             if(choice2 ==0) break;
                             else if(choice2 ==1)
                             {
@@ -1103,7 +1199,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->id=cid3;
                                 cout <<"DONE"<<endl;
                                 cout <<endl;
-                                break;
+                               convertData3(st,sy);
                             }
                             else if(choice2==2)
                             {
@@ -1120,7 +1216,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->name=cname3;
                                 cout<<"DONE"<<endl;
                                 cout <<endl;
-                                break;
+                               convertData3(st,sy);
                             }
                             else if(choice2==3)
                             {
@@ -1137,7 +1233,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->teacherName=lecturer3;
                                 cout <<"Done"<<endl;
                                 cout<<endl;
-                                break;
+                                convertData3(st,sy);
                             }
                             else if(choice2==4)
                             {
@@ -1153,7 +1249,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->numOfCredits=cre3;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
-                                break;
+                                convertData3(st,sy);
                             }
                             else if(choice2==5)
                             {
@@ -1169,17 +1265,22 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cur->maxSt=maxStu3;
                                 cout<<"DONE"<<endl;
                                 cout<<endl;
-                                break;
+                                convertData3(st,sy);
                             }
+
                             else
                             {
                                 cout <<"Please choose again"<<endl;
                             }
+
                         }
+                        break;
                     }
-                    break;
-                    convertData1(st,sy);
+
+                    cur=cur->next;
                 }
+                if(cur==nullptr) cout <<"No match the ID"<<endl;
+                cout <<endl;
             }
             else
             {

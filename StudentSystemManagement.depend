@@ -45,18 +45,18 @@
 	"Staff.h"
 	<bits/stdc++.h>
 
-1619705650 source:d:\4_con_cho\login.cpp
+1619782587 source:d:\4_con_cho\login.cpp
 	"login.h"
 	<bits/stdc++.h>
 
-1619705650 d:\4_con_cho\login.h
+1619782587 d:\4_con_cho\login.h
 	"Student.h"
 	"Staff.h"
 	<bits/stdc++.h>
 
 1619705650 D
 
-1619760942 d:\4_con_cho\student.h
+1619782587 d:\4_con_cho\student.h
 	<iostream>
 	<bits/stdc++.h>
 	"course.h"
@@ -79,26 +79,26 @@
 	<bits/stdc++.h>
 	<ctime>
 
-1619705650 d:\4_con_cho\staff.h
+1619782587 d:\4_con_cho\staff.h
 	<bits/stdc++.h>
 
-1619705650 source:d:\4_con_cho\staff.cpp
+1619782587 source:d:\4_con_cho\staff.cpp
 	"staff.h"
 	<bits/stdc++.h>
 
-1619705650 source:d:\4_con_cho\student.cpp
+1619782587 source:d:\4_con_cho\student.cpp
 	"student.h"
 	<iostream>
 	<bits/stdc++.h>
 
-1619769378 source:d:\4_con_cho\main.cpp
+1619782587 source:d:\4_con_cho\main.cpp
 	"student.h"
 	"staff.h"
 	"login.h"
 	"course.h"
 	<bits/stdc++.h>
 
-1619768953 source:d:\4_con_cho\staffky.cpp
+1619782587 source:d:\4_con_cho\staffky.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -109,20 +109,24 @@
 	"login.h"
 	"Staff.h"
 
-1619705650 source:d:\4_con_cho\stafftan.cpp
+1619782587 source:d:\4_con_cho\stafftan.cpp
 
-1619760942 source:d:\4_con_cho\studentyen.cpp
+1619782587 source:d:\4_con_cho\studentyen.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<iomanip>
 	<bits/stdc++.h>
 	"course.h"
 	"Student.h"
 	"login.h"
 	"Staff.h"
 
-1619716708 d:\4_con_cho\course.h
+1619782587 d:\4_con_cho\course.h
 	<bits/stdc++.h>
 	"course.h"
 
-1619776609 source:d:\4_con_cho\studentminh.cpp
+1619788640 source:d:\4_con_cho\studentminh.cpp
 	"Student.h"
 	"course.h"
 	"Staff.h"
