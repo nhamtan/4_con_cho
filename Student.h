@@ -50,9 +50,10 @@ void convertData2(student *&st, schoolYear *&sy);
 void viewScoreboardOfCourse(student *st, string cid);
 void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls);
 bool checkEnrollingStu(student *st, string cid);
-
-
-
+void loadEnrollmentDate(ifstream &fin, date &startEnroll, date &closeEnroll);
+void inputEnrollmentDate (date &startEnroll, date &closeEnroll, ofstream &fout);
+bool isBefore(date d1, date d2);
+bool canEnroll();
 
 
 #endif // _student_h_
