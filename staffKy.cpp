@@ -78,10 +78,9 @@ bool isEnrolledCourse(student *&st, string cid)
     course *c=cur->semST->cs;
     while (c!=nullptr)
     {
-        if (c->id.compare(cid)!=0)
-            continue;
-        else if (c->id.compare(cid)==0 && c->enrolled==true)
+        if (c->id.compare(cid)==0 && c->enrolled==true)
             return true;
+        c=c->next;
     }
     return false;
 }
