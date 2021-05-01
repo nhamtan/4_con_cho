@@ -973,6 +973,14 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cout<<endl;
                                 convertData1(st,sy);
                             }
+                            else if (choice2==6)
+                            {
+                                cout<<"Schedule of course: ";
+                                cout<<cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
+                                cout <<"Enter new schedule of course : ";
+                                string d1, t1, d2, t2;
+                                getline(cin, )
+                            }
                             else
                             {
                                 cout <<"Please choose again"<<endl;
