@@ -33,7 +33,6 @@ void inputDataSemester2(Datacourse *&cs);
 void inputDataSemester3 (Datacourse *&cs);
 void  functionStaff(student *& st, schoolYear *& sy);
 void createSemester(schoolYear *&sy,student *&st);
-void deleteCourse(schoolYear *&sy);
 void enrollCourse(student *&st ,schoolYear *sy);
 void displayCourse(student *&st,schoolYear *&sy);
 void displayEnrollCourse(student *&st);
@@ -54,6 +53,10 @@ void loadEnrollmentDate(ifstream &fin, date &startEnroll, date &closeEnroll);
 void inputEnrollmentDate (date &startEnroll, date &closeEnroll, ofstream &fout);
 bool isBefore(date d1, date d2);
 bool canEnroll();
+void deleteCourseStudent1(student *& st);
+void deleteCourseStudent2(student *& st);
+void deleteCourseStudent3(student *& st);
+void deleteACourse(schoolYear *&sy,student *&st);
 
 
 #endif // _student_h_

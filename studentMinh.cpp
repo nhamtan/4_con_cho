@@ -8,52 +8,6 @@
 using namespace std;
 
 
-void deleteCourse(schoolYear *&sy)
-{
-    while(true)
-    {
-    cout<<"0.Break"<<endl;
-    cout <<"1.Delete course in semester 1"<<endl;
-    cout<<"2.Delete course in semester 2"<<endl;
-    cout<<"3.Delete course in semester 3"<<endl;
-    cout <<"Enter your choice : ";
-    int choice;
-    cin >>choice;
-    semester *cur=sy->sem;
-    if(choice ==1)
-    {
-         while(cur->cs)
-        {
-            Datacourse *tmp= cur->cs;
-            cur->cs=cur->cs->next;
-            delete tmp;
-        }
-    }
-    else if(choice ==2)
-    {
-        cur=cur->next;
-        while(cur->cs)
-        {
-             Datacourse *tmp= cur->cs;
-            cur->cs=cur->cs->next;
-            delete tmp;
-        }
-    }
-    else if(choice==3)
-    {
-        cur=cur->next->next;
-        while(cur->cs)
-        {
-             Datacourse *tmp= cur->cs;
-            cur->cs=cur->cs->next;
-            delete tmp;
-        }
-    }
-    else if(choice ==0) return;
-    else cout <<"Please input again"<<endl;
-    }
-
-}
 
 void createASchoolYear(schoolYear *&sy) ///done
 {
@@ -979,7 +933,7 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cout<<cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
                                 cout <<"Enter new schedule of course : ";
                                 string d1, t1, d2, t2;
-                                getline(cin, )
+                               // getline(cin, )
                             }
                             else
                             {
@@ -1360,6 +1314,7 @@ void functionStudent(student *&st, schoolYear *& sy)
     {
         cout <<"0.Log Out"<<endl;
         cout <<"1.Enroll course"<<endl;
+        cout <<"2.View Enrolled Course"<<endl;
         cout <<"Enter your choice : ";
         int choice;
         cin >>choice;
@@ -1376,7 +1331,7 @@ void functionStudent(student *&st, schoolYear *& sy)
         }
         else if(choice ==2)
         {
-
+            displayEnrollCourse(st);
         }
     }
 }
@@ -1391,6 +1346,10 @@ void  functionStaff(student *& st, schoolYear *& sy)
     cout <<"4.Update course information"<<endl;
     cout<<"5.Delete course"<<endl;
     cout <<"6.Export the list of students in course"<<endl;
+    cout <<"7.View list of classes"<<endl;
+    cout <<"8.View list of students in class"<<endl;
+    cout <<"9. View students in a course"<<endl;
+
     cout <<"Enter your choice : ";
     int choice;
     cin>>choice;
@@ -1418,19 +1377,31 @@ void  functionStaff(student *& st, schoolYear *& sy)
     }
     else if(choice==5)
     {
-        deleteCourse(sy);
+        deleteACourse(sy,st);
         cout <<"DONE"<<endl;
     }
     else if(choice ==6)
     {
         exportListStudent(st);
     }
+    else if(choice ==7)
+    {
+
+    }
+    else if(choice ==8)
+    {
+
+    }
+    else if(choice ==9)
+    {
+
+    }
 
 
 }
 }
 
-void deleteACourse(schoolYear *&sy,student *&st)
+void deleteACourse(schoolYear *&sy,student *&st) ///done
 {
         cout <<"1.View Course"<<endl;
         cout <<"2.Delete course"<<endl;
@@ -1468,21 +1439,33 @@ void deleteACourse(schoolYear *&sy,student *&st)
                     }
                     cout <<"-----------------------"<<endl;
                     cout <<"Enter ID of course that you want to delete : ";
-                    string s;
-                    cin >> s;
+                    string tm;
+                    cin >> tm;
                     Datacourse * cur1= cur->cs;
-                    while(cur1)
+                    if(cur1->id == tm)
                     {
-                        if(cur1->next == s)
+                        Datacourse * tmp = cur1->next;
+                            cur1->next = tmp->next;
+                            delete tmp;
+                            deleteCourseStudent1(st);
+                            convertData1(st,sy);
+                            return;
+                    }
+                    while(cur1->next)
+                    {
+
+                        if(tm == cur1->next->id)
                         {
                             Datacourse * tmp = cur1->next;
                             cur1->next = tmp->next;
                             delete tmp;
-                            break;
+                            deleteCourseStudent1(st);
+                            convertData1(st,sy);
+                            return;
                         }
                         cur1=cur1->next;
                     }
-                    if(cur1==nullptr) cout<<"ID no match"<<endl;
+                    if(cur1->next==nullptr) cout<<"ID no match"<<endl;
                 }
                 else if(choice1 ==2)
                 {
@@ -1499,6 +1482,38 @@ void deleteACourse(schoolYear *&sy,student *&st)
                         cout<<"You need to create semester 2 first"<<endl;
                         cout <<endl;
                         return;
+                    }
+                    cout <<"-----------------------"<<endl;
+                    cout <<"Enter ID of course that you want to delete : ";
+                    string s;
+                    cin >> s;
+                    cur=cur->next;
+                    Datacourse * cur1 = cur->cs;
+                    if(cur1->id ==s)
+                    {
+                        Datacourse * tmp = cur1->next;
+                            cur1->next = tmp->next;
+                            delete tmp;
+                            deleteCourseStudent2(st);
+                            convertData2(st,sy);
+                            break;
+                    }
+                    while(cur1->next)
+                    {
+                        if(cur1->next->id == s)
+                        {
+                            Datacourse * tmp = cur1->next;
+                            cur1->next = tmp->next;
+                            delete tmp;
+                            deleteCourseStudent2(st);
+                            convertData2(st,sy);
+                            break;
+                        }
+                        cur1=cur1->next;
+                    }
+                    if(cur1->next ==nullptr)
+                    {
+                        cout<<"ID no match"<<endl;
                     }
                 }
                 else if(choice1 ==3)
@@ -1524,13 +1539,94 @@ void deleteACourse(schoolYear *&sy,student *&st)
                         cout <<endl;
                         return;
                     }
+                    cur=cur->next->next;
+                    cout <<"-----------------------"<<endl;
+                    cout <<"Enter ID of course that you want to delete : ";
+                    string s;
+                    cin >> s;
+                    Datacourse * cur1 = cur->cs;
+                    if(cur1->id==s)
+                    {
+                        Datacourse * tmp = cur1->next;
+                            cur1->next = tmp->next;
+                            delete tmp;
+                            deleteCourseStudent2(st);
+                            convertData2(st,sy);
+                            break;
+                    }
+                    while(cur1->next)
+                    {
+                        if(cur1->next->id == s)
+                        {
+                            Datacourse * tmp = cur1->next;
+                            cur1->next = tmp->next;
+                            delete tmp;
+                            deleteCourseStudent3(st);
+                            convertData3(st,sy);
+                            break;
+                        }
+                        cur1=cur1->next;
+                    }
+                    if(cur1->next ==nullptr)
+                    {
+                        cout<<"ID no match"<<endl;
+                    }
 
                 }
 
             }
 
         }
-
+}
+void deleteCourseStudent1(student *& st)
+{
+    student * tmp =st;
+    while(tmp)
+    {
+        semester4Student * cur = tmp->semST;
+        course * head= cur->cs;
+        while(head)
+        {
+            course * tp=head;
+            head=head->next;
+            delete tp;
+        }
+        tmp =tmp->next;
+    }
+}
+void deleteCourseStudent2(student *& st)
+{
+    student * tmp =st;
+    while(tmp)
+    {
+        semester4Student * cur = tmp->semST;
+        cur=cur->next;
+        course * head= cur->cs;
+        while(head)
+        {
+            course * tp=head;
+            head=head->next;
+            delete tp;
+        }
+        tmp =tmp->next;
+    }
+}
+void deleteCourseStudent3(student *& st)
+{
+    student * tmp =st;
+    while(tmp)
+    {
+        semester4Student * cur = tmp->semST;
+        cur=cur->next->next;
+        course * head= cur->cs;
+        while(head)
+        {
+            course * tp=head;
+            head=head->next;
+            delete tp;
+        }
+        tmp =tmp->next;
+    }
 }
 
 
