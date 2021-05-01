@@ -317,3 +317,12 @@ void updateScore (student *&st)
         separateStars();
     }
 }
+
+void convertToUpper(string &c)
+{
+    for (int i = 0; i < c.length(); i++)
+    {
+        if (islower(c[i]))
+            c[i]=toupper(c[i]);
+    }
+}
