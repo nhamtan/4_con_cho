@@ -305,9 +305,9 @@ bool canEnroll() {
     cur.day = ltm->tm_mday ;
 
     if (isBefore(startEnroll, cur) && isBefore(cur, closeEnroll))
-        return 1;
+        return true;
     else
-        return 0;
+        return false ;
 
 }
 

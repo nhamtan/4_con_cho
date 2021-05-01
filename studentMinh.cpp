@@ -1422,7 +1422,7 @@ void  functionStaff(student *& st, schoolYear *& sy)
 }
 }
 
-/*void deleteACourse(schoolYear *&sy,student *&st)
+void deleteACourse(schoolYear *&sy,student *&st)
 {
         cout <<"1.View Course"<<endl;
         cout <<"2.Delete course"<<endl;
@@ -1465,7 +1465,14 @@ void  functionStaff(student *& st, schoolYear *& sy)
                     Datacourse * cur1= cur->cs;
                     while(cur1)
                     {
-
+                        if(cur1->next == s)
+                        {
+                            Datacourse * tmp = cur1->next;
+                            cur1->next = tmp->next;
+                            delete tmp;
+                            break;
+                        }
+                        cur1=cur1->next;
                     }
                     if(cur1==nullptr) cout<<"ID no match"<<endl;
                 }
@@ -1517,7 +1524,6 @@ void  functionStaff(student *& st, schoolYear *& sy)
         }
 
 }
-*/
 
 
 
