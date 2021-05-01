@@ -375,28 +375,7 @@ void enrollCourse(student *&st ,schoolYear *sy)
             displayCourse(st,sy);
         else if(choice ==3)
         {
-            cout <<"1.Semester 1"<<endl;
-            cout <<"2.Semester 2"<<endl;
-            cout <<"3.Semester 3"<<endl;
-            cout <<"Input your choice : ";
-            int choice;
-            cin >> choice;
-            semester4Student *cur=st->semST;
-            if(choice ==1)
-            {
-                displayEnrollCourse(st);
-            }
-            else if(choice ==2)
-            {
-                cur=cur->next;
-                displayEnrollCourse(st);
-
-            }
-            else if(choice ==3)
-            {
-                cur=cur->next->next;
-                displayEnrollCourse(st);
-            }
+          displayEnrollCourse(st);
         }
         else if(choice ==4)
         {
@@ -715,6 +694,13 @@ void displayEnrollCourse(student *&st)
         }
         else if(choice ==1)
         {
+            if(cur1 ==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 1"<<endl;
+                cout <<endl;
+                return;
+            }
             cout <<"Information of all courses enrolled in semester 1"<<endl;
             cout <<"---------------------------"<<endl;
             course * cur = cur1->cs;
@@ -735,6 +721,7 @@ void displayEnrollCourse(student *&st)
         }
         else if(choice ==2)
         {
+
             cur1=cur1->next;
             cout <<"Information of all courses enrolled in semester 2"<<endl;
             cout <<"---------------------------"<<endl;
@@ -1327,12 +1314,13 @@ void functionStudent(student *&st, schoolYear *& sy)
             if(canEnroll())
                 enrollCourse(st,sy);
             else
-                cout << "Can not enroll course now." << endl << "Please re-enter other choice: ";
+                cout << "Can not enroll course now." << endl << "Please re-enter other choice: "<<endl;
         }
         else if(choice ==2)
         {
             displayEnrollCourse(st);
         }
+        else if(choice ==3) enrollCourse(st,sy);
     }
 }
 void  functionStaff(student *& st, schoolYear *& sy)
