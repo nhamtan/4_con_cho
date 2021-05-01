@@ -57,6 +57,6 @@ void deleteCourseStudent1(student *& st);
 void deleteCourseStudent2(student *& st);
 void deleteCourseStudent3(student *& st);
 void deleteACourse(schoolYear *&sy,student *&st);
-
+void convertToUpper(string &c);
 
 #endif // _student_h_

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstring>
 #include <iomanip>
 #include <bits/stdc++.h>
 #include"course.h"
