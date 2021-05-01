@@ -208,7 +208,6 @@ bool checkEnrollingStu(student *st, string cid) {                            //c
 }
 
 void viewScoreboardOfCourse(student *st, string cid) {
-
     int n=0;
     int colWidth=15;
     cout << "SCOREBOARD" << endl << endl;
