@@ -2,9 +2,69 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="login.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="studentYen.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10115" topLine="303" />
+		</Cursor>
+	</File>
+	<File name="login.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="643" topLine="74" />
+		</Cursor>
+	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="311" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="studentMinh.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="18548" topLine="57" />
+		</Cursor>
+		<Folding>
+			<Collapse line="12" />
+			<Collapse line="22" />
+			<Collapse line="97" />
+			<Collapse line="128" />
+			<Collapse line="159" />
+			<Collapse line="191" />
+			<Collapse line="608" />
+			<Collapse line="706" />
+			<Collapse line="722" />
+			<Collapse line="739" />
+			<Collapse line="887" />
+			<Collapse line="1355" />
+			<Collapse line="1391" />
+		</Folding>
+	</File>
+	<File name="staffKy.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8686" topLine="274" />
+		</Cursor>
+	</File>
+	<File name="Staff.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="student.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2392" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="course.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="252" topLine="6" />
+		</Cursor>
+	</File>
+	<File name="Staff.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="staffTan.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -15,71 +75,6 @@
 	<File name="Student.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2025" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="staffKy.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8686" topLine="274" />
-		</Cursor>
-	</File>
-	<File name="Staff.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="login.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="login.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="4" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="643" topLine="74" />
-		</Cursor>
-	</File>
-	<File name="studentMinh.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="2" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="25763" topLine="388" />
-		</Cursor>
-		<Folding>
-			<Collapse line="12" />
-			<Collapse line="22" />
-			<Collapse line="97" />
-			<Collapse line="128" />
-			<Collapse line="159" />
-			<Collapse line="531" />
-			<Collapse line="629" />
-			<Collapse line="645" />
-			<Collapse line="662" />
-			<Collapse line="774" />
-			<Collapse line="1234" />
-			<Collapse line="1242" />
-			<Collapse line="1268" />
-			<Collapse line="1278" />
-			<Collapse line="1392" />
-			<Collapse line="1569" />
-			<Collapse line="1585" />
-			<Collapse line="1602" />
-		</Folding>
-	</File>
-	<File name="Staff.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="studentYen.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="10115" topLine="303" />
-		</Cursor>
-	</File>
-	<File name="course.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="3" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="252" topLine="6" />
-		</Cursor>
-	</File>
-	<File name="student.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2392" topLine="33" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

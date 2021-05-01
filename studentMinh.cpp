@@ -94,7 +94,7 @@ void createSemester(schoolYear *&sy,student *&st) ///done
     }
 
 }
-void convertData3(student *&st,schoolYear *&sy)
+void convertData3(student *&st,schoolYear *&sy)///done
 {
      student * curSt =st;
     while(curSt)
@@ -125,7 +125,7 @@ void convertData3(student *&st,schoolYear *&sy)
         curSt=curSt->next;
     }
 }
-void convertData2(student *&st, schoolYear *&sy)
+void convertData2(student *&st, schoolYear *&sy)///done
 {
      student * curSt =st;
     while(curSt)
@@ -156,7 +156,7 @@ void convertData2(student *&st, schoolYear *&sy)
         curSt=curSt->next;
     }
 }
-void convertData1(student *&st,schoolYear *&sy)
+void convertData1(student *&st,schoolYear *&sy)///done
 {
     student * curSt =st;
     while(curSt)
@@ -188,8 +188,191 @@ void convertData1(student *&st,schoolYear *&sy)
     }
 }
 
+void removeEnrolledCourse(student * &st)
+{
+    semester4Student *curSE=st->semST;
+            cout <<"1.Remove the course from semester 1"<<endl;
+            cout <<"2.Remove the course from semester 2"<<endl;
+            cout <<"3.Remove the course from semester 3"<<endl;
+            int choiceSE;
+            cout <<"Input your choice : ";
+            cin>> choiceSE;
 
-void enrollCourse(student *&st ,schoolYear *sy)
+            if(choiceSE ==1)
+            {
+                if(curSE ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 1"<<endl;
+                    cout <<endl;
+                    return;
+                }
+                 while(true)
+                {
+
+                 if(st->enrolledCourse ==0)
+                {
+                    cout <<"You removed all course,you dont have any course enrolled"<<endl;
+                    cout <<"-------------"<<endl;
+                    break;
+                }
+                string tmp;
+                cout <<"Break the enrollment,Please Enter 'break' "<<endl;
+                cout <<"To remove the enrolled course, Please enter the ID of enrolled course" <<endl;
+                cin >> tmp;
+                bool checkID =false;
+                if(tmp =="break")
+                {
+                    break;
+                }
+                else
+                {
+                    course *cur= curSE->cs;
+                    while(cur)
+                    {
+                        if(tmp == cur->id  && cur->enrolled ==true)
+                        {
+                            cout <<"Done";
+                            cur->enrolled =false;
+                            st->enrolledCourse --;
+                            checkID =true;
+                            break;
+                        }
+                        cur=cur->next;
+                    }
+                }
+                if(checkID ==false)
+                {
+                    cout <<"Wrong ID"<<endl;
+                    cout <<"---------------"<<endl;
+                }
+            }
+            }
+            else if(choiceSE ==2)
+            {
+                if(curSE ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 1"<<endl;
+                    cout <<endl;
+                    return;
+                }
+                if(curSE ->next==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 2"<<endl;
+                    cout <<endl;
+                    return;
+                }
+                curSE=curSE->next;
+                 while(true)
+            {
+
+                 if(st->enrolledCourse ==0)
+                {
+                    cout <<"You removed all course,you dont have any course enrolled"<<endl;
+                    cout <<"-------------"<<endl;
+                    break;
+                }
+                string tmp;
+                cout <<"Break the enrollment,Please Enter 'break' "<<endl;
+                cout <<"To remove the enrolled course, Please enter the ID of enrolled course" <<endl;
+                cin >> tmp;
+                bool checkID =false;
+                if(tmp =="break")
+                {
+                    break;
+                }
+                else
+                {
+                    course *cur= curSE->cs;
+                    while(cur)
+                    {
+                        if(tmp == cur->id  && cur->enrolled ==true)
+                        {
+                            cout <<"Done";
+                            cur->enrolled =false;
+                            st->enrolledCourse --;
+                            checkID =true;
+                            break;
+                        }
+                        cur=cur->next;
+                    }
+                }
+                if(checkID ==false)
+                {
+                    cout <<"Wrong ID"<<endl;
+                    cout <<"---------------"<<endl;
+                }
+            }
+            }
+            else if(choiceSE ==3)
+            {
+                if(curSE ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 1"<<endl;
+                    cout <<endl;
+                    return;
+                }
+                if(curSE->next ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 2"<<endl;
+                    cout <<endl;
+                    return;
+                }
+                if(curSE->next->next ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 3"<<endl;
+                    cout <<endl;
+                    return;
+                }
+                curSE=curSE->next->next;
+                 while(true)
+            {
+
+                 if(st->enrolledCourse ==0)
+                {
+                    cout <<"You removed all course,you dont have any course enrolled"<<endl;
+                    cout <<"-------------"<<endl;
+                    break;
+                }
+                string tmp;
+                cout <<"Break the enrollment,Please Enter 'break' "<<endl;
+                cout <<"To remove the enrolled course, Please enter the ID of enrolled course" <<endl;
+                cin >> tmp;
+                bool checkID =false;
+                if(tmp =="break")
+                {
+                    break;
+                }
+                else
+                {
+                    course *cur= curSE->cs;
+                    while(cur)
+                    {
+                        if(tmp == cur->id  && cur->enrolled ==true)
+                        {
+                            cout <<"Done";
+                            cur->enrolled =false;
+                            st->enrolledCourse --;
+                            checkID =true;
+                            break;
+                        }
+                        cur=cur->next;
+                    }
+                }
+                if(checkID ==false)
+                {
+                    cout <<"Wrong ID"<<endl;
+                    cout <<"---------------"<<endl;
+                }
+            }
+            }
+}
+void enrollCourse(student *&st ,schoolYear *sy) /// done
 {
     int choice ;
     while(true)
@@ -197,8 +380,6 @@ void enrollCourse(student *&st ,schoolYear *sy)
         cout << "0.Break the enrollment"<<endl;
         cout <<"1.View course"<<endl;
         cout <<"2.Enroll the course"<<endl;
-        cout <<"3.View Enrolled course"<<endl;
-        cout <<"4.Remove enrolled course"<<endl;
         cout <<"Enter your choice : ";
         cin >> choice;
         if(choice == 0) return;
@@ -213,6 +394,13 @@ void enrollCourse(student *&st ,schoolYear *sy)
             cin >> choiceSe;
             if(choiceSe==1)
             {
+                if(curSE ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 1"<<endl;
+                    cout <<endl;
+                    return;
+                }
                 cout <<"WELCOME TO ENROLL SEMESTER 1"<<endl;
 
                 while(true)
@@ -267,6 +455,20 @@ void enrollCourse(student *&st ,schoolYear *sy)
             else if(choiceSe ==2)
             {
 
+                if(curSE ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 1"<<endl;
+                    cout <<endl;
+                    return;
+                }
+                if(curSE->next ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 2"<<endl;
+                    cout <<endl;
+                    return;
+                }
                 cout <<"WELCOME TO ENROLL SEMESTER 2"<<endl;
                 curSE=curSE->next;
                 while(true)
@@ -319,6 +521,27 @@ void enrollCourse(student *&st ,schoolYear *sy)
             }
             else if(choiceSe ==3)
             {
+                if(curSE ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 1"<<endl;
+                    cout <<endl;
+                    return;
+                }
+                if(curSE->next ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 2"<<endl;
+                    cout <<endl;
+                    return;
+                }
+                if(curSE->next->next ==nullptr)
+                {
+                    cout <<endl;
+                    cout <<"NO SEMESTER 3"<<endl;
+                    cout <<endl;
+                    return;
+                }
                 cout <<"WELCOME TO ENROLL SEMESTER 3"<<endl;
               curSE=curSE->next->next;
                 while(true)
@@ -373,152 +596,6 @@ void enrollCourse(student *&st ,schoolYear *sy)
         }
         else if(choice ==1)
             displayCourse(st,sy);
-        else if(choice ==3)
-        {
-          displayEnrollCourse(st);
-        }
-        else if(choice ==4)
-        {
-            semester4Student *curSE=st->semST;
-            cout <<"1.Remove the course from semester 1";
-            cout <<"2.Remove the course from semester 2";
-            cout <<"3.Remove the course from semester 3";
-            int choiceSE;
-            cout <<"Input your choice : ";
-            cin>> choiceSE;
-
-            if(choiceSE ==1)
-            {
-                 while(true)
-            {
-
-                 if(st->enrolledCourse ==0)
-                {
-                    cout <<"You removed all course,you dont have any course enrolled"<<endl;
-                    cout <<"-------------"<<endl;
-                    break;
-                }
-                string tmp;
-                cout <<"Break the enrollment,Please Enter 'break' "<<endl;
-                cout <<"To remove the enrolled course, Please enter the ID of enrolled course" <<endl;
-                cin >> tmp;
-                bool checkID =false;
-                if(tmp =="break")
-                {
-                    break;
-                }
-                else
-                {
-                    course *cur= curSE->cs;
-                    while(cur)
-                    {
-                        if(tmp == cur->id  && cur->enrolled ==true)
-                        {
-                            cout <<"Done";
-                            cur->enrolled =false;
-                            st->enrolledCourse --;
-                            checkID =true;
-                            break;
-                        }
-                        cur=cur->next;
-                    }
-                }
-                if(checkID ==false)
-                {
-                    cout <<"Wrong ID"<<endl;
-                    cout <<"---------------"<<endl;
-                }
-            }
-            }
-            else if(choice ==2)
-            {
-                curSE=curSE->next;
-                 while(true)
-            {
-
-                 if(st->enrolledCourse ==0)
-                {
-                    cout <<"You removed all course,you dont have any course enrolled"<<endl;
-                    cout <<"-------------"<<endl;
-                    break;
-                }
-                string tmp;
-                cout <<"Break the enrollment,Please Enter 'break' "<<endl;
-                cout <<"To remove the enrolled course, Please enter the ID of enrolled course" <<endl;
-                cin >> tmp;
-                bool checkID =false;
-                if(tmp =="break")
-                {
-                    break;
-                }
-                else
-                {
-                    course *cur= curSE->cs;
-                    while(cur)
-                    {
-                        if(tmp == cur->id  && cur->enrolled ==true)
-                        {
-                            cout <<"Done";
-                            cur->enrolled =false;
-                            st->enrolledCourse --;
-                            checkID =true;
-                            break;
-                        }
-                        cur=cur->next;
-                    }
-                }
-                if(checkID ==false)
-                {
-                    cout <<"Wrong ID"<<endl;
-                    cout <<"---------------"<<endl;
-                }
-            }
-            }
-            else if(choice ==3)
-            {
-                curSE=curSE->next->next;
-                 while(true)
-            {
-
-                 if(st->enrolledCourse ==0)
-                {
-                    cout <<"You removed all course,you dont have any course enrolled"<<endl;
-                    cout <<"-------------"<<endl;
-                    break;
-                }
-                string tmp;
-                cout <<"Break the enrollment,Please Enter 'break' "<<endl;
-                cout <<"To remove the enrolled course, Please enter the ID of enrolled course" <<endl;
-                cin >> tmp;
-                bool checkID =false;
-                if(tmp =="break")
-                {
-                    break;
-                }
-                else
-                {
-                    course *cur= curSE->cs;
-                    while(cur)
-                    {
-                        if(tmp == cur->id  && cur->enrolled ==true)
-                        {
-                            cout <<"Done";
-                            cur->enrolled =false;
-                            st->enrolledCourse --;
-                            checkID =true;
-                            break;
-                        }
-                        cur=cur->next;
-                    }
-                }
-                if(checkID ==false)
-                {
-                    cout <<"Wrong ID"<<endl;
-                    cout <<"---------------"<<endl;
-                }
-            }
-            }
-        }
         else
         {
             cout <<"Please input again your choice"<<endl;
@@ -676,7 +753,7 @@ void displayCsSem3(schoolYear *sy) ///done
                 cur=cur->next;
     }
 }
-void displayEnrollCourse(student *&st)
+void displayEnrollCourse(student *&st) /// done
 {
     while(true)
     {
@@ -722,6 +799,21 @@ void displayEnrollCourse(student *&st)
         else if(choice ==2)
         {
 
+            if(cur1 ==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 1"<<endl;
+                cout <<endl;
+                return;
+            }
+            if(cur1->next ==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 2"<<endl;
+                cout <<endl;
+                return;
+
+            }
             cur1=cur1->next;
             cout <<"Information of all courses enrolled in semester 2"<<endl;
             cout <<"---------------------------"<<endl;
@@ -744,6 +836,27 @@ void displayEnrollCourse(student *&st)
         }
         else if(choice ==3)
         {
+            if(cur1 ==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 1"<<endl;
+                cout <<endl;
+                return;
+            }
+            if(cur1->next ==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 2"<<endl;
+                cout <<endl;
+                return;
+            }
+            if(cur1->next->next==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 3"<<endl;
+                cout <<endl;
+                return;
+            }
             cur1=cur1->next->next;
             cout <<"Information of all courses enrolled in semester 3"<<endl;
             cout <<"---------------------------"<<endl;
@@ -1302,6 +1415,8 @@ void functionStudent(student *&st, schoolYear *& sy)
         cout <<"0.Log Out"<<endl;
         cout <<"1.Enroll course"<<endl;
         cout <<"2.View Enrolled Course"<<endl;
+        cout <<"3.Remove Enrolled Course"<<endl;
+        cout <<"4.View Total Marl"<<endl;
         cout <<"Enter your choice : ";
         int choice;
         cin >>choice;
@@ -1320,7 +1435,14 @@ void functionStudent(student *&st, schoolYear *& sy)
         {
             displayEnrollCourse(st);
         }
-        else if(choice ==3) enrollCourse(st,sy);
+        else if(choice ==3)
+        {
+            removeEnrolledCourse(st);
+        }
+        else if(choice ==4)
+        {
+            enrollCourse(st,sy);
+        }
     }
 }
 void  functionStaff(student *& st, schoolYear *& sy)
