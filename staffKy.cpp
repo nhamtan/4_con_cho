@@ -10,43 +10,30 @@
 #include"Staff.h"
 using namespace std;
 
-void viewStudentsOfCourse(student *&st, schoolYear *&sy)
+void viewStICourse(student *&st)
 {
-    student *headStu=st;
-    semester *curSemSy=sy->sem;
-    Datacourse *cur=sy->sem->cs;
-    while (curSemSy!=nullptr)
+    cout <<"Enter the ID of course which you want to view students in" <<endl;
+    string s;
+    cin >> s;
+    student *cur =st;
+    semester4Student * cur1 = cur->semST;
+
+    while(cur)
     {
-        while (cur!=nullptr)
+        while(cur1)
         {
-            cout<<cur->id<<endl;
-            student *curStu=headStu;
-            while (curStu!=nullptr)
+            course * tmp = cur1->cs;
+            while(tmp)
             {
-                semester4Student *curSem=curStu->semST;
-                while (curSem!=nullptr)
-                {
-                    course *stuCs=curStu->semST->cs;
-                    while (stuCs!=nullptr)
-                    {
-                        if (cur->id.compare(stuCs->id)==0 && stuCs->enrolled==true)
-                        {
-                            cout<<curStu->name<<endl;
-                            cout<<curStu->username<<endl;
-                            cout<<curStu->password<<endl;
-                        }
-                        stuCs=stuCs->next;
-                    }
-                    curSem=curSem->next;
-                }
-                curStu=curStu->next;
+                if(tmp->id ==s&& tmp->enrolled) cout << cur ->name<endl;
+                tmp =tmp->next;
             }
-            cout<<'\n'<<"******************"<<'\n';
-            cur=cur->next;
+            cur1=cur1->next;
         }
-        curSemSy=curSemSy->next;
+        cur=cur->next;
     }
 }
+
 
 void viewListOfClass (student *&st)
 {
@@ -55,19 +42,24 @@ void viewListOfClass (student *&st)
     else
     {
         string x=head->cls;
-        cout<<x<<endl;
-        student *cur=head->next;
+        student *cur=head;
         while (cur!=nullptr)
          {
-             if (cur->cls.compare(x)==0)
-                continue;
-             else if (x=="0") break;
-             else
-             {
-                 cout<<cur->cls<<endl;
-                 x="0";
-                 break;
-             }
+             student * tmp =head;
+             bool check= false;
+            while(tmp != cur)
+            {
+                if(tmp->cls == cur->cls)
+                {
+                    check =true;
+                    break;
+                }
+                tmp =tmp->next;
+            }
+            if(check==false)
+            {
+                cout << cur->cls<<endl;
+            }
              cur=cur->next;
          }
     }

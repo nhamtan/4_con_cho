@@ -626,6 +626,12 @@ void displayCourse(student *&st,schoolYear *&sy) ///done
         }
         else if(choice ==1)
         {
+        if(cur1 ==nullptr)
+            {
+                cout <<"NO SEMESTER 1"<<endl;
+                cout <<"--------------"<<endl;
+                continue;
+            }
             cout <<"Information of all courses in semester 1"<<endl;
             cout <<"---------------------------"<<endl;
             Datacourse *cur=cur1->cs;
@@ -643,13 +649,20 @@ void displayCourse(student *&st,schoolYear *&sy) ///done
         }
         else if(choice ==2)
         {
-            cur1=cur1->next;
-            if(cur1 ==nullptr)
+
+          if(cur1 ==nullptr)
+            {
+                cout <<"NO SEMESTER 1"<<endl;
+                cout <<"--------------"<<endl;
+                continue;
+            }
+            if(cur1->next ==nullptr)
             {
                 cout <<"NO SEMESTER 2"<<endl;
                 cout <<"-------------"<<endl;
                 continue;
             }
+            cur1=cur1->next;
             cout <<"Information of all courses in semester 2"<<endl;
             cout <<"---------------------------"<<endl;
             Datacourse *cur=cur1->cs;
@@ -668,19 +681,26 @@ void displayCourse(student *&st,schoolYear *&sy) ///done
         }
         else if(choice ==3)
         {
+               if(cur1 ==nullptr)
+            {
+                cout <<"NO SEMESTER 1"<<endl;
+                cout <<"--------------"<<endl;
+                continue;
+            }
             if(cur1->next ==nullptr)
             {
-                cout <<"NO SEMESTER 3"<<endl;
+                cout <<"NO SEMESTER 2"<<endl;
                 cout <<"--------------"<<endl;
                 continue;
             }
-            cur1=cur1->next->next;
-            if(cur1 ==nullptr)
+
+            if(cur1->next->next ==nullptr)
             {
                 cout <<"NO SEMESTER 3"<<endl;
                 cout <<"--------------"<<endl;
                 continue;
             }
+             cur1=cur1->next->next;
             cout <<"Information of all courses in semester 3"<<endl;
             cout <<"---------------------------"<<endl;
             Datacourse *cur=cur1->cs;
@@ -1034,45 +1054,22 @@ void updateCourse(schoolYear *& sy, student *&st)
                             {
                                 cout<<"Schedule of course: ";
                                 cout<<cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
-                                cout <<"Enter new schedule of course : ";
-                                cin.ignore();
-                                string *d, *t;
-                                d=t=new string[2];
+                                cout <<"Enter new schedule of course : "<<endl;
+
+
+
                                 for (int i = 0; i < 2; i++)
                                 {
                                     cout<<"Day "<<i+1<<": "<<endl;
-                                    cin.ignore();
-                                    getline(cin, d[i]);
-                                    convertToUpper(d[i]);
-
+                                    cin >> cur->daySt[i].dayInWeek ;
                                     cout<<"Time "<<i+1<<": "<<endl;
-                                    cin.ignore();
-                                    getline(cin, t[i]);
-                                    convertToUpper(t[i]);
-                                    cin.ignore();
-                                    while (d[i]==cur->daySt[i].dayInWeek && t[i]==cur->daySt[i].time)
-                                    {
-                                        cout<<"You have entered the same schedule of course. Please enter again"<<endl;
-                                        cin.ignore(101, '\n');
-                                        cout<<"Day "<<i+1<<": "<<endl;
-                                        cin.ignore();
-                                        getline(cin, d[i]);
-                                        convertToUpper(d[i]);
+                                   cin >> cur->daySt[i].time;
 
-                                        cout<<"Time "<<i+1<<": "<<endl;
-                                        cin.ignore(101, '\n');
-                                        getline(cin, t[i]);
-                                        convertToUpper(t[i]);
-                                        cin.ignore();
-                                    }
-                                    cur->daySt[i].dayInWeek=d[i];
-                                    cur->daySt[i].time=t[i];
                                 }
                                 cout<<"Updated schedule: ";
                                 cout<<cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
-                                delete[]d;
-                                delete[]t;
-                                break;
+                                convertData1(st,sy);
+
                             }
                             else
                             {
@@ -1221,35 +1218,20 @@ void updateCourse(schoolYear *& sy, student *&st)
                                 cout<<"Schedule of course: ";
                                 cout<<cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
                                 cout <<"Enter new schedule of course : "<<endl;
-                                cin.ignore();
-                                string *d, *t;
-                                d=t=new string[2];
+
+
+
                                 for (int i = 0; i < 2; i++)
                                 {
                                     cout<<"Day "<<i+1<<": "<<endl;
-                                    getline(cin, d[i]);
-                                    convertToUpper(d[i]);
+                                    cin >> cur->daySt[i].dayInWeek ;
                                     cout<<"Time "<<i+1<<": "<<endl;
-                                    getline(cin, t[i]);
-                                    convertToUpper(t[i]);
-                                    while (d[i]==cur->daySt[i].dayInWeek && t[i]==cur->daySt[i].time)
-                                    {
-                                        cout<<"You have entered the same schedule of course. Please enter again"<<endl;
-                                        cout<<"Day "<<i+1<<": "<<endl;
-                                        getline(cin, d[i]);
-                                        convertToUpper(d[i]);
-                                        cout<<"Time "<<i+1<<": "<<endl;
-                                        getline(cin, t[i]);
-                                        convertToUpper(t[i]);
-                                    }
-                                    cur->daySt[i].dayInWeek=d[i];
-                                    cur->daySt[i].time=t[i];
+                                   cin >> cur->daySt[i].time;
+
                                 }
                                 cout<<"Updated schedule: ";
                                 cout<<cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
-                                delete[]d;
-                                delete[]t;
-                                break;
+                                convertData2(st,sy);
                             }
                             else
                             {
@@ -1405,41 +1387,23 @@ void updateCourse(schoolYear *& sy, student *&st)
                             }
                             else if (choice2==6)
                             {
-                                cout<<"Schedule of course: ";
+                                 cout<<"Schedule of course: ";
                                 cout<<cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
                                 cout <<"Enter new schedule of course : "<<endl;
-                                string *d, *t;
-                                d=t=new string[2];
+
+
+
                                 for (int i = 0; i < 2; i++)
                                 {
                                     cout<<"Day "<<i+1<<": "<<endl;
-                                    getline(cin, d[i]);
-                                    convertToUpper(d[i]);
-                                    cin.get();
+                                    cin >> cur->daySt[i].dayInWeek ;
                                     cout<<"Time "<<i+1<<": "<<endl;
-                                    getline(cin, t[i]);
-                                    convertToUpper(t[i]);
-                                    cin.get();
-                                    while (d[i]==cur->daySt[i].dayInWeek && t[i]==cur->daySt[i].time)
-                                    {
-                                        cout<<"You have entered the same schedule of course. Please enter again"<<endl;
-                                        cout<<"Day "<<i+1<<": "<<endl;
-                                        getline(cin, d[i]);
-                                        //convertToUpper(d[i]);
-                                        cin.get();
-                                        cout<<"Time "<<i+1<<": "<<endl;
-                                        getline(cin, t[i]);
-                                        //convertToUpper(t[i]);
-                                        cin.get();
-                                    }
-                                    cur->daySt[i].dayInWeek=d[i];
-                                    cur->daySt[i].time=t[i];
+                                   cin >> cur->daySt[i].time;
+
                                 }
                                 cout<<"Updated schedule: ";
                                 cout<<cur->daySt[0].dayInWeek <<" - " << cur->daySt[0].time << " and " <<cur->daySt[1].dayInWeek <<" - "<<cur->daySt[1].time<<endl;
-                                delete[]d;
-                                delete[]t;
-                                break;
+                                convertData3(st,sy);
                             }
 
                             else
@@ -1528,7 +1492,7 @@ void functionStudent(student *&st, schoolYear *& sy)
         cout <<"1.Enroll course"<<endl;
         cout <<"2.View Enrolled Course"<<endl;
         cout <<"3.Remove Enrolled Course"<<endl;
-        cout <<"4.View Total Marl"<<endl;
+        cout <<"4.View Total Mark"<<endl;
         cout <<"Enter your choice : ";
         int choice;
         cin >>choice;
@@ -1571,7 +1535,7 @@ void  functionStaff(student *& st, schoolYear *& sy)
     cout <<"7.View list of classes"<<endl;
     cout <<"8.View list of students in class"<<endl;
     cout <<"9. View students in a course"<<endl;
-
+    cout <<"10."<<endl
     cout <<"Enter your choice : ";
     int choice;
     cin>>choice;
@@ -1609,14 +1573,15 @@ void  functionStaff(student *& st, schoolYear *& sy)
     else if(choice ==7)
     {
 
+        viewListOfClass(st);
     }
     else if(choice ==8)
     {
-
+        studentInClass(st);
     }
     else if(choice ==9)
     {
-
+        viewStICourse(st);
     }
 
 
@@ -1800,7 +1765,7 @@ void deleteACourse(schoolYear *&sy,student *&st) ///done
 
         }
 }
-void deleteCourseStudent1(student *& st)
+void deleteCourseStudent1(student *& st) ///done
 {
     student * tmp =st;
     while(tmp)
@@ -1816,7 +1781,7 @@ void deleteCourseStudent1(student *& st)
         tmp =tmp->next;
     }
 }
-void deleteCourseStudent2(student *& st)
+void deleteCourseStudent2(student *& st) ///done
 {
     student * tmp =st;
     while(tmp)
@@ -1833,7 +1798,7 @@ void deleteCourseStudent2(student *& st)
         tmp =tmp->next;
     }
 }
-void deleteCourseStudent3(student *& st)
+void deleteCourseStudent3(student *& st) ///done
 {
     student * tmp =st;
     while(tmp)

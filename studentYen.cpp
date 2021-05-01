@@ -177,27 +177,24 @@ void inputDataSemester3 (Datacourse *&cs)
 
 }
 
-void viewStudentsInClass20CTT1(ifstream fin) {
-    fin.open("StudentsClass20CTT1.txt");
-    if(fin.is_open()) {
-        string line;
-        while(getline(fin, line))
-            cout << line <<endl;
-    }
-    else cout << "Fail to open file.";
-    fin.close();
+void studentInClass(student * st)
+{
+
+        cout <<"Enter class that you want to view : "<<endl;
+        string s;
+        cin >> s;
+        student *cur =st;
+        while(cur)
+        {
+            if(cur->cls ==s)
+            {
+                cout << cur->name <<endl;
+            }
+            cur=cur->next;
+        }
+
 }
 
-void viewStudentsInClass20CTT2(ifstream fin) {
-    fin.open("StudentsClass20CTT2.txt");
-    if(fin.is_open()) {
-        string line;
-        while(getline(fin, line))
-            cout << line <<endl;
-    }
-    else cout << "Fail to open file.";
-    fin.close();
-}
 
 bool checkEnrollingStu(student *st, string cid) {                            //check if student enroll in the course cid
     course* c = st->semST->cs;

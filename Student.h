@@ -21,7 +21,7 @@ struct student{
     string name;
     int enrolledCourse =0;
     semester4Student *semST =nullptr;
-    student *next ;
+    student *next =nullptr;
     string cls;
     timeViewTotalMark time;
     float overallGPA=0 ; /// lam 1 ham tinh rieng cai nay
@@ -58,5 +58,8 @@ void deleteCourseStudent2(student *& st);
 void deleteCourseStudent3(student *& st);
 void deleteACourse(schoolYear *&sy,student *&st);
 void convertToUpper(string &c);
+void viewListOfClass (student *&st);
+void studentInClass(student * st);
+void viewStICourse(student *&st);
 
 #endif // _student_h_
