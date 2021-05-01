@@ -22,9 +22,9 @@ void inputDataSemester1(Datacourse *&cs)
         cur->numOfCredits =4;
         cur->maxSt=50;
         cur->daySt[0].dayInWeek ="WED";
-        cur->daySt[0].time="S1";
+        cur->daySt[0].time="S1(07:30)";
         cur->daySt[1].dayInWeek="FRI";
-        cur->daySt[1].time="S1";
+        cur->daySt[1].time="S1(07:30)";
         cur->next= new Datacourse;
         cur=cur->next;
         //-------------------
@@ -35,9 +35,9 @@ void inputDataSemester1(Datacourse *&cs)
         cur->numOfCredits =4;
         cur->maxSt=50;
         cur->daySt[0].dayInWeek ="MON";
-        cur->daySt[0].time="S2";
+        cur->daySt[0].time="S2(09:30)";
         cur->daySt[1].dayInWeek="WED";
-        cur->daySt[1].time="S2";
+        cur->daySt[1].time="S2(09:30)";
         cur->next= new Datacourse;
         cur=cur->next;
         //-------------------
@@ -47,9 +47,9 @@ void inputDataSemester1(Datacourse *&cs)
         cur->numOfCredits =4;
         cur->maxSt=50;
         cur->daySt[0].dayInWeek ="TUE";
-        cur->daySt[0].time="S2";
+        cur->daySt[0].time="S2(09:30)";
         cur->daySt[1].dayInWeek="THIR";
-        cur->daySt[1].time="S2";
+        cur->daySt[1].time="S2(09:30)";
         cur->next= new Datacourse;
         cur=cur->next;
 
@@ -60,9 +60,9 @@ void inputDataSemester1(Datacourse *&cs)
         cur->numOfCredits =4;
         cur->maxSt=50;
         cur->daySt[0].dayInWeek ="SAT";
-        cur->daySt[0].time="C1";
+        cur->daySt[0].time="C1(13:30)";
         cur->daySt[1].dayInWeek="SAT";
-        cur->daySt[1].time="C2";
+        cur->daySt[1].time="C2(15:30)";
 
 
 }
@@ -79,9 +79,9 @@ void inputDataSemester2(Datacourse *&cs)
         cur->numOfCredits = 3;
         cur->maxSt=50;
         cur->daySt[0].dayInWeek ="WED";
-        cur->daySt[0].time="C1";
+        cur->daySt[0].time="C1(13:30)";
         cur->daySt[1].dayInWeek="WED";
-        cur->daySt[1].time="C2";
+        cur->daySt[1].time="C2(15:30)";
         cur->next= new Datacourse;
         cur=cur->next;
         cur->id="MTH252";
@@ -90,9 +90,9 @@ void inputDataSemester2(Datacourse *&cs)
         cur->numOfCredits = 4;
         cur->maxSt=50;
         cur->daySt[0].dayInWeek ="TUE";
-        cur->daySt[0].time="S2";
+        cur->daySt[0].time="S2(09:30)";
         cur->daySt[1].dayInWeek="THIR";
-        cur->daySt[1].time="S2";
+        cur->daySt[1].time="S2(09:30)";
         cur->next= new Datacourse;
         cur=cur->next;
         cur->id="PH212";
@@ -101,9 +101,9 @@ void inputDataSemester2(Datacourse *&cs)
         cur->numOfCredits = 4;
         cur->maxSt=50;
         cur->daySt[0].dayInWeek ="THIR";
-        cur->daySt[0].time="C1";
+        cur->daySt[0].time="C1(13:30)";
         cur->daySt[1].dayInWeek="FRI";
-        cur->daySt[1].time="C1";
+        cur->daySt[1].time="C1(13:30)";
          cur->next= new Datacourse;
         cur=cur->next;
 
@@ -117,9 +117,9 @@ void inputDataSemester2(Datacourse *&cs)
         cur->numOfCredits = 4;
         cur->maxSt=50;
         cur->daySt[0].dayInWeek ="MON";
-        cur->daySt[0].time="S1";
+        cur->daySt[0].time="S1(07:30)";
         cur->daySt[1].dayInWeek="FRI";
-        cur->daySt[1].time="S1";
+        cur->daySt[1].time="S1(07:30)";
 
 }
 void inputDataSemester3 (Datacourse *&cs)
@@ -134,9 +134,9 @@ void inputDataSemester3 (Datacourse *&cs)
         cur->numOfCredits = 2;
         cur->maxSt=50;
         cur->daySt[0].dayInWeek ="WED";
-        cur->daySt[0].time="S1";
+        cur->daySt[0].time="S1(07:30)";
         cur->daySt[1].dayInWeek="WED";
-        cur->daySt[1].time="S2";
+        cur->daySt[1].time="S2(09:30)";
 
          cur->next= new Datacourse;
         cur=cur->next;
@@ -146,9 +146,9 @@ void inputDataSemester3 (Datacourse *&cs)
         cur->numOfCredits =4;
         cur->maxSt=50;
          cur->daySt[0].dayInWeek ="TUE";
-        cur->daySt[0].time="C1";
+        cur->daySt[0].time="C1(13:30)";
         cur->daySt[1].dayInWeek="TUE";
-        cur->daySt[1].time="C2";
+        cur->daySt[1].time="C2(15:30)";
 
          cur->next= new Datacourse;
         cur=cur->next;
@@ -158,9 +158,9 @@ void inputDataSemester3 (Datacourse *&cs)
         cur->numOfCredits = 2;
         cur->maxSt=50;
         cur->daySt[0].dayInWeek ="TUE";
-        cur->daySt[0].time="C1";
+        cur->daySt[0].time="C1(13:30)";
         cur->daySt[1].dayInWeek="TUE";
-        cur->daySt[1].time="C2";
+        cur->daySt[1].time="C2(15:30)";
 
        cur->next= new Datacourse;
         cur=cur->next;
@@ -170,9 +170,9 @@ void inputDataSemester3 (Datacourse *&cs)
         cur->numOfCredits =3;
         cur->maxSt=50;
         cur->daySt[0].dayInWeek ="TUE";
-        cur->daySt[0].time="C1";
+        cur->daySt[0].time="C1(13:30)";
         cur->daySt[1].dayInWeek="TUE";
-        cur->daySt[1].time="C2";
+        cur->daySt[1].time="C2(15:30)";
 
 
 }
