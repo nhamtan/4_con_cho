@@ -135,7 +135,7 @@ void exportCourse(student *Stt , string name)
 
 void exportCourseScore(student *Stt , string name)
 {
-    ofstream fo(name + "_Scoreboard.csv");
+    ofstream fo(name + ".csv");
     //cerr << "..............." << endl;
     fo << ",,,,,,,,,," << name << endl;
     fo << "No,Student ID,Student Full Name,Total Mark,Final Mark,Midterm Mark,Other Mark" << endl;
@@ -158,6 +158,7 @@ void exportCourseScore(student *Stt , string name)
         St = St -> next;
     }
     fo.close();
+    cout << "Done" << endl;
 }
 
 float fromStringToFloat(string s) /// đổi string sang float
@@ -233,5 +234,6 @@ void assignMark(student *st , string name)
             temp = temp -> next;
         }
     }
-
+    cout << "Done" << endl;
+    fi.close();
 }

@@ -1543,7 +1543,8 @@ void functionStaff(student *& st, schoolYear *& sy)
         cout <<"7.View list of classes"<<endl;
         cout <<"8.View list of students in class"<<endl;
         cout <<"9.View students in a course"<<endl;
-        cout <<"10."<<endl;
+        cout <<"10.Create a score board"<<endl;
+        cout << "11.Assign Mark" << endl;
         cout <<"Enter your choice : ";
         int choice;
         cin>>choice;
@@ -1599,12 +1600,20 @@ void functionStaff(student *& st, schoolYear *& sy)
             cout <<"--------------"<<endl;
         }
         else if(choice == 10)
-            exportCourseScore(st , "CS161");
+        {
+            cout << "Enter the name of the course that you want to create a Scoreboard: ";
+            string s;
+            cin >> s;
+            exportCourseScore(st , s);
+            cout <<"--------------"<<endl;
+        }
         else
         {
+            cout << "Enter the name of the course that you want to assign mark: ";
             string s;
             cin >> s;
             assignMark(st , s);
+            cout <<"--------------"<<endl;
         }
     }
 }
