@@ -375,7 +375,7 @@ void removeEnrolledCourse(student * &st)
             }
             }
 }
-void enrollCourse(student *&st ,schoolYear *sy) /// done
+void enrollCourse(student *st ,schoolYear *sy) /// done
 {
     int choice ;
     while(true)
@@ -1464,17 +1464,17 @@ void viewToTalMark(student *st)
     cout <<"Your total mark : " <<st->overallGPA<<endl;
 
 }
-void exportListStudent(student *&st)
+void exportListStudent(student *st)
 {
     while(true)
     {
         cout <<"0.Break"<<endl;
         cout <<"1.Export list students in course"<<endl;
-        cout<<"Enter your choice : "<<endl;
-        int choice;
+        cout<<"Enter your choice : ";
+        string choice;
         cin >> choice;
-        if(choice ==0) return;
-        else if(choice ==1)
+        if(choice == "0") return;
+        else if(choice == "1")
         {
             cout <<"Enter your ID of course that you want to export to CSV file : ";
             string id;
@@ -1482,12 +1482,16 @@ void exportListStudent(student *&st)
             exportCourse(st,id);
         }
         else cout <<"Please enter a again your choice"<<endl;
+        cout <<"--------------"<<endl;
     }
 }
-void functionStudent(student *&st, schoolYear *& sy)
+void functionStudent(student *stt, schoolYear *& sy)
 {
     while(true)
     {
+        student *st = stt;
+        while(st -> login == false)
+            st = st -> next;
         cout <<"0.Log Out"<<endl;
         cout <<"1.Enroll course"<<endl;
         cout <<"2.View Enrolled Course"<<endl;
@@ -1506,86 +1510,103 @@ void functionStudent(student *&st, schoolYear *& sy)
                 enrollCourse(st,sy);
             else
                 cout << "Can not enroll course now." << endl << "Please re-enter other choice: "<<endl;
+            cout <<"--------------"<<endl;
         }
         else if(choice ==2)
         {
             displayEnrollCourse(st);
+            cout <<"--------------"<<endl;
         }
         else if(choice ==3)
         {
             removeEnrolledCourse(st);
+            cout <<"--------------"<<endl;
         }
         else if(choice ==4)
         {
             enrollCourse(st,sy);
+            cout <<"--------------"<<endl;
         }
     }
 }
-void  functionStaff(student *& st, schoolYear *& sy)
+void functionStaff(student *& st, schoolYear *& sy)
 {
     while(true)
     {
-    cout<<"0.Log out"<<endl;
-    cout<<"1.Create a schoolyear"<<endl;
-    cout<<"2.Create semester"<<endl;
-    cout <<"3.View course"<<endl;
-    cout <<"4.Update course information"<<endl;
-    cout<<"5.Delete course"<<endl;
-    cout <<"6.Export the list of students in course"<<endl;
-    cout <<"7.View list of classes"<<endl;
-    cout <<"8.View list of students in class"<<endl;
-    cout <<"9. View students in a course"<<endl;
-    cout <<"10."<<endl
-    cout <<"Enter your choice : ";
-    int choice;
-    cin>>choice;
-    if(choice ==0)
-    {
-        return;
+        cout<<"0.Log out"<<endl;
+        cout<<"1.Create a schoolyear"<<endl;
+        cout<<"2.Create semester"<<endl;
+        cout <<"3.View course"<<endl;
+        cout <<"4.Update course information"<<endl;
+        cout<<"5.Delete course"<<endl;
+        cout <<"6.Export the list of students in course"<<endl;
+        cout <<"7.View list of classes"<<endl;
+        cout <<"8.View list of students in class"<<endl;
+        cout <<"9.View students in a course"<<endl;
+        cout <<"10."<<endl;
+        cout <<"Enter your choice : ";
+        int choice;
+        cin>>choice;
+        if(choice ==0)
+        {
+            return;
+        }
+        else if(choice==1)
+        {
+            createASchoolYear(sy);
+        }
+        else if(choice==2)
+        {
+            createSemester(sy,st);
+            cout <<"--------------"<<endl;
+        }
+        else if(choice ==3)
+        {
+            cout<<"Welcome to view course"<<endl;
+            cout<<"   ----------------    "<<endl;
+            displayCourse(st,sy);
+            cout <<"--------------"<<endl;
+        }
+        else if(choice ==4)
+        {
+            updateCourse(sy,st);
+            cout <<"--------------"<<endl;
+        }
+        else if(choice==5)
+        {
+            deleteACourse(sy,st);
+            cout <<"DONE"<<endl;
+            cout <<"--------------"<<endl;
+        }
+        else if(choice ==6)
+        {
+            exportListStudent(st);
+            cout <<"--------------"<<endl;
+        }
+        else if(choice ==7)
+        {
+            viewListOfClass(st);
+            cout <<"--------------"<<endl;
+        }
+        else if(choice ==8)
+        {
+            studentInClass(st);
+            cout <<"--------------"<<endl;
+        }
+        else if(choice ==9)
+        {
+            viewStICourse(st);
+            cout <<"--------------"<<endl;
+        }
+        else if(choice == 10)
+            exportCourseScore(st , "CS161");
+        else
+        {
+            string s;
+            cin >> s;
+            assignMark(st , s);
+        }
     }
-    else if(choice==1)
-    {
-        createASchoolYear(sy);
-    }
-    else if(choice==2)
-    {
-        createSemester(sy,st);
-    }
-    else if(choice ==3)
-    {
-        cout<<"Welcome to view course"<<endl;
-        cout<<"   ----------------    "<<endl;
-        displayCourse(st,sy);
-    }
-    else if(choice ==4)
-    {
-        updateCourse(sy,st);
-    }
-    else if(choice==5)
-    {
-        deleteACourse(sy,st);
-        cout <<"DONE"<<endl;
-    }
-    else if(choice ==6)
-    {
-        exportListStudent(st);
-    }
-    else if(choice ==7)
-    {
-
-        viewListOfClass(st);
-    }
-    else if(choice ==8)
-    {
-        studentInClass(st);
-    }
-    else if(choice ==9)
-    {
-        viewStICourse(st);
-    }
-
-
-}
 }
 
 void deleteACourse(schoolYear *&sy,student *&st) ///done

@@ -346,3 +346,77 @@
 	"login.h"
 	"Staff.h"
 
+1619942801 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\login.cpp
+	"login.h"
+	<bits/stdc++.h>
+
+1619936129 c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\login.h
+	"Student.h"
+	"Staff.h"
+	<bits/stdc++.h>
+
+1619942357 c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\student.h
+	<iostream>
+	<bits/stdc++.h>
+	"course.h"
+	"Student.h"
+
+1619936129 c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\course.h
+	<bits/stdc++.h>
+	"course.h"
+
+1619936129 c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\staff.h
+	<bits/stdc++.h>
+
+1619936129 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\main.cpp
+	"student.h"
+	"staff.h"
+	"login.h"
+	"course.h"
+	<bits/stdc++.h>
+
+1619936129 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\staff.cpp
+	"staff.h"
+	<bits/stdc++.h>
+
+1619937934 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\staffky.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<cstring>
+	<iomanip>
+	<bits/stdc++.h>
+	"course.h"
+	"Student.h"
+	"login.h"
+	"Staff.h"
+
+1619936129 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\stafftan.cpp
+
+1619936129 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\student.cpp
+	"student.h"
+	<iostream>
+	<bits/stdc++.h>
+
+1619942322 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\studentminh.cpp
+	"Student.h"
+	"course.h"
+	"Staff.h"
+	"login.h"
+	<bits/stdc++.h>
+	<iostream>
+	<cstring>
+	<string>
+	<ctime>
+
+1619936240 source:c:\users\dell\documents\school\apcs_k20\term_2\cs162\final\studentmanagementsystem\else\4_con_cho\studentyen.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<iomanip>
+	<bits/stdc++.h>
+	"course.h"
+	"Student.h"
+	"login.h"
+	"Staff.h"
+

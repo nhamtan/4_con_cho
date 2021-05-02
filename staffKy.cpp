@@ -25,7 +25,7 @@ void viewStICourse(student *&st)
             course * tmp = cur1->cs;
             while(tmp)
             {
-                if(tmp->id ==s&& tmp->enrolled) cout << cur ->name<endl;
+                if(tmp->id ==s&& tmp->enrolled) cout << cur ->name<<endl;
                 tmp =tmp->next;
             }
             cur1=cur1->next;

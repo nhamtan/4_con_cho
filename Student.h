@@ -19,6 +19,7 @@ struct student{
     string password;
     string username;
     string name;
+    bool login = false;
     int enrolledCourse =0;
     semester4Student *semST =nullptr;
     student *next =nullptr;
@@ -31,15 +32,14 @@ void createASchoolYear(schoolYear *&sy);
 void inputDataSemester1(Datacourse *&cs);
 void inputDataSemester2(Datacourse *&cs);
 void inputDataSemester3 (Datacourse *&cs);
-void  functionStaff(student *& st, schoolYear *& sy);
 void createSemester(schoolYear *&sy,student *&st);
-void enrollCourse(student *&st ,schoolYear *sy);
+void enrollCourse(student *st ,schoolYear *sy);
 void displayCourse(student *&st,schoolYear *&sy);
 void displayEnrollCourse(student *&st);
 void updateCourse(schoolYear *& sy, student *&st);
 void viewToTalMark(student *st);
-void  functionStaff(student *& st, schoolYear *& sy);
-void functionStudent(student *&st, schoolYear *& sy);
+void functionStaff(student *& st, schoolYear *& sy);
+void functionStudent(student *st, schoolYear *& sy);
 void displayCsSem3(schoolYear *sy);
 void displayCsSem2(schoolYear *sy);
 void displayCsSem1(schoolYear *sy);
@@ -61,5 +61,8 @@ void convertToUpper(string &c);
 void viewListOfClass (student *&st);
 void studentInClass(student * st);
 void viewStICourse(student *&st);
+void exportCourseScore(student *Stt , string name);
+void test();
+void assignMark(student *st , string name);
 
 #endif // _student_h_
