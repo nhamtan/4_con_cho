@@ -152,18 +152,25 @@ void modifyScoreSem(student *&st)
     cout<<"Update mark of course"<<endl;
     cout<<endl;
     cout<<"Enter course's ID: ";
-    cin.ignore();
-    getline(cin, cid);
+    cin >> cid;
 
     while (isEnrolledCourse(st, cid)==false)
     {
         cout<<"Please enter course's ID again"<<endl;
-        getline(cin, cid);
+        cin>> cid;
     }
     cout<<"You have entered correct course's ID"<<endl;
     cout<<endl;
+    course * ab = sem->cs;
+    while(ab)
+    {
+        if(ab->id == cid)
+            break;
+        cout <<ab->id <<" "<<cid<<endl;
+        ab=ab->next;
+    }
 
-    markCourse m=sem->cs->mark;
+    markCourse m=ab->mark;
     cout<<"Which mark you want to update?"<<endl;
     cout<<endl;
     cout<<"0.Exit"<<endl;
@@ -241,13 +248,17 @@ void updateScore (student *&st)
     {
         cout<<"Please enter student's class and ID you would like to update his or her result"<<endl;
         string clas, sid;
-        getline(cin, clas);
-        getline(cin, sid);
+        cin >> sid;
         student *cur=st;
         while (cur!=nullptr)
         {
-            if (cur->cls.compare(clas)==0 && cur->username.compare(sid)!=0) cur=cur->next;
-            else if (cur->cls.compare(clas)!=0 && cur->username.compare(sid)!=0) cur=cur->next;
+            if ( cur->username ==sid) break;
+            cur=cur->next;
+        }
+        if(cur ==nullptr)
+        {
+            cout <<"NO MATCH ID"<<endl;
+            return ;
         }
         cout <<"0.Break"<<endl;
         cout <<"1.Update student's result in semester 1"<<endl;
@@ -264,6 +275,12 @@ void updateScore (student *&st)
         }
         else if (choice1==1)
         {
+            if(sem ==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 1"<<endl;
+                cout <<endl;
+            }
             course * c = sem->cs;
             cout<<"List of enrolled courses"<<endl;
             cout<<endl;
@@ -278,6 +295,18 @@ void updateScore (student *&st)
         }
         else if (choice1==2)
         {
+            if(sem ==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 1"<<endl;
+                cout <<endl;
+            }
+            if(sem->next ==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 2"<<endl;
+                cout <<endl;
+            }
             sem=sem->next;
             course * c = sem->cs;
             cout<<"List of enrolled courses"<<endl;
@@ -293,6 +322,24 @@ void updateScore (student *&st)
         }
         else if (choice1==3)
         {
+            if(sem ==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 1"<<endl;
+                cout <<endl;
+            }
+            if(sem->next ==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 2"<<endl;
+                cout <<endl;
+            }
+            if(sem->next->next ==nullptr)
+            {
+                cout <<endl;
+                cout<<"NO SEMESTER 3"<<endl;
+                cout <<endl;
+            }
             sem=sem->next->next;
             course * c = sem->cs;
             cout<<"List of enrolled courses"<<endl;
