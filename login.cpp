@@ -135,7 +135,7 @@ void exportCourse(student *Stt , string name)
 
 void exportCourseScore(student *Stt , string name)
 {
-    ofstream fo(name + ".csv");
+    ofstream fo(name + "Scoreboard.csv");
     //cerr << "..............." << endl;
     fo << ",,,,,,,,,," << name << endl;
     fo << "No,Student ID,Student Full Name,Total Mark,Final Mark,Midterm Mark,Other Mark" << endl;
@@ -189,7 +189,7 @@ float fromStringToFloat(string s) /// đổi string sang float
 
 void assignMark(student *st , string name)
 {
-    ifstream fi("CS161_Scoreboard.csv");
+    ifstream fi(name +"Scoreboard.csv");
     string s;
     getline(fi , s);
     getline(fi , s);

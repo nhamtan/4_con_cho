@@ -64,5 +64,7 @@ void viewStICourse(student *&st);
 void exportCourseScore(student *Stt , string name);
 void test();
 void assignMark(student *st , string name);
+void viewScoreClas(student *&st, schoolYear *&sy);
+void updateScore (student *&st);
 
 #endif // _student_h_

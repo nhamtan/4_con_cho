@@ -1527,6 +1527,7 @@ void functionStudent(student *stt, schoolYear *& sy)
             enrollCourse(st,sy);
             cout <<"--------------"<<endl;
         }
+
     }
 }
 void functionStaff(student *& st, schoolYear *& sy)
@@ -1545,6 +1546,7 @@ void functionStaff(student *& st, schoolYear *& sy)
         cout <<"9.View students in a course"<<endl;
         cout <<"10.Create a score board"<<endl;
         cout << "11.Assign Mark" << endl;
+        cout <<"12.View scoreboard of course"<<endl;
         cout <<"Enter your choice : ";
         int choice;
         cin>>choice;
@@ -1607,7 +1609,7 @@ void functionStaff(student *& st, schoolYear *& sy)
             exportCourseScore(st , s);
             cout <<"--------------"<<endl;
         }
-        else
+        else if(choice ==11)
         {
             cout << "Enter the name of the course that you want to assign mark: ";
             string s;
@@ -1615,6 +1617,20 @@ void functionStaff(student *& st, schoolYear *& sy)
             assignMark(st , s);
             cout <<"--------------"<<endl;
         }
+        else if(choice ==12)
+        {
+            cout <<"Enter the ID of course that you want to view scoreBoard : ";
+            string s;
+            cin >> s;
+            viewScoreboardOfCourse(st,s);
+        }
+        else if(choice ==13)
+        {
+           //viewScoreClas(st,sy);
+            updateScore(st);
+
+        }
+
     }
 }
 

@@ -208,34 +208,119 @@ bool checkEnrollingStu(student *st, string cid) {                            //c
 }
 
 void viewScoreboardOfCourse(student *st, string cid) {
-    int n=0;
-    int colWidth=15;
-    cout << "SCOREBOARD" << endl << endl;
-    cout << "Course: " << cid << endl << endl;
-    cout << setfill('-') << setw(7*colWidth) << "-" << endl;
-    cout << setfill(' ') << fixed;
-    cout << setw(colWidth) << "No" << setw(colWidth) << "Student ID" << setw(colWidth) << "Student Full Name"
-         << setw(colWidth) << "Total Mark" << setw(colWidth) << "Final Mark" << setw(colWidth)
-         << setw(colWidth) << "Midterm Mark" << setw(colWidth) << "Other Mark" << endl;
-    cout << setfill('-') << setw(7*colWidth) << "-" << endl;
-    cout << setfill(' ') << fixed;
-    while(st != nullptr) {
-        if(checkEnrollingStu(st, cid)) {
-            course* c = st->semST->cs;
-            while(cid.compare(c->id) != 0) c = c->next;
-            cout << setprecision(0) << setw(colWidth) << ++n << setw(colWidth) << st->username << setw(colWidth) << st->name
-                 << setw(colWidth) << c->mark.totalMark << setw(colWidth) << c->mark.finalMark
-                 << setw(colWidth) << c->mark.midMark << setw(colWidth) << c->mark.otherMark;
+
+    student * cur=st;
+    while(cur)
+    {
+        semester4Student * curSE= cur->semST;
+        while(curSE)
+        {
+            course * tmp = curSE->cs;
+            while(tmp)
+            {
+                if(tmp->id == cid && tmp->enrolled )
+                {
+                    cout <<"--------------------"<<endl;
+                    cout <<cur->name<<endl;
+                    cout <<"Midterm Mark : "<< tmp->mark.midMark<<endl;
+                    cout <<"Final Mark : "<<tmp->mark.finalMark<<endl;
+                    cout <<"Other Mark : "<<tmp->mark.otherMark<<endl;
+                    cout <<"Total Mark : "<<tmp->mark.totalMark<<endl;
+                }
+                tmp=tmp->next;
+            }
+            curSE=curSE->next;
         }
-        st = st->next;
+        cur=cur->next;
     }
 }
 
 
+void viewScoreClas(student *&st, schoolYear *&sy)
+{
+     while(true)
+            {
+
+            semester * cur =sy->sem;
+            cout <<"0.Break"<<endl;
+            cout <<"1.View scoreBoard of semester 1"<<endl;
+             cout <<"1.View scoreBoard of semester 2"<<endl;
+              cout <<"1.View scoreBoard of semester 3"<<endl;
+              string choice1;
+              cout <<"Enter your choice : ";
+              cin >> choice1;
+
+              if(choice1 == "1")
+              {
+                  if(cur==nullptr)
+                  {
+                      cout <<endl;
+                      cout <<"NO SEMESTER 1"<<endl;
+                      cout <<endl;
+                  }
+                  cout <<"Enter the ID of class that you want to view scoreBoard : ";
+                string s;
+                cin >> s;
+                viewScoreboardOfClass(st,sy->sem,1,s);
+
+              }
+              else if(choice1 =="2")
+              {
+                  if(cur==nullptr)
+                  {
+                      cout <<endl;
+                      cout <<"NO SEMESTER 1"<<endl;
+                      cout <<endl;
+                  }
+                  if(cur->next==nullptr)
+                  {
+                      cout <<endl;
+                      cout <<"NO SEMESTER 2"<<endl;
+                      cout <<endl;
+                  }
+                  cout <<"Enter the ID of class that you want to view scoreBoard : ";
+                string s;
+                cin >> s;
+                 viewScoreboardOfClass(st,sy->sem,2,s);
+              }
+              else if(choice1=="3")
+              {
+                  if(cur==nullptr)
+                  {
+                      cout <<endl;
+                      cout <<"NO SEMESTER 1"<<endl;
+                      cout <<endl;
+                  }
+                  if(cur->next==nullptr)
+                  {
+                      cout <<endl;
+                      cout <<"NO SEMESTER 2"<<endl;
+                      cout <<endl;
+                  }
+                  if(cur->next==nullptr)
+                  {
+                      cout <<endl;
+                      cout <<"NO SEMESTER 3"<<endl;
+                      cout <<endl;
+                  }
+                    cout <<"Enter the ID of class that you want to view scoreBoard : ";
+                string s;
+                cin >> s;
+                 viewScoreboardOfClass(st,sy->sem,3,s);
+              }
+              else if(choice1 =="0") break;
+              else{
+                cout <<"Please enter again your choice"<<endl;
+              }
+
+
+        }
+}
 void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls) {
 
+/*
     int no = 0;
-    int colWidth = 15;
+    int colWidth = 30;
     Datacourse* c = sem->cs;
 
     cout << "SCOREBOARD" << endl << endl;
@@ -283,7 +368,8 @@ void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls) {
             cout << setw(colWidth) << s->semGPA << setw(colWidth) << st->overallGPA << endl;
         }
         st = st->next;
-    }
+    }*/
+
 }
 
 bool canEnroll() {
