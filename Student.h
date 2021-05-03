@@ -66,5 +66,6 @@ void test();
 void assignMark(student *st , string name);
 void viewScoreClas(student *&st, schoolYear *&sy);
 void updateScore (student *&st);
-
+void GPAschoolyear(student *&st);
+void averageScoreSemes(student *&st);
 #endif // _student_h_

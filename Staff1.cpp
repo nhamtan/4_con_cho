@@ -318,7 +318,7 @@ void viewScoreClas(student *&st, schoolYear *&sy)
 }
 void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls) {
 
-/*
+
     int no = 0;
     int colWidth = 30;
     Datacourse* c = sem->cs;
@@ -360,15 +360,15 @@ void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls) {
                     check = 1;
                     break;
                 }
-                if(!check) cout << setw(colWidth) << "-";                 // if not enrolled course, print out -
+                if(!check) cout << setw(colWidth) ;                 // if not enrolled course, print out -
                 stcs = stcs->next;
             }
             c = c->next;
             }
-            cout << setw(colWidth) << s->semGPA << setw(colWidth) << st->overallGPA << endl;
+            cout << setw(colWidth) << s->semGPA << setw(colWidth) << st->overallGPA << endl << endl << endl;
         }
         st = st->next;
-    }*/
+    }
 
 }
 

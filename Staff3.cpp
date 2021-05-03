@@ -118,8 +118,10 @@ void averageScoreSemes(student *&st)
                 }
                 c=c->next;
             }
+            cout << num << endl;
             sem->semGPA/=num;
             sem->semGPA=roundf(sem->semGPA * 10)/10;
+            cout << sem -> semGPA << " " << st -> username << endl;
             sem=sem->next;
         }
         stu=stu->next;
@@ -148,6 +150,7 @@ void GPAschoolyear(student *&st)
 void modifyScoreSem(student *&st)
 {
     semester4Student *sem=st->semST;
+    //cout << st -> username << "............." << endl;
     string cid;
     cout<<"Update mark of course"<<endl;
     cout<<endl;
@@ -166,7 +169,7 @@ void modifyScoreSem(student *&st)
     {
         if(ab->id == cid)
             break;
-        cout <<ab->id <<" "<<cid<<endl;
+       // cout <<ab->id <<" "<<cid<<endl;
         ab=ab->next;
     }
 
@@ -188,13 +191,13 @@ void modifyScoreSem(student *&st)
             float mid1;
             cout<<"Enter midterm score: ";
             cin>>mid1;
-            while (mid1==m.midMark)
+            while (mid1==ab -> mark.midMark)
             {
                 cout<<"You have entered the same midterm score. Please enter again."<<endl;
                 cin>>mid1;
             }
-            m.midMark=mid1;
-            cout<<"Updated midterm score: "<<m.midMark<<endl;
+            ab -> mark.midMark = mid1;
+            cout<<"Updated midterm score: " << ab -> mark.midMark << endl;
             separateStars();
             cout<<"DONE"<<endl;
             break;
@@ -204,13 +207,13 @@ void modifyScoreSem(student *&st)
             float final1;
             cout<<"Enter final score: ";
             cin>>final1;
-            while (final1==m.finalMark)
+            while (final1== ab -> mark.finalMark)
             {
                 cout<<"You have entered the same midterm score. Please enter again."<<endl;
                 cin>>final1;
             }
-            m.finalMark=final1;
-            cout<<"Updated final score: "<<m.finalMark<<endl;
+            ab -> mark.finalMark =final1;
+            cout<<"Updated final score: "<< ab -> mark.finalMark <<endl;
             cout<<"DONE"<<endl;
             separateStars();
             break;
@@ -220,13 +223,13 @@ void modifyScoreSem(student *&st)
             float other1;
             cout<<"Enter other score: "<<endl;
             cin>>other1;
-            while (other1==m.otherMark)
+            while (other1== ab -> mark.otherMark)
             {
                 cout<<"You have entered the same other mark. Please enter again."<<endl;
                 cin>>other1;
             }
-            m.otherMark=other1;
-            cout<<"Updated other score: "<<m.otherMark<<endl;
+            ab -> mark.otherMark = other1;
+            cout<<"Updated other score: "<<ab -> mark.otherMark<<endl;
             separateStars();
             cout<<"DONE"<<endl;
             break;
@@ -237,7 +240,9 @@ void modifyScoreSem(student *&st)
              break;
          }
     }
-    cout<<"Student's score this course: "<<m.totalMark<<endl;
+    ab -> mark.totalMark = (1*ab -> mark.otherMark + 3*(ab -> mark.midMark) + 6*(ab -> mark.finalMark))/10;
+    averageScoreSemes(st);
+    cout<<"Student's score this course: "<<ab -> mark.totalMark<<endl;
     cout<<"Student's score this semester: "<<sem->semGPA<<endl;
 }
 

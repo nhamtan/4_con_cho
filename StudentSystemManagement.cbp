@@ -34,16 +34,15 @@
 		</Compiler>
 		<Unit filename="Staff.cpp" />
 		<Unit filename="Staff.h" />
+		<Unit filename="Staff1.cpp" />
+		<Unit filename="Staff2.cpp" />
+		<Unit filename="Staff3.cpp" />
 		<Unit filename="Student.h" />
 		<Unit filename="course.h" />
 		<Unit filename="login.cpp" />
 		<Unit filename="login.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="staffKy.cpp" />
-		<Unit filename="staffTan.cpp" />
 		<Unit filename="student.cpp" />
-		<Unit filename="studentMinh.cpp" />
-		<Unit filename="studentYen.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

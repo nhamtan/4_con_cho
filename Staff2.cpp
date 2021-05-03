@@ -1461,8 +1461,70 @@ void viewToTalMark(student *st)
         }
 
     }
-    cout <<"Your total mark : " <<st->overallGPA<<endl;
-
+    cout << "Choose semester: " << endl;
+    string s;
+    while(true)
+    {
+        cin >> s;
+        averageScoreSemes(st);
+        auto sem = st -> semST;
+        if(s == "1")
+        {
+                if(sem ==nullptr)
+                {
+                    cout <<endl;
+                    cout<<"NO SEMESTER 1"<<endl;
+                    cout <<endl;
+                }
+                cout << "GPA of Semester 1: " << sem -> semGPA << endl;
+                break;
+        }
+        else if(s == "2")
+        {
+                if(sem ==nullptr)
+                {
+                    cout <<endl;
+                    cout<<"NO SEMESTER 1"<<endl;
+                    cout <<endl;
+                }
+                if(sem->next ==nullptr)
+                {
+                    cout <<endl;
+                    cout<<"NO SEMESTER 2"<<endl;
+                    cout <<endl;
+                }
+                cout << "GPA of Semester 2: " << sem -> next -> semGPA << endl;
+                break;
+        }
+        else if(s == "3")
+        {
+                if(sem ==nullptr)
+                {
+                    cout <<endl;
+                    cout<<"NO SEMESTER 1"<<endl;
+                    cout <<endl;
+                }
+                if(sem->next ==nullptr)
+                {
+                    cout <<endl;
+                    cout<<"NO SEMESTER 2"<<endl;
+                    cout <<endl;
+                }
+                if(sem->next->next ==nullptr)
+                {
+                    cout <<endl;
+                    cout<<"NO SEMESTER 3"<<endl;
+                    cout <<endl;
+                }
+                sem = sem -> next -> next;
+                cout << "GPA of Semester 1: " << sem -> semGPA << endl;
+                break;
+        }
+        else
+        {
+            cout << "Enter again" << endl;
+        }
+    }
 }
 void exportListStudent(student *st)
 {
@@ -1496,7 +1558,7 @@ void functionStudent(student *stt, schoolYear *& sy)
         cout <<"1.Enroll course"<<endl;
         cout <<"2.View Enrolled Course"<<endl;
         cout <<"3.Remove Enrolled Course"<<endl;
-        cout <<"4.View Total Mark"<<endl;
+        cout <<"4.View GPA School Year"<<endl;
         cout <<"Enter your choice : ";
         int choice;
         cin >>choice;
@@ -1506,10 +1568,7 @@ void functionStudent(student *stt, schoolYear *& sy)
         }
         else if(choice ==1)
         {
-            if(canEnroll())
-                enrollCourse(st,sy);
-            else
-                cout << "Can not enroll course now." << endl << "Please re-enter other choice: "<<endl;
+            enrollCourse(st,sy);
             cout <<"--------------"<<endl;
         }
         else if(choice ==2)
@@ -1524,7 +1583,7 @@ void functionStudent(student *stt, schoolYear *& sy)
         }
         else if(choice ==4)
         {
-            enrollCourse(st,sy);
+            viewToTalMark(st);
             cout <<"--------------"<<endl;
         }
 
@@ -1547,6 +1606,8 @@ void functionStaff(student *& st, schoolYear *& sy)
         cout <<"10.Create a score board"<<endl;
         cout << "11.Assign Mark" << endl;
         cout <<"12.View scoreboard of course"<<endl;
+        cout << "13.Update Score" << endl;
+        cout << "14.View scoreboard of class" << endl;
         cout <<"Enter your choice : ";
         int choice;
         cin>>choice;
@@ -1630,7 +1691,14 @@ void functionStaff(student *& st, schoolYear *& sy)
             updateScore(st);
 
         }
-
+        else if(choice == 14)
+        {
+            cout << "Input Semester & Class: ";
+            int x;
+            string s;
+            cin >> x >> s;
+            viewScoreboardOfClass(st , sy ->sem , x , s);
+        }
     }
 }
 

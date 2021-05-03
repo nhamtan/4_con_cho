@@ -12,8 +12,5 @@ int main()
 {
     schoolYear * sy = nullptr;
     login(St ,Sf,sy);
-    createASchoolYear(sy);
-    createSemester(sy, St);
-    updateCourse(sy, St);
 
 }
