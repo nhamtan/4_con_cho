@@ -8,7 +8,7 @@ struct markCourse
     float midMark;
     float finalMark;
     float otherMark;
-    float totalMark = (1*otherMark + 3*(midMark) + 6*(finalMark))/10;
+    float totalMark = (1*otherMark + 3*(midMark) + 6*(finalMark))/10;;
 };
 struct date
 {
