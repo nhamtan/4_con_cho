@@ -6,7 +6,7 @@ using namespace std;
 
 void initStaff(staff *&Sf) /// cái hàm này sẽ tạo ra một list Sf chứa toàn bộ tải khoản và mật khẩu của staff.
 {
-    string path = "Staffs.csv";
+    string path = "Staffs.csv";;
     ifstream cin(path.c_str());
     string temp;
     getline(cin , temp);
