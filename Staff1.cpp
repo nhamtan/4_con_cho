@@ -236,7 +236,7 @@ void viewScoreboardOfCourse(student *st, string cid) {
 }
 
 
-void viewScoreClas(student *&st, schoolYear *&sy)
+void viewScoreClas(student *&st, schoolYear *&sy)         //View scoreboard of class interface
 {
      while(true)
             {
@@ -372,7 +372,7 @@ void viewScoreboardOfClass (student *st,semester *sem, int semNo, string cls) {
 
 }
 
-bool canEnroll() {
+bool canEnroll() {                             // check if the current time is the registration duration or not
     date startEnroll, closeEnroll;
     ifstream fin;
     loadEnrollmentDate(fin, startEnroll, closeEnroll);
